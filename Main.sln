@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{3F56118F-FB80-4BF9-B34C-B95BDDF79B24}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Triangle", "Apps\Triangle\Triangle.vcxproj", "{5030B9F7-2BA2-4817-8DD7-7A0DC3175D48}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8F05F353-9DE7-4ABB-A3EC-4BD779CC82D9} = {8F05F353-9DE7-4ABB-A3EC-4BD779CC82D9}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcxproj", "{8F05F353-9DE7-4ABB-A3EC-4BD779CC82D9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug12|x64 = Debug12|x64
+		DebugVk|x64 = DebugVk|x64
+		Profile12|x64 = Profile12|x64
+		ProfileVk|x64 = ProfileVk|x64
+		Release12|x64 = Release12|x64
+		ReleaseVk|x64 = ReleaseVk|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5030B9F7-2BA2-4817-8DD7-7A0DC3175D48}.Debug12|x64.ActiveCfg = Debug12|x64
+		{5030B9F7-2BA2-4817-8DD7-7A0DC3175D48}.Debug12|x64.Build.0 = Debug12|x64
+		{5030B9F7-2BA2-4817-8DD7-7A0DC3175D48}.DebugVk|x64.ActiveCfg = DebugVk|x64
+		{5030B9F7-2BA2-4817-8DD7-7A0DC3175D48}.DebugVk|x64.Build.0 = DebugVk|x64
+		{5030B9F7-2BA2-4817-8DD7-7A0DC3175D48}.Profile12|x64.ActiveCfg = Profile12|x64
+		{5030B9F7-2BA2-4817-8DD7-7A0DC3175D48}.Profile12|x64.Build.0 = Profile12|x64
+		{5030B9F7-2BA2-4817-8DD7-7A0DC3175D48}.ProfileVk|x64.ActiveCfg = ProfileVk|x64
+		{5030B9F7-2BA2-4817-8DD7-7A0DC3175D48}.ProfileVk|x64.Build.0 = ProfileVk|x64
+		{5030B9F7-2BA2-4817-8DD7-7A0DC3175D48}.Release12|x64.ActiveCfg = Release12|x64
+		{5030B9F7-2BA2-4817-8DD7-7A0DC3175D48}.Release12|x64.Build.0 = Release12|x64
+		{5030B9F7-2BA2-4817-8DD7-7A0DC3175D48}.ReleaseVk|x64.ActiveCfg = ReleaseVk|x64
+		{5030B9F7-2BA2-4817-8DD7-7A0DC3175D48}.ReleaseVk|x64.Build.0 = ReleaseVk|x64
+		{8F05F353-9DE7-4ABB-A3EC-4BD779CC82D9}.Debug12|x64.ActiveCfg = Debug12|x64
+		{8F05F353-9DE7-4ABB-A3EC-4BD779CC82D9}.Debug12|x64.Build.0 = Debug12|x64
+		{8F05F353-9DE7-4ABB-A3EC-4BD779CC82D9}.DebugVk|x64.ActiveCfg = DebugVk|x64
+		{8F05F353-9DE7-4ABB-A3EC-4BD779CC82D9}.DebugVk|x64.Build.0 = DebugVk|x64
+		{8F05F353-9DE7-4ABB-A3EC-4BD779CC82D9}.Profile12|x64.ActiveCfg = Profile12|x64
+		{8F05F353-9DE7-4ABB-A3EC-4BD779CC82D9}.Profile12|x64.Build.0 = Profile12|x64
+		{8F05F353-9DE7-4ABB-A3EC-4BD779CC82D9}.ProfileVk|x64.ActiveCfg = ProfileVk|x64
+		{8F05F353-9DE7-4ABB-A3EC-4BD779CC82D9}.ProfileVk|x64.Build.0 = ProfileVk|x64
+		{8F05F353-9DE7-4ABB-A3EC-4BD779CC82D9}.Release12|x64.ActiveCfg = Release12|x64
+		{8F05F353-9DE7-4ABB-A3EC-4BD779CC82D9}.Release12|x64.Build.0 = Release12|x64
+		{8F05F353-9DE7-4ABB-A3EC-4BD779CC82D9}.ReleaseVk|x64.ActiveCfg = ReleaseVk|x64
+		{8F05F353-9DE7-4ABB-A3EC-4BD779CC82D9}.ReleaseVk|x64.Build.0 = ReleaseVk|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5030B9F7-2BA2-4817-8DD7-7A0DC3175D48} = {3F56118F-FB80-4BF9-B34C-B95BDDF79B24}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5639D761-0BAC-406B-BF52-2DD12BAE9454}
+	EndGlobalSection
+EndGlobal

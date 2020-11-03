@@ -10,7 +10,7 @@
 
 #pragma once
 
-//#include "GraphicsDevice.h"
+#include "Graphics\GraphicsDevice.h"
 #include "Input.h"
 
 
@@ -47,7 +47,7 @@ protected:
 	float m_frameTimer{ 0.0f };
 
 	// Application devices
-	//std::unique_ptr<GraphicsDevice> m_graphicsDevice;
+	std::unique_ptr<GraphicsDevice> m_graphicsDevice;
 	std::unique_ptr<InputDevice> m_inputDevice;
 
 private:

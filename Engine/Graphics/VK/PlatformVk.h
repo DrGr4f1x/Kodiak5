@@ -10,7 +10,26 @@
 
 #pragma once
 
+#define FORCE_VULKAN_VALIDATION 0
+#define ENABLE_VULKAN_VALIDATION (_DEBUG || FORCE_VULKAN_VALIDATION)
+
+#define FORCE_VULKAN_DEBUG_MARKUP 0
+#define ENABLE_VULKAN_DEBUG_MARKUP (_DEBUG || _PROFILE || FORCE_VULKAN_DEBUG_MARKUP)
+
+#define VK_USE_PLATFORM_WIN32_KHR
+#include <vulkan\vulkan.hpp>
+
+#pragma comment(lib, "vulkan-1.lib")
+
 // Constant strings
 const std::string s_apiName = "Vulkan";
 const std::string s_apiPrefixString = "[Vulkan]";
 const std::string s_defaultShaderPath = "Shaders\\SPIR-V";
+
+inline void ThrowIfFailed(vk::Result res)
+{
+	if (res != vk::Result::eSuccess)
+	{
+		throw;
+	}
+}

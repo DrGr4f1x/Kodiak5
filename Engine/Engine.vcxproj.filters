@@ -53,6 +53,24 @@
     <ClInclude Include="Graphics\VK\PlatformVk.h">
       <Filter>Graphics\VK</Filter>
     </ClInclude>
+    <ClInclude Include="Graphics\GraphicsDevice.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\VK\GraphicsDeviceVk.h">
+      <Filter>Graphics\VK</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\GraphicsEnums.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\VK\GraphicsEnumsVk.h">
+      <Filter>Graphics\VK</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\DX12\GraphicsEnums12.h">
+      <Filter>Graphics\DX12</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\DX12\GraphicsDevice12.h">
+      <Filter>Graphics\DX12</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Stdafx.cpp" />
@@ -71,6 +89,15 @@
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Graphics\VK\GraphicsDeviceVk.cpp">
+      <Filter>Graphics\VK</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\DX12\GraphicsDevice12.cpp">
+      <Filter>Graphics\DX12</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\VK\GraphicsEnumsVk.cpp">
+      <Filter>Graphics\VK</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Math">

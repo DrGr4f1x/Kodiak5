@@ -191,7 +191,7 @@ enum class InputClassification : uint32_t
 };
 
 
-enum class ShaderVisibility
+enum class ShaderVisibility : uint32_t
 {
 	All =			uint32_t(vk::ShaderStageFlagBits::eAll),
 	Graphics =		uint32_t(vk::ShaderStageFlagBits::eAllGraphics),
@@ -204,5 +204,165 @@ enum class ShaderVisibility
 	Amplification =	uint32_t(vk::ShaderStageFlagBits::eTaskNV),
 	Mesh =			uint32_t(vk::ShaderStageFlagBits::eMeshNV)
 };
+
+
+enum class DescriptorType : uint32_t
+{
+	CBV,
+	DynamicCBV,
+	Sampler,
+	TextureSRV,
+	TypedBufferSRV,
+	StructuredBufferSRV,
+	TextureUAV,
+	TypedBufferUAV,
+	StructuredBufferUAV
+};
+
+vk::DescriptorType DescriptorTypeToVulkan(DescriptorType type);
+
+
+enum class RootSignatureFlags : uint32_t
+{
+	None,
+	AllowInputAssemblerInputLayout,
+	DenyVertexShaderRootAccess,
+	DenyHullShaderRootAccess,
+	DenyDomainShaderRootAccess,
+	DenyGeometryShaderRootAccess,
+	DenyPixelShaderRootAccess,
+	AllowStreamOutput
+};
+
+template <> struct EnableBitmaskOperators<RootSignatureFlags> { static const bool enable = true; };
+
+
+enum class TextureFilter : uint32_t
+{
+	MinMagMipPoint,
+	MinMagPointMipLinear,
+	MinPointMagLinearMipPoint,
+	MinPointMagMipLinear,
+	MinLinearMagMipPoint,
+	MinLinearMagPointMipLinear,
+	MinMagLinearMipPoint,
+	MinMagMipLinear,
+	Anisotropic,
+
+	ComparisonMinMagMipPoint,
+	ComparisonMinMagPointMipLinear,
+	ComparisonMinPointMagLinearMipPoint,
+	ComparisonMinPointMagMipLinear,
+	ComparisonMinLinearMagMipPoint,
+	ComparisonMinLinearMagPointMipLinear,
+	ComparisonMinMagLinearMipPoint,
+	ComparisonMinMagMipLinear,
+	ComparisonAnisotropic,
+
+	MinimumMinMagMipPoint,
+	MinimumMinMagPointMipLinear,
+	MinimumMinPointMagLinearMipPoint,
+	MinimumMinPointMagMipLinear,
+	MinimumMinLinearMagMipPoint,
+	MinimumMinLinearMagPointMipLinear,
+	MinimumMinMagLinearMipPoint,
+	MinimumMinMagMipLinear,
+	MinimumAnisotropic,
+
+	MaximumMinMagMipPoint,
+	MaximumMinMagPointMipLinear,
+	MaximumMinPointMagLinearMipPoint,
+	MaximumMinPointMagMipLinear,
+	MaximumMinLinearMagMipPoint,
+	MaximumMinLinearMagPointMipLinear,
+	MaximumMinMagLinearMipPoint,
+	MaximumMinMagMipLinear,
+	MaximumAnisotropic
+};
+
+
+enum class TextureAddress : uint32_t
+{
+	Wrap,
+	Mirror,
+	Clamp,
+	Border,
+	MirrorOnce
+};
+
+
+enum class Format : uint32_t
+{
+	Unknown =				uint32_t(vk::Format::eUndefined),
+	B4G4R4A4_UNorm =		uint32_t(vk::Format::eB4G4R4A4UnormPack16),
+	B5G6R5_UNorm =			uint32_t(vk::Format::eB5G6R5UnormPack16),
+	B5G5R5A1_UNorm =		uint32_t(vk::Format::eB5G5R5A1UnormPack16),
+	B8G8R8A8_UNorm =		uint32_t(vk::Format::eB8G8R8A8Unorm),
+	R8_UNorm =				uint32_t(vk::Format::eR8Unorm),
+	R8_SNorm =				uint32_t(vk::Format::eR8Snorm),
+	R8_UInt =				uint32_t(vk::Format::eR8Uint),
+	R8_SInt =				uint32_t(vk::Format::eR8Sint),
+	R8G8_UNorm =			uint32_t(vk::Format::eR8G8Unorm),
+	R8G8_SNorm =			uint32_t(vk::Format::eR8G8Snorm),
+	R8G8_UInt =				uint32_t(vk::Format::eR8G8Uint),
+	R8G8_SInt =				uint32_t(vk::Format::eR8G8Sint),
+	R8G8B8A8_UNorm =		uint32_t(vk::Format::eR8G8B8A8Unorm),
+	R8G8B8A8_UNorm_SRGB =	uint32_t(vk::Format::eR8G8B8A8Srgb),
+	R8G8B8A8_SNorm =		uint32_t(vk::Format::eR8G8B8A8Snorm),
+	R8G8B8A8_UInt =			uint32_t(vk::Format::eR8G8B8A8Uint),
+	R8G8B8A8_SInt =			uint32_t(vk::Format::eR8G8B8A8Sint),
+	R9G9B9E5_Float =		uint32_t(vk::Format::eE5B9G9R9UfloatPack32),
+	R16_UNorm =				uint32_t(vk::Format::eR16Unorm),
+	R16_SNorm =				uint32_t(vk::Format::eR16Snorm),
+	R16_UInt =				uint32_t(vk::Format::eR16Uint),
+	R16_SInt =				uint32_t(vk::Format::eR16Sint),
+	R16_Float =				uint32_t(vk::Format::eR16Sfloat),
+	R16G16_UNorm =			uint32_t(vk::Format::eR16G16Unorm),
+	R16G16_SNorm =			uint32_t(vk::Format::eR16G16Snorm),
+	R16G16_UInt =			uint32_t(vk::Format::eR16G16Uint),
+	R16G16_SInt =			uint32_t(vk::Format::eR16G16Sint),
+	R16G16_Float =			uint32_t(vk::Format::eR16G16Sfloat),
+	R16G16B16A16_UNorm =	uint32_t(vk::Format::eR16G16B16A16Unorm),
+	R16G16B16A16_SNorm =	uint32_t(vk::Format::eR16G16B16A16Snorm),
+	R16G16B16A16_UInt =		uint32_t(vk::Format::eR16G16B16A16Uint),
+	R16G16B16A16_SInt =		uint32_t(vk::Format::eR16G16B16A16Sint),
+	R16G16B16A16_Float =	uint32_t(vk::Format::eR16G16B16A16Sfloat),
+	R32_UInt =				uint32_t(vk::Format::eR32Uint),
+	R32_SInt =				uint32_t(vk::Format::eR32Sint),
+	R32_Float =				uint32_t(vk::Format::eR32Sfloat),
+	R32G32_UInt =			uint32_t(vk::Format::eR32G32Uint),
+	R32G32_SInt =			uint32_t(vk::Format::eR32G32Sint),
+	R32G32_Float =			uint32_t(vk::Format::eR32G32Sfloat),
+	R32G32B32_UInt =		uint32_t(vk::Format::eR32G32B32Uint),
+	R32G32B32_SInt =		uint32_t(vk::Format::eR32G32B32Sint),
+	R32G32B32_Float =		uint32_t(vk::Format::eR32G32B32Sfloat),
+	R32G32B32A32_UInt =		uint32_t(vk::Format::eR32G32B32A32Uint),
+	R32G32B32A32_SInt =		uint32_t(vk::Format::eR32G32B32A32Sint),
+	R32G32B32A32_Float =	uint32_t(vk::Format::eR32G32B32A32Sfloat),
+	R11G11B10_Float =		uint32_t(vk::Format::eB10G11R11UfloatPack32),
+	R10G10B10A2_UNorm =		uint32_t(vk::Format::eA2B10G10R10UnormPack32),
+
+	D16_UNorm =				uint32_t(vk::Format::eD16Unorm),
+	D24S8 =					uint32_t(vk::Format::eD24UnormS8Uint),
+	D32_Float =				uint32_t(vk::Format::eD32Sfloat),
+	D32_Float_S8_UInt =		uint32_t(vk::Format::eD32SfloatS8Uint),
+
+	BC1_UNorm =				uint32_t(vk::Format::eBc1RgbaUnormBlock),
+	BC1_UNorm_SRGB =		uint32_t(vk::Format::eBc1RgbaSrgbBlock),
+	BC2_UNorm =				uint32_t(vk::Format::eBc2UnormBlock),
+	BC2_UNorm_SRGB =		uint32_t(vk::Format::eBc2SrgbBlock),
+	BC3_UNorm =				uint32_t(vk::Format::eBc3UnormBlock),
+	BC3_UNorm_SRGB =		uint32_t(vk::Format::eBc3SrgbBlock),
+	BC4_UNorm =				uint32_t(vk::Format::eBc4UnormBlock),
+	BC4_SNorm =				uint32_t(vk::Format::eBc4SnormBlock),
+	BC5_UNorm =				uint32_t(vk::Format::eBc5UnormBlock),
+	BC5_SNorm =				uint32_t(vk::Format::eBc5SnormBlock),
+	BC6H_Float =			uint32_t(vk::Format::eBc6HSfloatBlock),
+	BC6H_UFloat =			uint32_t(vk::Format::eBc6HUfloatBlock),
+	BC7_UNorm =				uint32_t(vk::Format::eBc7UnormBlock),
+	BC7_UNorm_SRGB =		uint32_t(vk::Format::eBc7SrgbBlock)
+};
+
+Format VulkanFormatToEngine(vk::Format format);
 
 } // namespace Kodiak

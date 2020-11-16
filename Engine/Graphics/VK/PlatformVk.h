@@ -17,7 +17,7 @@
 #define ENABLE_VULKAN_DEBUG_MARKUP (_DEBUG || _PROFILE || FORCE_VULKAN_DEBUG_MARKUP)
 
 #define VK_USE_PLATFORM_WIN32_KHR
-#include <vulkan\vulkan.hpp>
+#include <vulkan\vulkan.h>
 
 #pragma comment(lib, "vulkan-1.lib")
 
@@ -26,10 +26,14 @@ const std::string s_apiName = "Vulkan";
 const std::string s_apiPrefixString = "[Vulkan]";
 const std::string s_defaultShaderPath = "Shaders\\SPIR-V";
 
-inline void ThrowIfFailed(vk::Result res)
+inline void ThrowIfFailed(VkResult res)
 {
-	if (res != vk::Result::eSuccess)
+	if (res != VK_SUCCESS)
 	{
 		throw;
 	}
 }
+
+// Engine headers
+#include "RefCountingVk.h"
+#include "StructureChainVk.h"

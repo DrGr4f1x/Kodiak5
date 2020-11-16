@@ -15,63 +15,63 @@ namespace Kodiak
 
 enum class Blend : uint32_t
 {
-	Zero =				uint32_t(vk::BlendFactor::eZero),
-	One =				uint32_t(vk::BlendFactor::eOne),
-	SrcColor =			uint32_t(vk::BlendFactor::eSrcColor),
-	InvSrcColor =		uint32_t(vk::BlendFactor::eOneMinusSrcColor),
-	SrcAlpha =			uint32_t(vk::BlendFactor::eSrcAlpha),
-	InvSrcAlpha =		uint32_t(vk::BlendFactor::eOneMinusSrcAlpha),
-	DstAlpha =			uint32_t(vk::BlendFactor::eDstAlpha),
-	InvDstAlpha =		uint32_t(vk::BlendFactor::eOneMinusDstAlpha),
-	DstColor =			uint32_t(vk::BlendFactor::eDstColor),
-	InvDstColor =		uint32_t(vk::BlendFactor::eOneMinusDstColor),
-	SrcAlphaSat =		uint32_t(vk::BlendFactor::eSrcAlphaSaturate),
-	BlendFactor =		uint32_t(vk::BlendFactor::eConstantColor),
-	InvBlendFactor =	uint32_t(vk::BlendFactor::eOneMinusConstantColor),
-	Src1Color =			uint32_t(vk::BlendFactor::eSrc1Color),
-	InvSrc1Color =		uint32_t(vk::BlendFactor::eOneMinusSrc1Color),
-	Src1Alpha =			uint32_t(vk::BlendFactor::eSrc1Alpha),
-	InvSrc1Alpha =		uint32_t(vk::BlendFactor::eOneMinusSrc1Alpha)
+	Zero =				VK_BLEND_FACTOR_ZERO,
+	One =				VK_BLEND_FACTOR_ONE,
+	SrcColor =			VK_BLEND_FACTOR_SRC_COLOR,
+	InvSrcColor =		VK_BLEND_FACTOR_ONE_MINUS_SRC_COLOR,
+	SrcAlpha =			VK_BLEND_FACTOR_SRC_ALPHA,
+	InvSrcAlpha =		VK_BLEND_FACTOR_ONE_MINUS_SRC_ALPHA,
+	DstAlpha =			VK_BLEND_FACTOR_DST_ALPHA,
+	InvDstAlpha =		VK_BLEND_FACTOR_ONE_MINUS_DST_ALPHA,
+	DstColor =			VK_BLEND_FACTOR_DST_COLOR,
+	InvDstColor =		VK_BLEND_FACTOR_ONE_MINUS_DST_COLOR,
+	SrcAlphaSat =		VK_BLEND_FACTOR_SRC_ALPHA_SATURATE,
+	BlendFactor =		VK_BLEND_FACTOR_CONSTANT_COLOR,
+	InvBlendFactor =	VK_BLEND_FACTOR_ONE_MINUS_CONSTANT_COLOR,
+	Src1Color =			VK_BLEND_FACTOR_SRC1_COLOR,
+	InvSrc1Color =		VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR,
+	Src1Alpha =			VK_BLEND_FACTOR_SRC1_ALPHA,
+	InvSrc1Alpha =		VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA
 };
 
 
 enum class BlendOp : uint32_t
 {
-	Add =			uint32_t(vk::BlendOp::eAdd),
-	Subtract =		uint32_t(vk::BlendOp::eSubtract),
-	RevSubtract =	uint32_t(vk::BlendOp::eReverseSubtract),
-	Min =			uint32_t(vk::BlendOp::eMin),
-	Max =			uint32_t(vk::BlendOp::eMax)
+	Add =			VK_BLEND_OP_ADD,
+	Subtract =		VK_BLEND_OP_SUBTRACT,
+	RevSubtract =	VK_BLEND_OP_REVERSE_SUBTRACT,
+	Min =			VK_BLEND_OP_MIN,
+	Max =			VK_BLEND_OP_MAX
 };
 
 
 enum class LogicOp : uint32_t
 {
-	Clear =				uint32_t(vk::LogicOp::eClear),
-	Set =				uint32_t(vk::LogicOp::eSet),
-	Copy =				uint32_t(vk::LogicOp::eCopy),
-	CopyInverted =		uint32_t(vk::LogicOp::eCopyInverted),
-	Noop =				uint32_t(vk::LogicOp::eNoOp),
-	Invert =			uint32_t(vk::LogicOp::eInvert),
-	And =				uint32_t(vk::LogicOp::eAnd),
-	Nand =				uint32_t(vk::LogicOp::eNand),
-	Or =				uint32_t(vk::LogicOp::eOr),
-	Nor =				uint32_t(vk::LogicOp::eNor),
-	Xor =				uint32_t(vk::LogicOp::eXor),
-	Equiv =				uint32_t(vk::LogicOp::eEquivalent),
-	AndReverse =		uint32_t(vk::LogicOp::eAndReverse),
-	OrReverse =			uint32_t(vk::LogicOp::eOrReverse),
-	OrInverted =		uint32_t(vk::LogicOp::eOrInverted)
+	Clear =			VK_LOGIC_OP_CLEAR,
+	Set =			VK_LOGIC_OP_SET,
+	Copy =			VK_LOGIC_OP_COPY,
+	CopyInverted =	VK_LOGIC_OP_COPY_INVERTED,
+	Noop =			VK_LOGIC_OP_NO_OP,
+	Invert =		VK_LOGIC_OP_INVERT,
+	And =			VK_LOGIC_OP_AND,
+	Nand =			VK_LOGIC_OP_NAND,
+	Or =			VK_LOGIC_OP_OR,
+	Nor =			VK_LOGIC_OP_NOR,
+	Xor =			VK_LOGIC_OP_XOR,
+	Equiv =			VK_LOGIC_OP_EQUIVALENT,
+	AndReverse =	VK_LOGIC_OP_AND_REVERSE,
+	OrReverse =		VK_LOGIC_OP_OR_REVERSE,
+	OrInverted =	VK_LOGIC_OP_OR_INVERTED
 };
 
 
 enum class ColorWrite : uint32_t
 {
 	None =		0,
-	Red =		uint32_t(vk::ColorComponentFlagBits::eR),
-	Green =		uint32_t(vk::ColorComponentFlagBits::eG),
-	Blue =		uint32_t(vk::ColorComponentFlagBits::eB),
-	Alpha =		uint32_t(vk::ColorComponentFlagBits::eA),
+	Red =		VK_COLOR_COMPONENT_R_BIT,
+	Green =		VK_COLOR_COMPONENT_G_BIT,
+	Blue =		VK_COLOR_COMPONENT_B_BIT,
+	Alpha =		VK_COLOR_COMPONENT_A_BIT,
 	All =		Red | Green | Blue | Alpha
 };
 
@@ -87,42 +87,42 @@ enum class DepthWrite : uint32_t
 
 enum class CullMode : uint32_t
 {
-	None =		uint32_t(vk::CullModeFlagBits::eNone),
-	Front =		uint32_t(vk::CullModeFlagBits::eFront),
-	Back =		uint32_t(vk::CullModeFlagBits::eBack)
+	None =		VK_CULL_MODE_NONE,
+	Front =		VK_CULL_MODE_FRONT_BIT,
+	Back =		VK_CULL_MODE_BACK_BIT
 };
 
 
 enum class FillMode : uint32_t
 {
-	Wireframe =		uint32_t(vk::PolygonMode::eLine),
-	Solid =			uint32_t(vk::PolygonMode::eFill)
+	Wireframe =		VK_POLYGON_MODE_LINE,
+	Solid =			VK_POLYGON_MODE_FILL
 };
 
 
 enum class ComparisonFunc : uint32_t
 {
-	Never =				uint32_t(vk::CompareOp::eNever),
-	Less =				uint32_t(vk::CompareOp::eLess),
-	Equal =				uint32_t(vk::CompareOp::eEqual),
-	LessEqual =			uint32_t(vk::CompareOp::eLessOrEqual),
-	Greater =			uint32_t(vk::CompareOp::eGreater),
-	NotEqual =			uint32_t(vk::CompareOp::eNotEqual),
-	GreaterEqual =		uint32_t(vk::CompareOp::eGreaterOrEqual),
-	Always =			uint32_t(vk::CompareOp::eAlways)
+	Never =			VK_COMPARE_OP_NEVER,
+	Less =			VK_COMPARE_OP_LESS,
+	Equal =			VK_COMPARE_OP_EQUAL,
+	LessEqual =		VK_COMPARE_OP_LESS_OR_EQUAL,
+	Greater =		VK_COMPARE_OP_GREATER,
+	NotEqual =		VK_COMPARE_OP_NOT_EQUAL,
+	GreaterEqual =	VK_COMPARE_OP_GREATER_OR_EQUAL,
+	Always =		VK_COMPARE_OP_ALWAYS
 };
 
 
 enum class StencilOp : uint32_t
 {
-	Keep =			uint32_t(vk::StencilOp::eKeep),
-	Zero =			uint32_t(vk::StencilOp::eZero),
-	Replace =		uint32_t(vk::StencilOp::eReplace),
-	IncrSat =		uint32_t(vk::StencilOp::eIncrementAndClamp),
-	DecrSat =		uint32_t(vk::StencilOp::eDecrementAndClamp),
-	Invert =		uint32_t(vk::StencilOp::eInvert),
-	Incr =			uint32_t(vk::StencilOp::eIncrementAndWrap),
-	Decr =			uint32_t(vk::StencilOp::eDecrementAndWrap)
+	Keep =		VK_STENCIL_OP_KEEP,
+	Zero =		VK_STENCIL_OP_ZERO,
+	Replace =	VK_STENCIL_OP_REPLACE,
+	IncrSat =	VK_STENCIL_OP_INCREMENT_AND_CLAMP,
+	DecrSat =	VK_STENCIL_OP_DECREMENT_AND_CLAMP,
+	Invert =	VK_STENCIL_OP_INVERT,
+	Incr =		VK_STENCIL_OP_INCREMENT_AND_WRAP,
+	Decr =		VK_STENCIL_OP_DECREMENT_AND_WRAP
 };
 
 
@@ -180,29 +180,27 @@ enum class PrimitiveTopology : uint32_t
 };
 
 
-vk::PrimitiveTopology PrimitiveTopologyToVulkan(PrimitiveTopology topology);
+VkPrimitiveTopology PrimitiveTopologyToVulkan(PrimitiveTopology topology);
 uint32_t GetControlPointCount(PrimitiveTopology topology);
 
 
 enum class InputClassification : uint32_t
 {
-	PerVertexData =		uint32_t(vk::VertexInputRate::eVertex),
-	PerInstanceData =	uint32_t(vk::VertexInputRate::eInstance)
+	PerVertexData =		VK_VERTEX_INPUT_RATE_VERTEX,
+	PerInstanceData =	VK_VERTEX_INPUT_RATE_INSTANCE
 };
 
 
 enum class ShaderVisibility : uint32_t
 {
-	All =			uint32_t(vk::ShaderStageFlagBits::eAll),
-	Graphics =		uint32_t(vk::ShaderStageFlagBits::eAllGraphics),
-	Compute =		uint32_t(vk::ShaderStageFlagBits::eCompute),
-	Domain =		uint32_t(vk::ShaderStageFlagBits::eTessellationEvaluation),
-	Geometry =		uint32_t(vk::ShaderStageFlagBits::eGeometry),
-	Hull =			uint32_t(vk::ShaderStageFlagBits::eTessellationControl),
-	Pixel =			uint32_t(vk::ShaderStageFlagBits::eFragment),
-	Vertex =		uint32_t(vk::ShaderStageFlagBits::eVertex),
-	Amplification =	uint32_t(vk::ShaderStageFlagBits::eTaskNV),
-	Mesh =			uint32_t(vk::ShaderStageFlagBits::eMeshNV)
+	All =			VK_SHADER_STAGE_ALL,
+	Graphics =		VK_SHADER_STAGE_ALL_GRAPHICS,
+	Compute =		VK_SHADER_STAGE_COMPUTE_BIT,
+	Domain =		VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT,
+	Geometry =		VK_SHADER_STAGE_GEOMETRY_BIT,
+	Hull =			VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT,
+	Pixel =			VK_SHADER_STAGE_FRAGMENT_BIT,
+	Vertex =		VK_SHADER_STAGE_VERTEX_BIT
 };
 
 
@@ -219,7 +217,7 @@ enum class DescriptorType : uint32_t
 	StructuredBufferUAV
 };
 
-vk::DescriptorType DescriptorTypeToVulkan(DescriptorType type);
+VkDescriptorType DescriptorTypeToVulkan(DescriptorType type);
 
 
 enum class RootSignatureFlags : uint32_t
@@ -293,76 +291,76 @@ enum class TextureAddress : uint32_t
 
 enum class Format : uint32_t
 {
-	Unknown =				uint32_t(vk::Format::eUndefined),
-	B4G4R4A4_UNorm =		uint32_t(vk::Format::eB4G4R4A4UnormPack16),
-	B5G6R5_UNorm =			uint32_t(vk::Format::eB5G6R5UnormPack16),
-	B5G5R5A1_UNorm =		uint32_t(vk::Format::eB5G5R5A1UnormPack16),
-	B8G8R8A8_UNorm =		uint32_t(vk::Format::eB8G8R8A8Unorm),
-	R8_UNorm =				uint32_t(vk::Format::eR8Unorm),
-	R8_SNorm =				uint32_t(vk::Format::eR8Snorm),
-	R8_UInt =				uint32_t(vk::Format::eR8Uint),
-	R8_SInt =				uint32_t(vk::Format::eR8Sint),
-	R8G8_UNorm =			uint32_t(vk::Format::eR8G8Unorm),
-	R8G8_SNorm =			uint32_t(vk::Format::eR8G8Snorm),
-	R8G8_UInt =				uint32_t(vk::Format::eR8G8Uint),
-	R8G8_SInt =				uint32_t(vk::Format::eR8G8Sint),
-	R8G8B8A8_UNorm =		uint32_t(vk::Format::eR8G8B8A8Unorm),
-	R8G8B8A8_UNorm_SRGB =	uint32_t(vk::Format::eR8G8B8A8Srgb),
-	R8G8B8A8_SNorm =		uint32_t(vk::Format::eR8G8B8A8Snorm),
-	R8G8B8A8_UInt =			uint32_t(vk::Format::eR8G8B8A8Uint),
-	R8G8B8A8_SInt =			uint32_t(vk::Format::eR8G8B8A8Sint),
-	R9G9B9E5_Float =		uint32_t(vk::Format::eE5B9G9R9UfloatPack32),
-	R16_UNorm =				uint32_t(vk::Format::eR16Unorm),
-	R16_SNorm =				uint32_t(vk::Format::eR16Snorm),
-	R16_UInt =				uint32_t(vk::Format::eR16Uint),
-	R16_SInt =				uint32_t(vk::Format::eR16Sint),
-	R16_Float =				uint32_t(vk::Format::eR16Sfloat),
-	R16G16_UNorm =			uint32_t(vk::Format::eR16G16Unorm),
-	R16G16_SNorm =			uint32_t(vk::Format::eR16G16Snorm),
-	R16G16_UInt =			uint32_t(vk::Format::eR16G16Uint),
-	R16G16_SInt =			uint32_t(vk::Format::eR16G16Sint),
-	R16G16_Float =			uint32_t(vk::Format::eR16G16Sfloat),
-	R16G16B16A16_UNorm =	uint32_t(vk::Format::eR16G16B16A16Unorm),
-	R16G16B16A16_SNorm =	uint32_t(vk::Format::eR16G16B16A16Snorm),
-	R16G16B16A16_UInt =		uint32_t(vk::Format::eR16G16B16A16Uint),
-	R16G16B16A16_SInt =		uint32_t(vk::Format::eR16G16B16A16Sint),
-	R16G16B16A16_Float =	uint32_t(vk::Format::eR16G16B16A16Sfloat),
-	R32_UInt =				uint32_t(vk::Format::eR32Uint),
-	R32_SInt =				uint32_t(vk::Format::eR32Sint),
-	R32_Float =				uint32_t(vk::Format::eR32Sfloat),
-	R32G32_UInt =			uint32_t(vk::Format::eR32G32Uint),
-	R32G32_SInt =			uint32_t(vk::Format::eR32G32Sint),
-	R32G32_Float =			uint32_t(vk::Format::eR32G32Sfloat),
-	R32G32B32_UInt =		uint32_t(vk::Format::eR32G32B32Uint),
-	R32G32B32_SInt =		uint32_t(vk::Format::eR32G32B32Sint),
-	R32G32B32_Float =		uint32_t(vk::Format::eR32G32B32Sfloat),
-	R32G32B32A32_UInt =		uint32_t(vk::Format::eR32G32B32A32Uint),
-	R32G32B32A32_SInt =		uint32_t(vk::Format::eR32G32B32A32Sint),
-	R32G32B32A32_Float =	uint32_t(vk::Format::eR32G32B32A32Sfloat),
-	R11G11B10_Float =		uint32_t(vk::Format::eB10G11R11UfloatPack32),
-	R10G10B10A2_UNorm =		uint32_t(vk::Format::eA2B10G10R10UnormPack32),
+	Unknown =				VK_FORMAT_UNDEFINED,
+	B4G4R4A4_UNorm =		VK_FORMAT_B4G4R4A4_UNORM_PACK16,
+	B5G6R5_UNorm =			VK_FORMAT_B5G6R5_UNORM_PACK16,
+	B5G5R5A1_UNorm =		VK_FORMAT_B5G5R5A1_UNORM_PACK16,
+	B8G8R8A8_UNorm =		VK_FORMAT_B8G8R8A8_UNORM,
+	R8_UNorm =				VK_FORMAT_R8_UNORM,
+	R8_SNorm =				VK_FORMAT_R8_SNORM,
+	R8_UInt =				VK_FORMAT_R8_UINT,
+	R8_SInt =				VK_FORMAT_R8_SINT,
+	R8G8_UNorm =			VK_FORMAT_R8G8_UNORM,
+	R8G8_SNorm =			VK_FORMAT_R8G8_SNORM,
+	R8G8_UInt =				VK_FORMAT_R8G8_UINT,
+	R8G8_SInt =				VK_FORMAT_R8G8_SINT,
+	R8G8B8A8_UNorm =		VK_FORMAT_R8G8B8A8_UNORM,
+	R8G8B8A8_UNorm_SRGB =	VK_FORMAT_R8G8B8A8_SRGB,
+	R8G8B8A8_SNorm =		VK_FORMAT_R8G8B8A8_SNORM,
+	R8G8B8A8_UInt =			VK_FORMAT_R8G8B8A8_UINT,
+	R8G8B8A8_SInt =			VK_FORMAT_R8G8B8A8_SINT,
+	R9G9B9E5_Float =		VK_FORMAT_E5B9G9R9_UFLOAT_PACK32,
+	R16_UNorm =				VK_FORMAT_R16_UNORM,
+	R16_SNorm =				VK_FORMAT_R16_SNORM,
+	R16_UInt =				VK_FORMAT_R16_UINT,
+	R16_SInt =				VK_FORMAT_R16_SINT,
+	R16_Float =				VK_FORMAT_R16_SFLOAT,
+	R16G16_UNorm =			VK_FORMAT_R16G16_UNORM,
+	R16G16_SNorm =			VK_FORMAT_R16G16_SNORM,
+	R16G16_UInt =			VK_FORMAT_R16G16_UINT,
+	R16G16_SInt =			VK_FORMAT_R16G16_SINT,
+	R16G16_Float =			VK_FORMAT_R16G16_SFLOAT,
+	R16G16B16A16_UNorm =	VK_FORMAT_R16G16B16A16_UNORM,
+	R16G16B16A16_SNorm =	VK_FORMAT_R16G16B16A16_SNORM,
+	R16G16B16A16_UInt =		VK_FORMAT_R16G16B16A16_UINT,
+	R16G16B16A16_SInt =		VK_FORMAT_R16G16B16A16_SINT,
+	R16G16B16A16_Float =	VK_FORMAT_R16G16B16A16_SFLOAT,
+	R32_UInt =				VK_FORMAT_R32_UINT,
+	R32_SInt =				VK_FORMAT_R32_SINT,
+	R32_Float =				VK_FORMAT_R32_SFLOAT,
+	R32G32_UInt =			VK_FORMAT_R32G32_UINT,
+	R32G32_SInt =			VK_FORMAT_R32G32_SINT,
+	R32G32_Float =			VK_FORMAT_R32G32_SFLOAT,
+	R32G32B32_UInt =		VK_FORMAT_R32G32B32_UINT,
+	R32G32B32_SInt =		VK_FORMAT_R32G32B32_SINT,
+	R32G32B32_Float =		VK_FORMAT_R32G32B32_SFLOAT,
+	R32G32B32A32_UInt =		VK_FORMAT_R32G32B32A32_UINT,
+	R32G32B32A32_SInt =		VK_FORMAT_R32G32B32A32_SINT,
+	R32G32B32A32_Float =	VK_FORMAT_R32G32B32A32_SFLOAT,
+	R11G11B10_Float =		VK_FORMAT_B10G11R11_UFLOAT_PACK32,
+	R10G10B10A2_UNorm =		VK_FORMAT_A2R10G10B10_UNORM_PACK32,
 
-	D16_UNorm =				uint32_t(vk::Format::eD16Unorm),
-	D24S8 =					uint32_t(vk::Format::eD24UnormS8Uint),
-	D32_Float =				uint32_t(vk::Format::eD32Sfloat),
-	D32_Float_S8_UInt =		uint32_t(vk::Format::eD32SfloatS8Uint),
+	D16_UNorm =				VK_FORMAT_D16_UNORM,
+	D24S8 =					VK_FORMAT_D24_UNORM_S8_UINT,
+	D32_Float =				VK_FORMAT_D32_SFLOAT,
+	D32_Float_S8_UInt =		VK_FORMAT_D32_SFLOAT_S8_UINT,
 
-	BC1_UNorm =				uint32_t(vk::Format::eBc1RgbaUnormBlock),
-	BC1_UNorm_SRGB =		uint32_t(vk::Format::eBc1RgbaSrgbBlock),
-	BC2_UNorm =				uint32_t(vk::Format::eBc2UnormBlock),
-	BC2_UNorm_SRGB =		uint32_t(vk::Format::eBc2SrgbBlock),
-	BC3_UNorm =				uint32_t(vk::Format::eBc3UnormBlock),
-	BC3_UNorm_SRGB =		uint32_t(vk::Format::eBc3SrgbBlock),
-	BC4_UNorm =				uint32_t(vk::Format::eBc4UnormBlock),
-	BC4_SNorm =				uint32_t(vk::Format::eBc4SnormBlock),
-	BC5_UNorm =				uint32_t(vk::Format::eBc5UnormBlock),
-	BC5_SNorm =				uint32_t(vk::Format::eBc5SnormBlock),
-	BC6H_Float =			uint32_t(vk::Format::eBc6HSfloatBlock),
-	BC6H_UFloat =			uint32_t(vk::Format::eBc6HUfloatBlock),
-	BC7_UNorm =				uint32_t(vk::Format::eBc7UnormBlock),
-	BC7_UNorm_SRGB =		uint32_t(vk::Format::eBc7SrgbBlock)
+	BC1_UNorm =				VK_FORMAT_BC1_RGBA_UNORM_BLOCK,
+	BC1_UNorm_SRGB =		VK_FORMAT_BC1_RGBA_SRGB_BLOCK,
+	BC2_UNorm =				VK_FORMAT_BC2_UNORM_BLOCK,
+	BC2_UNorm_SRGB =		VK_FORMAT_BC2_SRGB_BLOCK,
+	BC3_UNorm =				VK_FORMAT_BC3_UNORM_BLOCK,
+	BC3_UNorm_SRGB =		VK_FORMAT_BC3_SRGB_BLOCK,
+	BC4_UNorm =				VK_FORMAT_BC4_UNORM_BLOCK,
+	BC4_SNorm =				VK_FORMAT_BC4_SNORM_BLOCK,
+	BC5_UNorm =				VK_FORMAT_BC5_UNORM_BLOCK,
+	BC5_SNorm =				VK_FORMAT_BC5_SNORM_BLOCK,
+	BC6H_Float =			VK_FORMAT_BC6H_SFLOAT_BLOCK,
+	BC6H_UFloat =			VK_FORMAT_BC6H_UFLOAT_BLOCK,
+	BC7_UNorm =				VK_FORMAT_BC7_UNORM_BLOCK,
+	BC7_UNorm_SRGB =		VK_FORMAT_BC7_SRGB_BLOCK
 };
 
-Format VulkanFormatToEngine(vk::Format format);
+Format VulkanFormatToEngine(VkFormat format);
 
 } // namespace Kodiak

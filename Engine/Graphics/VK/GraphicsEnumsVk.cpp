@@ -19,39 +19,21 @@ using namespace Kodiak;
 using namespace std;
 
 
-vk::PrimitiveTopology Kodiak::PrimitiveTopologyToVulkan(PrimitiveTopology topology)
+VkPrimitiveTopology Kodiak::PrimitiveTopologyToVulkan(PrimitiveTopology topology)
 {
 	switch (topology)
 	{
-	case PrimitiveTopology::PointList:
-		return vk::PrimitiveTopology::ePointList;
-
-	case PrimitiveTopology::LineList:
-		return vk::PrimitiveTopology::eLineList;
-
-	case PrimitiveTopology::LineStrip:
-		return vk::PrimitiveTopology::eLineStrip;
-
-	case PrimitiveTopology::TriangleList:
-		return vk::PrimitiveTopology::eTriangleList;
-
-	case PrimitiveTopology::TriangleStrip:
-		return vk::PrimitiveTopology::eTriangleStrip;
-
-	case PrimitiveTopology::LineListWithAdjacency:
-		return vk::PrimitiveTopology::eLineListWithAdjacency;
-
-	case PrimitiveTopology::LineStripWithAdjacency:
-		return vk::PrimitiveTopology::eLineStripWithAdjacency;
-
-	case PrimitiveTopology::TriangleListWithAdjacency:
-		return vk::PrimitiveTopology::eTriangleListWithAdjacency;
-
-	case PrimitiveTopology::TriangleStripWithAdjacency:
-		return vk::PrimitiveTopology::eTriangleStripWithAdjacency;
-
+	case PrimitiveTopology::PointList: return VK_PRIMITIVE_TOPOLOGY_POINT_LIST;
+	case PrimitiveTopology::LineList: return VK_PRIMITIVE_TOPOLOGY_LINE_LIST;
+	case PrimitiveTopology::LineStrip: return VK_PRIMITIVE_TOPOLOGY_LINE_STRIP;
+	case PrimitiveTopology::TriangleList: return VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST;
+	case PrimitiveTopology::TriangleStrip: return VK_PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP;
+	case PrimitiveTopology::LineListWithAdjacency: return VK_PRIMITIVE_TOPOLOGY_LINE_LIST_WITH_ADJACENCY;
+	case PrimitiveTopology::LineStripWithAdjacency: return VK_PRIMITIVE_TOPOLOGY_LINE_STRIP_WITH_ADJACENCY;
+	case PrimitiveTopology::TriangleListWithAdjacency: return VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST_WITH_ADJACENCY;
+	case PrimitiveTopology::TriangleStripWithAdjacency: return VK_PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP_WITH_ADJACENCY;
 	default:
-		return vk::PrimitiveTopology::ePatchList;
+		return VK_PRIMITIVE_TOPOLOGY_PATCH_LIST;
 	}
 }
 
@@ -98,114 +80,116 @@ uint32_t Kodiak::GetControlPointCount(PrimitiveTopology topology)
 }
 
 
-vk::DescriptorType Kodiak::DescriptorTypeToVulkan(DescriptorType type)
+VkDescriptorType Kodiak::DescriptorTypeToVulkan(DescriptorType type)
 {
 	switch (type)
 	{
 	case DescriptorType::CBV:
-		return vk::DescriptorType::eUniformBuffer;
+		return VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
 
 	case DescriptorType::DynamicCBV:
-		return vk::DescriptorType::eUniformBufferDynamic;
+		return VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC;
 
 	case DescriptorType::Sampler:
-		return vk::DescriptorType::eSampler;
+		return VK_DESCRIPTOR_TYPE_SAMPLER;
 
 	case DescriptorType::TextureSRV:
-		return vk::DescriptorType::eSampledImage;
+		return VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE;
 
 	case DescriptorType::StructuredBufferSRV:
 	case DescriptorType::StructuredBufferUAV:
-		return vk::DescriptorType::eStorageBuffer;
+		return VK_DESCRIPTOR_TYPE_STORAGE_BUFFER;
 
 	case DescriptorType::TextureUAV:
-		return vk::DescriptorType::eStorageImage;
+		return VK_DESCRIPTOR_TYPE_STORAGE_IMAGE;
 
 	case DescriptorType::TypedBufferSRV:
-		return vk::DescriptorType::eUniformTexelBuffer;
+		return VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER;
 
 	case DescriptorType::TypedBufferUAV:
-		return vk::DescriptorType::eStorageTexelBuffer;
+		return VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER;
 
 	default:
 		assert(false);
-		return vk::DescriptorType::eCombinedImageSampler;
+		return VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
 	}
 }
 
 
-Format Kodiak::VulkanFormatToEngine(vk::Format format)
+Format Kodiak::VulkanFormatToEngine(VkFormat format)
 {
 	static bool initialized = false;
-	static unordered_map<vk::Format, Format> remapTable;
+	static unordered_map<VkFormat, Format> remapTable;
 
 	if (!initialized)
 	{
-		remapTable[vk::Format::eB4G4R4A4UnormPack16] = Format::B4G4R4A4_UNorm;
-		remapTable[vk::Format::eB5G6R5UnormPack16] = Format::B5G6R5_UNorm;
-		remapTable[vk::Format::eB5G5R5A1UnormPack16] = Format::B5G5R5A1_UNorm;
-		remapTable[vk::Format::eB8G8R8A8Unorm] = Format::B8G8R8A8_UNorm;
-		remapTable[vk::Format::eR8Unorm] = Format::R8_UNorm;
-		remapTable[vk::Format::eR8Snorm] = Format::R8_SNorm;
-		remapTable[vk::Format::eR8Uint] = Format::R8_UInt;
-		remapTable[vk::Format::eR8Sint] = Format::R8_SInt;
-		remapTable[vk::Format::eR8G8Unorm] = Format::R8G8_UNorm;
-		remapTable[vk::Format::eR8G8Snorm] = Format::R8G8_SNorm;
-		remapTable[vk::Format::eR8G8Uint] = Format::R8G8_UInt;
-		remapTable[vk::Format::eR8G8Sint] = Format::R8G8_SInt;
-		remapTable[vk::Format::eR8G8B8A8Unorm] = Format::R8G8B8A8_UNorm;
-		remapTable[vk::Format::eR8G8B8A8Snorm] = Format::R8G8B8A8_SNorm;
-		remapTable[vk::Format::eR8G8B8A8Uint] = Format::R8G8B8A8_UInt;
-		remapTable[vk::Format::eR8G8B8A8Sint] = Format::R8G8B8A8_SInt;
-		remapTable[vk::Format::eR16Unorm] = Format::R16_UNorm;
-		remapTable[vk::Format::eR16Snorm] = Format::R16_SNorm;
-		remapTable[vk::Format::eR16Uint] = Format::R16_UInt;
-		remapTable[vk::Format::eR16Sint] = Format::R16_SInt;
-		remapTable[vk::Format::eR16Sfloat] = Format::R16_Float;
-		remapTable[vk::Format::eR16G16Unorm] = Format::R16G16_UNorm;
-		remapTable[vk::Format::eR16G16Snorm] = Format::R16G16_SNorm;
-		remapTable[vk::Format::eR16G16Uint] = Format::R16G16_UInt;
-		remapTable[vk::Format::eR16G16Sint] = Format::R16G16_SInt;
-		remapTable[vk::Format::eR16G16Sfloat] = Format::R16G16_Float;
-		remapTable[vk::Format::eR16G16B16A16Unorm] = Format::R16G16B16A16_UNorm;
-		remapTable[vk::Format::eR16G16B16A16Snorm] = Format::R16G16B16A16_SNorm;
-		remapTable[vk::Format::eR16G16B16A16Uint] = Format::R16G16B16A16_UInt;
-		remapTable[vk::Format::eR16G16B16A16Sint] = Format::R16G16B16A16_SInt;
-		remapTable[vk::Format::eR16G16B16A16Sfloat] = Format::R16G16B16A16_Float;
-		remapTable[vk::Format::eR32Uint] = Format::R32_UInt;
-		remapTable[vk::Format::eR32Sint] = Format::R32_SInt;
-		remapTable[vk::Format::eR32Sfloat] = Format::R32_Float;
-		remapTable[vk::Format::eR32G32Uint] = Format::R32G32_UInt;
-		remapTable[vk::Format::eR32G32Sint] = Format::R32G32_SInt;
-		remapTable[vk::Format::eR32G32Sfloat] = Format::R32G32_Float;
-		remapTable[vk::Format::eR32G32B32Uint] = Format::R32G32B32_UInt;
-		remapTable[vk::Format::eR32G32B32Sint] = Format::R32G32B32_SInt;
-		remapTable[vk::Format::eR32G32B32Sfloat] = Format::R32G32B32_Float;
-		remapTable[vk::Format::eR32G32B32A32Uint] = Format::R32G32B32A32_UInt;
-		remapTable[vk::Format::eR32G32B32A32Sint] = Format::R32G32B32A32_SInt;
-		remapTable[vk::Format::eR32G32B32A32Sfloat] = Format::R32G32B32A32_Float;
-		remapTable[vk::Format::eB10G11R11UfloatPack32] = Format::R11G11B10_Float;
-		remapTable[vk::Format::eA2B10G10R10UnormPack32] = Format::R10G10B10A2_UNorm;
+		// Map known types
+		remapTable[VK_FORMAT_B4G4R4A4_UNORM_PACK16] = Format::B4G4R4A4_UNorm;
+		remapTable[VK_FORMAT_B5G6R5_UNORM_PACK16] = Format::B5G6R5_UNorm;
+		remapTable[VK_FORMAT_B5G5R5A1_UNORM_PACK16] = Format::B5G5R5A1_UNorm;
+		remapTable[VK_FORMAT_B8G8R8A8_UNORM] = Format::B8G8R8A8_UNorm;
+		remapTable[VK_FORMAT_R8_UNORM] = Format::R8_UNorm;
+		remapTable[VK_FORMAT_R8_SNORM] = Format::R8_SNorm;
+		remapTable[VK_FORMAT_R8_UINT] = Format::R8_UInt;
+		remapTable[VK_FORMAT_R8_SINT] = Format::R8_SInt;
+		remapTable[VK_FORMAT_R8G8_UNORM] = Format::R8G8_UNorm;
+		remapTable[VK_FORMAT_R8G8_SNORM] = Format::R8G8_SNorm;
+		remapTable[VK_FORMAT_R8G8_UINT] = Format::R8G8_UInt;
+		remapTable[VK_FORMAT_R8G8_SINT] = Format::R8G8_SInt;
+		remapTable[VK_FORMAT_R8G8B8A8_UNORM] = Format::R8G8B8A8_UNorm;
+		remapTable[VK_FORMAT_R8G8B8A8_SRGB] = Format::R8G8B8A8_UNorm_SRGB;
+		remapTable[VK_FORMAT_R8G8B8A8_SNORM] = Format::R8G8B8A8_SNorm;
+		remapTable[VK_FORMAT_R8G8B8A8_UINT] = Format::R8G8B8A8_UInt;
+		remapTable[VK_FORMAT_R8G8B8A8_SINT] = Format::R8G8B8A8_SInt;
+		remapTable[VK_FORMAT_R16_UNORM] = Format::R16_UNorm;
+		remapTable[VK_FORMAT_R16_SNORM] = Format::R16_SNorm;
+		remapTable[VK_FORMAT_R16_UINT] = Format::R16_UInt;
+		remapTable[VK_FORMAT_R16_SINT] = Format::R16_SInt;
+		remapTable[VK_FORMAT_R16_SFLOAT] = Format::R16_Float;
+		remapTable[VK_FORMAT_R16G16_UNORM] = Format::R16G16_UNorm;
+		remapTable[VK_FORMAT_R16G16_SNORM] = Format::R16G16_SNorm;
+		remapTable[VK_FORMAT_R16G16_UINT] = Format::R16G16_UInt;
+		remapTable[VK_FORMAT_R16G16_SINT] = Format::R16G16_SInt;
+		remapTable[VK_FORMAT_R16G16_SFLOAT] = Format::R16G16_Float;
+		remapTable[VK_FORMAT_R16G16B16A16_UNORM] = Format::R16G16B16A16_UNorm;
+		remapTable[VK_FORMAT_R16G16B16A16_SNORM] = Format::R16G16B16A16_SNorm;
+		remapTable[VK_FORMAT_R16G16B16A16_UINT] = Format::R16G16B16A16_UInt;
+		remapTable[VK_FORMAT_R16G16B16A16_SINT] = Format::R16G16B16A16_SInt;
+		remapTable[VK_FORMAT_R16G16B16A16_SFLOAT] = Format::R16G16B16A16_Float;
+		remapTable[VK_FORMAT_R32_UINT] = Format::R32_UInt;
+		remapTable[VK_FORMAT_R32_SINT] = Format::R32_SInt;
+		remapTable[VK_FORMAT_R32_SFLOAT] = Format::R32_Float;
+		remapTable[VK_FORMAT_R32G32_UINT] = Format::R32G32_UInt;
+		remapTable[VK_FORMAT_R32G32_SINT] = Format::R32G32_SInt;
+		remapTable[VK_FORMAT_R32G32_SFLOAT] = Format::R32G32_Float;
+		remapTable[VK_FORMAT_R32G32B32_UINT] = Format::R32G32B32_UInt;
+		remapTable[VK_FORMAT_R32G32B32_SINT] = Format::R32G32B32_SInt;
+		remapTable[VK_FORMAT_R32G32B32_SFLOAT] = Format::R32G32B32_Float;
+		remapTable[VK_FORMAT_R32G32B32A32_UINT] = Format::R32G32B32A32_UInt;
+		remapTable[VK_FORMAT_R32G32B32A32_SINT] = Format::R32G32B32A32_SInt;
+		remapTable[VK_FORMAT_R32G32B32A32_SFLOAT] = Format::R32G32B32A32_Float;
+		remapTable[VK_FORMAT_B10G11R11_UFLOAT_PACK32] = Format::R11G11B10_Float;
+		remapTable[VK_FORMAT_A2R10G10B10_UNORM_PACK32] = Format::R10G10B10A2_UNorm;
 
-		remapTable[vk::Format::eD16Unorm] = Format::D16_UNorm;
-		remapTable[vk::Format::eD24UnormS8Uint] = Format::D24S8;
-		remapTable[vk::Format::eD32Sfloat] = Format::D32_Float;
-		remapTable[vk::Format::eD32SfloatS8Uint] = Format::D32_Float_S8_UInt;
+		remapTable[VK_FORMAT_D16_UNORM] = Format::D16_UNorm;
+		remapTable[VK_FORMAT_D24_UNORM_S8_UINT] = Format::D24S8;
+		remapTable[VK_FORMAT_D32_SFLOAT] = Format::D32_Float;
+		remapTable[VK_FORMAT_D32_SFLOAT_S8_UINT] = Format::D32_Float_S8_UInt;
 
-		remapTable[vk::Format::eBc1RgbaUnormBlock] = Format::BC1_UNorm;
-		remapTable[vk::Format::eBc1RgbaSrgbBlock] = Format::BC1_UNorm_SRGB;
-		remapTable[vk::Format::eBc2UnormBlock] = Format::BC2_UNorm;
-		remapTable[vk::Format::eBc2SrgbBlock] = Format::BC2_UNorm_SRGB;
-		remapTable[vk::Format::eBc3UnormBlock] = Format::BC3_UNorm;
-		remapTable[vk::Format::eBc3SrgbBlock] = Format::BC3_UNorm_SRGB;
-		remapTable[vk::Format::eBc4UnormBlock] = Format::BC4_UNorm;
-		remapTable[vk::Format::eBc4SnormBlock] = Format::BC4_SNorm;
-		remapTable[vk::Format::eBc5UnormBlock] = Format::BC5_UNorm;
-		remapTable[vk::Format::eBc5SnormBlock] = Format::BC5_SNorm;
-		remapTable[vk::Format::eBc6HSfloatBlock] = Format::BC6H_Float;
-		remapTable[vk::Format::eBc6HUfloatBlock] = Format::BC6H_UFloat;
-		remapTable[vk::Format::eBc7UnormBlock] = Format::BC7_UNorm;
-		remapTable[vk::Format::eBc7SrgbBlock] = Format::BC7_UNorm_SRGB;
+		remapTable[VK_FORMAT_BC1_RGBA_UNORM_BLOCK] = Format::BC1_UNorm;
+		remapTable[VK_FORMAT_BC1_RGBA_SRGB_BLOCK] = Format::BC1_UNorm_SRGB;
+		remapTable[VK_FORMAT_BC2_UNORM_BLOCK] = Format::BC2_UNorm;
+		remapTable[VK_FORMAT_BC2_SRGB_BLOCK] = Format::BC2_UNorm_SRGB;
+		remapTable[VK_FORMAT_BC3_UNORM_BLOCK] = Format::BC3_UNorm;
+		remapTable[VK_FORMAT_BC3_SRGB_BLOCK] = Format::BC3_UNorm_SRGB;
+		remapTable[VK_FORMAT_BC4_UNORM_BLOCK] = Format::BC4_UNorm;
+		remapTable[VK_FORMAT_BC4_SNORM_BLOCK] = Format::BC4_SNorm;
+		remapTable[VK_FORMAT_BC5_UNORM_BLOCK] = Format::BC5_UNorm;
+		remapTable[VK_FORMAT_BC5_SNORM_BLOCK] = Format::BC5_SNorm;
+		remapTable[VK_FORMAT_BC6H_SFLOAT_BLOCK] = Format::BC6H_Float;
+		remapTable[VK_FORMAT_BC6H_UFLOAT_BLOCK] = Format::BC6H_UFloat;
+		remapTable[VK_FORMAT_BC7_UNORM_BLOCK] = Format::BC7_UNorm;
+		remapTable[VK_FORMAT_BC7_SRGB_BLOCK] = Format::BC7_UNorm_SRGB;
 
 		initialized = true;
 	}

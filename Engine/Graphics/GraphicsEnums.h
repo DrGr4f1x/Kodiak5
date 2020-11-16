@@ -17,3 +17,56 @@
 #else
 #error "No graphics API specified!"
 #endif
+
+
+enum class ResourceState : uint32_t
+{
+	Undefined,
+	Common,
+	VertexBuffer,
+	IndexBuffer,
+	ConstantBuffer,
+	RenderTarget,
+	UnorderedAccess,
+	DepthWrite,
+	DepthRead,
+	NonPixelShaderResource,
+	PixelShaderResource,
+	ShaderResource,
+	StreamOut,
+	IndirectArgument,
+	CopyDest,
+	CopySource,
+	ResolveDest,
+	ResolveSource,
+	GenericRead,
+	Present,
+	Predication,
+	PreInitialized,
+};
+
+
+enum class QueryHeapType : uint32_t
+{
+	Occlusion,
+	Timestamp,
+	PipelineStats
+};
+
+
+enum class QueryType : uint32_t
+{
+	Occlusion,
+	Timestamp,
+	PipelineStats
+};
+
+
+enum class RootParameterType : uint32_t
+{
+	Invalid,
+	DescriptorTable,
+	RootConstants,
+	RootCBV,
+	DynamicRootCBV
+};

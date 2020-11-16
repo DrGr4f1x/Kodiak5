@@ -70,11 +70,13 @@ inline void ThrowIfFailed(HRESULT hr)
 
 // Engine headers
 #include "BitmaskEnum.h"
-//#include "GraphicsEnums.h"
 #include "Log.h"
 #include "NonCopyable.h"
 #include "Utility.h"
 #include "VectorMath.h"
+
+// Engine\Graphics headers
+#include "Graphics\GraphicsEnums.h"
 
 // Engine info
 #define KODIAK_MAKE_VERSION(major, minor, patch) \

@@ -16,7 +16,7 @@
 #define FORCE_VULKAN_DEBUG_MARKUP 0
 #define ENABLE_VULKAN_DEBUG_MARKUP (_DEBUG || _PROFILE || FORCE_VULKAN_DEBUG_MARKUP)
 
-#define VK_USE_PLATFORM_WIN32_KHR
+#define VK_USE_PLATFORM_WIN32_KHR 1
 #include <vulkan\vulkan.h>
 
 #pragma comment(lib, "vulkan-1.lib")
@@ -35,5 +35,6 @@ inline void ThrowIfFailed(VkResult res)
 }
 
 // Engine headers
+#include "DynamicDispatchVk.h"
 #include "RefCountingVk.h"
 #include "StructureChainVk.h"

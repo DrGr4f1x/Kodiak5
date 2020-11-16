@@ -264,6 +264,7 @@
     </ClInclude>
     <ClInclude Include="Graphics\GraphicsDevice.h" />
     <ClInclude Include="Graphics\GraphicsEnums.h" />
+    <ClInclude Include="Graphics\VK\DynamicDispatchVk.h" />
     <ClInclude Include="Graphics\VK\GraphicsDeviceVk.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug12|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile12|x64'">true</ExcludedFromBuild>
@@ -309,6 +310,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ProfileVk|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseVk|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Graphics\VK\DynamicDispatchVk.cpp" />
     <ClCompile Include="Graphics\VK\GraphicsDeviceVk.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug12|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile12|x64'">true</ExcludedFromBuild>

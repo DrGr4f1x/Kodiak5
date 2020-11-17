@@ -1331,4 +1331,77 @@ inline KODIAK_NODISCARD VkResult vkWaitForFences(VkDevice device, uint32_t fence
 	return Kodiak::g_dispatcher.vkWaitForFences(device, fenceCount, pFences, waitAll, timeout);
 }
 
+
+// Vulkan 1.1 device functions
+inline KODIAK_NODISCARD VkResult vkBindBufferMemory2(VkDevice device, uint32_t bindInfoCount, const VkBindBufferMemoryInfo* pBindInfos)
+{
+	VALIDATE_FUNCTION_POINTER(vkBindBufferMemory2);
+	return Kodiak::g_dispatcher.vkBindBufferMemory2(device, bindInfoCount, pBindInfos);
+}
+inline KODIAK_NODISCARD VkResult vkBindImageMemory2(VkDevice device, uint32_t bindInfoCount, const VkBindImageMemoryInfo* pBindInfos)
+{
+	VALIDATE_FUNCTION_POINTER(vkBindImageMemory2);
+	return Kodiak::g_dispatcher.vkBindImageMemory2(device, bindInfoCount, pBindInfos);
+}
+inline KODIAK_NODISCARD VkResult vkCreateDescriptorUpdateTemplate(VkDevice device, const VkDescriptorUpdateTemplateCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDescriptorUpdateTemplate* pDescriptorUpdateTemplate)
+{
+	VALIDATE_FUNCTION_POINTER(vkCreateDescriptorUpdateTemplate);
+	return Kodiak::g_dispatcher.vkCreateDescriptorUpdateTemplate(device, pCreateInfo, pAllocator, pDescriptorUpdateTemplate);
+}
+inline KODIAK_NODISCARD VkResult vkCreateSamplerYcbcrConversion(VkDevice device, const VkSamplerYcbcrConversionCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSamplerYcbcrConversion* pYcbcrConversion)
+{
+	VALIDATE_FUNCTION_POINTER(vkCreateSamplerYcbcrConversion);
+	return Kodiak::g_dispatcher.vkCreateSamplerYcbcrConversion(device, pCreateInfo, pAllocator, pYcbcrConversion);
+}
+inline void vkDestroyDescriptorUpdateTemplate(VkDevice device, VkDescriptorUpdateTemplate descriptorUpdateTemplate, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroyDescriptorUpdateTemplate);
+	Kodiak::g_dispatcher.vkDestroyDescriptorUpdateTemplate(device, descriptorUpdateTemplate, pAllocator);
+}
+inline void vkDestroySamplerYcbcrConversion(VkDevice device, VkSamplerYcbcrConversion ycbcrConversion, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroySamplerYcbcrConversion);
+	Kodiak::g_dispatcher.vkDestroySamplerYcbcrConversion(device, ycbcrConversion, pAllocator);
+}
+inline void vkGetBufferMemoryRequirements2(VkDevice device, const VkBufferMemoryRequirementsInfo2* pInfo, VkMemoryRequirements2* pMemoryRequirements)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetBufferMemoryRequirements2);
+	Kodiak::g_dispatcher.vkGetBufferMemoryRequirements2(device, pInfo, pMemoryRequirements);
+}
+inline void vkGetDescriptorSetLayoutSupport(VkDevice device, const VkDescriptorSetLayoutCreateInfo* pCreateInfo, VkDescriptorSetLayoutSupport* pSupport)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetDescriptorSetLayoutSupport);
+	Kodiak::g_dispatcher.vkGetDescriptorSetLayoutSupport(device, pCreateInfo, pSupport);
+}
+inline void vkGetDeviceGroupPeerMemoryFeatures(VkDevice device, uint32_t heapIndex, uint32_t localDeviceIndex, uint32_t remoteDeviceIndex, VkPeerMemoryFeatureFlags* pPeerMemoryFeatures)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetDeviceGroupPeerMemoryFeatures);
+	Kodiak::g_dispatcher.vkGetDeviceGroupPeerMemoryFeatures(device, heapIndex, localDeviceIndex, remoteDeviceIndex, pPeerMemoryFeatures);
+}
+inline void vkGetDeviceQueue2(VkDevice device, const VkDeviceQueueInfo2* pQueueInfo, VkQueue* pQueue)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetDeviceQueue2);
+	Kodiak::g_dispatcher.vkGetDeviceQueue2(device, pQueueInfo, pQueue);
+}
+inline void vkGetImageMemoryRequirements2(VkDevice device, const VkImageMemoryRequirementsInfo2* pInfo, VkMemoryRequirements2* pMemoryRequirements)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetImageMemoryRequirements2);
+	Kodiak::g_dispatcher.vkGetImageMemoryRequirements2(device, pInfo, pMemoryRequirements);
+}
+inline void vkGetImageSparseMemoryRequirements2(VkDevice device, const VkImageSparseMemoryRequirementsInfo2* pInfo, uint32_t* pSparseMemoryRequirementCount, VkSparseImageMemoryRequirements2* pSparseMemoryRequirements)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetImageSparseMemoryRequirements2);
+	Kodiak::g_dispatcher.vkGetImageSparseMemoryRequirements2(device, pInfo, pSparseMemoryRequirementCount, pSparseMemoryRequirements);
+}
+inline void vkTrimCommandPool(VkDevice device, VkCommandPool commandPool, VkCommandPoolTrimFlags flags)
+{
+	VALIDATE_FUNCTION_POINTER(vkTrimCommandPool);
+	Kodiak::g_dispatcher.vkTrimCommandPool(device, commandPool, flags);
+}
+inline void vkUpdateDescriptorSetWithTemplate(VkDevice device, VkDescriptorSet descriptorSet, VkDescriptorUpdateTemplate descriptorUpdateTemplate, const void* pData)
+{
+	VALIDATE_FUNCTION_POINTER(vkUpdateDescriptorSetWithTemplate);
+	Kodiak::g_dispatcher.vkUpdateDescriptorSetWithTemplate(device, descriptorSet, descriptorUpdateTemplate, pData);
+}
+
 #undef VALIDATE_FUNCTION_POINTER

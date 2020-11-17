@@ -80,6 +80,9 @@
     <ClInclude Include="Graphics\VK\DynamicDispatchVk.h">
       <Filter>Graphics\VK</Filter>
     </ClInclude>
+    <ClInclude Include="EnginePch.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Stdafx.cpp" />

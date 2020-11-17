@@ -245,6 +245,7 @@
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="BitmaskEnum.h" />
+    <ClInclude Include="EnginePch.h" />
     <ClInclude Include="Filesystem.h" />
     <ClInclude Include="Graphics\DX12\GraphicsDevice12.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugVk|x64'">true</ExcludedFromBuild>

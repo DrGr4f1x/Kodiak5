@@ -348,6 +348,165 @@ public:
 	DECLARE_FUNCTION(vkGetPhysicalDeviceXlibPresentationSupportKHR);
 #endif
 
+#ifdef VK_USE_PLATFORM_XLIB_XRANDR_EXT
+	// VK_EXT_acquire_xlib_display
+	DECLARE_FUNCTION(vkAcquireXlibDisplayEXT);
+	DECLARE_FUNCTION(vkGetRandROutputDisplayEXT);
+#endif
+
+	// VK_EXT_calibrated_timestamps
+	DECLARE_FUNCTION(vkGetCalibratedTimestampsEXT);
+	DECLARE_FUNCTION(vkGetPhysicalDeviceCalibrateableTimeDomainsEXT);
+
+	// VK_EXT_conditional_rendering
+	DECLARE_FUNCTION(vkCmdBeginConditionalRenderingEXT);
+	DECLARE_FUNCTION(vkCmdEndConditionalRenderingEXT);
+
+	// VK_EXT_debug_utils
+	DECLARE_FUNCTION(vkCmdBeginDebugUtilsLabelEXT);
+	DECLARE_FUNCTION(vkCmdEndDebugUtilsLabelEXT);
+	DECLARE_FUNCTION(vkCmdInsertDebugUtilsLabelEXT);
+	DECLARE_FUNCTION(vkCreateDebugUtilsMessengerEXT);
+	DECLARE_FUNCTION(vkDestroyDebugUtilsMessengerEXT);
+	DECLARE_FUNCTION(vkQueueBeginDebugUtilsLabelEXT);
+	DECLARE_FUNCTION(vkQueueEndDebugUtilsLabelEXT);
+	DECLARE_FUNCTION(vkQueueInsertDebugUtilsLabelEXT);
+	DECLARE_FUNCTION(vkSetDebugUtilsObjectNameEXT);
+	DECLARE_FUNCTION(vkSetDebugUtilsObjectTagEXT);
+	DECLARE_FUNCTION(vkSubmitDebugUtilsMessageEXT);
+
+	// VK_EXT_direct_mode_display
+	DECLARE_FUNCTION(vkReleaseDisplayEXT);
+
+#ifdef VK_USE_PLATFORM_DIRECTFB_EXT
+	// VK_EXT_directfb_surface
+	DECLARE_FUNCTION(vkCreateDirectFBSurfaceEXT);
+	DECLARE_FUNCTION(vkGetPhysicalDeviceDirectFBPresentationSupportEXT);
+#endif
+
+	// VK_EXT_discard_rectangles
+	DECLARE_FUNCTION(vkCmdSetDiscardRectangleEXT);
+
+	// VK_EXT_display_control
+	DECLARE_FUNCTION(vkDisplayPowerControlEXT);
+	DECLARE_FUNCTION(vkGetSwapchainCounterEXT);
+	DECLARE_FUNCTION(vkRegisterDeviceEventEXT);
+	DECLARE_FUNCTION(vkRegisterDisplayEventEXT);
+
+	// VK_EXT_display_surface_counter
+	DECLARE_FUNCTION(vkGetPhysicalDeviceSurfaceCapabilities2EXT);
+
+	// VK_EXT_extended_dynamic_state
+	DECLARE_FUNCTION(vkCmdBindVertexBuffers2EXT);
+	DECLARE_FUNCTION(vkCmdSetCullModeEXT);
+	DECLARE_FUNCTION(vkCmdSetDepthBoundsTestEnableEXT);
+	DECLARE_FUNCTION(vkCmdSetDepthCompareOpEXT);
+	DECLARE_FUNCTION(vkCmdSetDepthTestEnableEXT);
+	DECLARE_FUNCTION(vkCmdSetDepthWriteEnableEXT);
+	DECLARE_FUNCTION(vkCmdSetFrontFaceEXT);
+	DECLARE_FUNCTION(vkCmdSetPrimitiveTopologyEXT);
+	DECLARE_FUNCTION(vkCmdSetScissorWithCountEXT);
+	DECLARE_FUNCTION(vkCmdSetStencilOpEXT);
+	DECLARE_FUNCTION(vkCmdSetStencilTestEnableEXT);
+	DECLARE_FUNCTION(vkCmdSetViewportWithCountEXT);
+
+	// VK_EXT_external_memory_host
+	DECLARE_FUNCTION(vkGetMemoryHostPointerPropertiesEXT);
+
+	// VK_EXT_full_screen_exclusive
+	DECLARE_FUNCTION(vkAcquireFullScreenExclusiveModeEXT);
+	DECLARE_FUNCTION(vkGetPhysicalDeviceSurfacePresentModes2EXT);
+	DECLARE_FUNCTION(vkReleaseFullScreenExclusiveModeEXT);
+
+	// VK_EXT_hdr_metadata
+	DECLARE_FUNCTION(vkSetHdrMetadataEXT);
+
+	// VK_EXT_headless_surface
+	DECLARE_FUNCTION(vkCreateHeadlessSurfaceEXT);
+
+	// VK_EXT_image_drm_format_modifier
+	DECLARE_FUNCTION(vkGetImageDrmFormatModifierPropertiesEXT);
+
+	// VK_EXT_line_rasterization
+	DECLARE_FUNCTION(vkCmdSetLineStippleEXT);
+
+#ifdef VK_USE_PLATFORM_METAL_EXT
+	// VK_EXT_metal_surface
+	DECLARE_FUNCTION(vkCreateMetalSurfaceEXT);
+#endif
+
+	// VK_EXT_private_data
+	DECLARE_FUNCTION(vkCreatePrivateDataSlotEXT);
+	DECLARE_FUNCTION(vkDestroyPrivateDataSlotEXT);
+	DECLARE_FUNCTION(vkGetPrivateDataEXT);
+	DECLARE_FUNCTION(vkSetPrivateDataEXT);
+
+	// VK_EXT_sample_locations
+	DECLARE_FUNCTION(vkCmdSetSampleLocationsEXT);
+	DECLARE_FUNCTION(vkGetPhysicalDeviceMultisamplePropertiesEXT);
+
+	// VK_EXT_tooling_info
+	DECLARE_FUNCTION(vkGetPhysicalDeviceToolPropertiesEXT);
+
+	// VK_EXT_transform_feedback
+	DECLARE_FUNCTION(vkCmdBeginQueryIndexedEXT);
+	DECLARE_FUNCTION(vkCmdBeginTransformFeedbackEXT);
+	DECLARE_FUNCTION(vkCmdBindTransformFeedbackBuffersEXT);
+	DECLARE_FUNCTION(vkCmdDrawIndirectByteCountEXT);
+	DECLARE_FUNCTION(vkCmdEndQueryIndexedEXT);
+	DECLARE_FUNCTION(vkCmdEndTransformFeedbackEXT);
+
+	// VK_EXT_validation_cache
+	DECLARE_FUNCTION(vkCreateValidationCacheEXT);
+	DECLARE_FUNCTION(vkDestroyValidationCacheEXT);
+	DECLARE_FUNCTION(vkGetValidationCacheDataEXT);
+	DECLARE_FUNCTION(vkMergeValidationCachesEXT);
+
+	// VK_AMD_buffer_marker
+	DECLARE_FUNCTION(vkCmdWriteBufferMarkerAMD);
+
+	// VK_AMD_display_native_hdr
+	DECLARE_FUNCTION(vkSetLocalDimmingAMD);
+
+	// VK_AMD_shader_info
+	DECLARE_FUNCTION(vkGetShaderInfoAMD);
+
+#ifdef VK_USE_PLATFORM_ANDROID_KHR
+	// VK_ANDROID_external_memory_android_hardware_buffer
+	DECLARE_FUNCTION(vkGetAndroidHardwareBufferPropertiesANDROID);
+	DECLARE_FUNCTION(vkGetMemoryAndroidHardwareBufferANDROID);
+#endif
+
+#ifdef VK_USE_PLATFORM_FUSCHIA
+	// VK_FUSCHIA_imagepipe_surface
+	DECLARE_FUNCTION(vkCreateImagePipeSurfaceFUCHSIA);
+#endif
+
+#if 0
+	// VK_GGP_stream_descriptor_surface
+	DECLARE_FUNCTION(vkCreateStreamDescriptorSurfaceGGP);
+#endif
+
+	// VK_GOOGLE_display_timing
+	DECLARE_FUNCTION(vkGetPastPresentationTimingGOOGLE);
+	DECLARE_FUNCTION(vkGetRefreshCycleDurationGOOGLE);
+
+	// VK_INTEL_performance_query
+	DECLARE_FUNCTION(vkAcquirePerformanceConfigurationINTEL);
+	DECLARE_FUNCTION(vkCmdSetPerformanceMarkerINTEL);
+	DECLARE_FUNCTION(vkCmdSetPerformanceOverrideINTEL);
+	DECLARE_FUNCTION(vkCmdSetPerformanceStreamMarkerINTEL);
+	DECLARE_FUNCTION(vkGetPerformanceParameterINTEL);
+	DECLARE_FUNCTION(vkInitializePerformanceApiINTEL);
+	DECLARE_FUNCTION(vkQueueSetPerformanceConfigurationINTEL);
+	DECLARE_FUNCTION(vkReleasePerformanceConfigurationINTEL);
+	DECLARE_FUNCTION(vkUninitializePerformanceApiINTEL);
+
+#ifdef VK_USE_PLATFORM_VI_NN
+	// VK_NN_vi_surface
+	DECLARE_FUNCTION(vkCreateViSurfaceNN);
+#endif
+
 private:
 	uint32_t m_apiVersion{ 0 };
 	VkInstance m_instance{ VK_NULL_HANDLE };

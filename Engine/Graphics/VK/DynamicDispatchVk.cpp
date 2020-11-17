@@ -577,6 +577,196 @@ void Dispatcher::LoadExtension(Extension extension)
 		LOAD(vkGetPhysicalDeviceXlibPresentationSupportKHR);
 		break;
 #endif
+
+#ifdef VK_USE_PLATFORM_XLIB_XRANDR_EXT
+	case Extension::EXT_AcquireXlibDisplay:
+		LOAD(vkAcquireXlibDisplayEXT);
+		LOAD(vkGetRandROutputDisplayEXT);
+		break;
+#endif
+
+	case Extension::EXT_CalibratedTimestamps:
+		LOAD(vkGetCalibratedTimestampsEXT);
+		LOAD(vkGetPhysicalDeviceCalibrateableTimeDomainsEXT);
+		break;
+
+	case Extension::EXT_ConditionalRendering:
+		LOAD(vkCmdBeginConditionalRenderingEXT);
+		LOAD(vkCmdEndConditionalRenderingEXT);
+		break;
+
+	case Extension::EXT_DebugUtils:
+		LOAD(vkCmdBeginDebugUtilsLabelEXT);
+		LOAD(vkCmdEndDebugUtilsLabelEXT);
+		LOAD(vkCmdInsertDebugUtilsLabelEXT);
+		LOAD(vkCreateDebugUtilsMessengerEXT);
+		LOAD(vkDestroyDebugUtilsMessengerEXT);
+		LOAD(vkQueueBeginDebugUtilsLabelEXT);
+		LOAD(vkQueueEndDebugUtilsLabelEXT);
+		LOAD(vkQueueInsertDebugUtilsLabelEXT);
+		LOAD(vkSetDebugUtilsObjectNameEXT);
+		LOAD(vkSetDebugUtilsObjectTagEXT);
+		LOAD(vkSubmitDebugUtilsMessageEXT);
+		break;
+
+	case Extension::EXT_DirectModeDisplay:
+		LOAD(vkReleaseDisplayEXT);
+		break;
+
+#ifdef VK_USE_PLATFORM_DIRECTFB_EXT
+	case Extension::EXT_DirectFbSurface:
+		LOAD(vkCreateDirectFBSurfaceEXT);
+		LOAD(vkGetPhysicalDeviceDirectFBPresentationSupportEXT);
+		break;
+#endif
+
+	case Extension::EXT_DiscardRectangles:
+		LOAD(vkCmdSetDiscardRectangleEXT);
+		break;
+
+	case Extension::EXT_DisplayControl:
+		LOAD(vkDisplayPowerControlEXT);
+		LOAD(vkGetSwapchainCounterEXT);
+		LOAD(vkRegisterDeviceEventEXT);
+		LOAD(vkRegisterDisplayEventEXT);
+		break;
+
+	case Extension::EXT_DisplaySurfaceCounter:
+		LOAD(vkGetPhysicalDeviceSurfaceCapabilities2EXT);
+		break;
+
+	case Extension::EXT_ExtendedDynamicState:
+		LOAD(vkCmdBindVertexBuffers2EXT);
+		LOAD(vkCmdSetCullModeEXT);
+		LOAD(vkCmdSetDepthBoundsTestEnableEXT);
+		LOAD(vkCmdSetDepthCompareOpEXT);
+		LOAD(vkCmdSetDepthTestEnableEXT);
+		LOAD(vkCmdSetDepthWriteEnableEXT);
+		LOAD(vkCmdSetFrontFaceEXT);
+		LOAD(vkCmdSetPrimitiveTopologyEXT);
+		LOAD(vkCmdSetScissorWithCountEXT);
+		LOAD(vkCmdSetStencilOpEXT);
+		LOAD(vkCmdSetStencilTestEnableEXT);
+		LOAD(vkCmdSetViewportWithCountEXT);
+		break;
+
+	case Extension::EXT_ExternalMemoryHost:
+		LOAD(vkGetMemoryHostPointerPropertiesEXT);
+		break;
+
+	case Extension::EXT_FullScreenExclusive:
+		LOAD(vkAcquireFullScreenExclusiveModeEXT);
+		LOAD(vkGetPhysicalDeviceSurfacePresentModes2EXT);
+		LOAD(vkReleaseFullScreenExclusiveModeEXT);
+		break;
+
+	case Extension::EXT_HdrMetadata:
+		LOAD(vkSetHdrMetadataEXT);
+		break;
+
+	case Extension::EXT_HeadlessSurface:
+		LOAD(vkCreateHeadlessSurfaceEXT);
+		break;
+
+	case Extension::EXT_ImageDrmFormatModifier:
+		LOAD(vkGetImageDrmFormatModifierPropertiesEXT);
+		break;
+
+	case Extension::EXT_LineRasterization:
+		LOAD(vkCmdSetLineStippleEXT);
+		break;
+
+#if VK_USE_PLATFORM_METAL_EXT
+	case Extension::EXT_MetalSurface:
+		LOAD(vkCreateMetalSurfaceEXT);
+		break;
+#endif
+
+	case Extension::EXT_PrivateData:
+		LOAD(vkCreatePrivateDataSlotEXT);
+		LOAD(vkDestroyPrivateDataSlotEXT);
+		LOAD(vkGetPrivateDataEXT);
+		LOAD(vkSetPrivateDataEXT);
+		break;
+
+	case Extension::EXT_SampleLocations:
+		LOAD(vkCmdSetSampleLocationsEXT);
+		LOAD(vkGetPhysicalDeviceMultisamplePropertiesEXT);
+		break;
+
+	case Extension::EXT_ToolingInfo:
+		LOAD(vkGetPhysicalDeviceToolPropertiesEXT);
+		break;
+
+	case Extension::EXT_TransformFeedback:
+		LOAD(vkCmdBeginQueryIndexedEXT);
+		LOAD(vkCmdBeginTransformFeedbackEXT);
+		LOAD(vkCmdBindTransformFeedbackBuffersEXT);
+		LOAD(vkCmdDrawIndirectByteCountEXT);
+		LOAD(vkCmdEndQueryIndexedEXT);
+		LOAD(vkCmdEndTransformFeedbackEXT);
+		break;
+
+	case Extension::EXT_ValidationCache:
+		LOAD(vkCreateValidationCacheEXT);
+		LOAD(vkDestroyValidationCacheEXT);
+		LOAD(vkGetValidationCacheDataEXT);
+		LOAD(vkMergeValidationCachesEXT);
+		break;
+
+	case Extension::AMD_BufferMarker:
+		LOAD(vkCmdWriteBufferMarkerAMD);
+		break;
+
+	case Extension::AMD_DisplayNativeHdr:
+		LOAD(vkSetLocalDimmingAMD);
+		break;
+
+	case Extension::AMD_ShaderInfo:
+		LOAD(vkGetShaderInfoAMD);
+		break;
+
+#ifdef VK_USE_PLATFORM_ANDROID_KHR
+	case Extension::ANDROID_ExternalMemoryAndroidHardwareBuffer:
+		LOAD(vkGetAndroidHardwareBufferPropertiesANDROID);
+		LOAD(vkGetMemoryAndroidHardwareBufferANDROID);
+		break;
+#endif
+
+#ifdef VK_USE_PLATFORM_FUSCHIA
+	case Extension::FUSCHIA_ImagepipeSurface:
+		LOAD(vkCreateImagePipeSurfaceFUCHSIA);
+		break;
+#endif
+
+#if 0
+	case Extension::GGP_StreamDescriptorSurface:
+		LOAD(vkCreateStreamDescriptorSurfaceGGP);
+		break;
+#endif
+
+	case Extension::GOOGLE_DisplayTiming:
+		LOAD(vkGetPastPresentationTimingGOOGLE);
+		LOAD(vkGetRefreshCycleDurationGOOGLE);
+		break;
+
+	case Extension::INTEL_PerformanceQuery:
+		LOAD(vkAcquirePerformanceConfigurationINTEL);
+		LOAD(vkCmdSetPerformanceMarkerINTEL);
+		LOAD(vkCmdSetPerformanceOverrideINTEL);
+		LOAD(vkCmdSetPerformanceStreamMarkerINTEL);
+		LOAD(vkGetPerformanceParameterINTEL);
+		LOAD(vkInitializePerformanceApiINTEL);
+		LOAD(vkQueueSetPerformanceConfigurationINTEL);
+		LOAD(vkReleasePerformanceConfigurationINTEL);
+		LOAD(vkUninitializePerformanceApiINTEL);
+		break;
+
+#if VK_USE_PLATFORM_VI_NN
+	case Extension::NN_ViSurface:
+		LOAD(vkCreateViSurfaceNN);
+		break;
+#endif
 	}
 
 	#undef LOAD

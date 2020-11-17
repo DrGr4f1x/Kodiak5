@@ -1404,4 +1404,72 @@ inline void vkUpdateDescriptorSetWithTemplate(VkDevice device, VkDescriptorSet d
 	Kodiak::g_dispatcher.vkUpdateDescriptorSetWithTemplate(device, descriptorSet, descriptorUpdateTemplate, pData);
 }
 
+
+// Vulkan 1.2 device functions
+inline void vkCmdBeginRenderPass2(VkCommandBuffer commandBuffer, const VkRenderPassBeginInfo* pRenderPassBegin, const VkSubpassBeginInfo* pSubpassBeginInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdBeginRenderPass2);
+	Kodiak::g_dispatcher.vkCmdBeginRenderPass2(commandBuffer, pRenderPassBegin, pSubpassBeginInfo);
+}
+inline void vkCmdDrawIndexedIndirectCount(VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset, VkBuffer countBuffer, VkDeviceSize countBufferOffset, uint32_t maxDrawCount, uint32_t stride)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdDrawIndexedIndirectCount);
+	Kodiak::g_dispatcher.vkCmdDrawIndexedIndirectCount(commandBuffer, buffer, offset, countBuffer, countBufferOffset, maxDrawCount, stride);
+}
+inline void vkCmdDrawIndirectCount(VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset, VkBuffer countBuffer, VkDeviceSize countBufferOffset, uint32_t maxDrawCount, uint32_t stride)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdDrawIndirectCount);
+	Kodiak::g_dispatcher.vkCmdDrawIndirectCount(commandBuffer, buffer, offset, countBuffer, countBufferOffset, maxDrawCount, stride);
+}
+inline void vkCmdEndRenderPass2(VkCommandBuffer commandBuffer, const VkSubpassEndInfo* pSubpassEndInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdEndRenderPass2);
+	Kodiak::g_dispatcher.vkCmdEndRenderPass2(commandBuffer, pSubpassEndInfo);
+}
+inline void vkCmdNextSubpass2(VkCommandBuffer commandBuffer, const VkSubpassBeginInfo* pSubpassBeginInfo, const VkSubpassEndInfo* pSubpassEndInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdNextSubpass2);
+	Kodiak::g_dispatcher.vkCmdNextSubpass2(commandBuffer, pSubpassBeginInfo, pSubpassEndInfo);
+}
+inline KODIAK_NODISCARD VkResult vkCreateRenderPass2(VkDevice device, const VkRenderPassCreateInfo2* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkRenderPass* pRenderPass)
+{
+	VALIDATE_FUNCTION_POINTER(vkCreateRenderPass2);
+	return Kodiak::g_dispatcher.vkCreateRenderPass2(device, pCreateInfo, pAllocator, pRenderPass);
+}
+inline KODIAK_NODISCARD VkDeviceAddress vkGetBufferDeviceAddress(VkDevice device, const VkBufferDeviceAddressInfo* pInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetBufferDeviceAddress);
+	return Kodiak::g_dispatcher.vkGetBufferDeviceAddress(device, pInfo);
+}
+inline KODIAK_NODISCARD uint64_t vkGetBufferOpaqueCaptureAddress(VkDevice device, const VkBufferDeviceAddressInfo* pInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetBufferOpaqueCaptureAddress);
+	return Kodiak::g_dispatcher.vkGetBufferOpaqueCaptureAddress(device, pInfo);
+}
+inline KODIAK_NODISCARD uint64_t vkGetDeviceMemoryOpaqueCaptureAddress(VkDevice device, const VkDeviceMemoryOpaqueCaptureAddressInfo* pInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetDeviceMemoryOpaqueCaptureAddress);
+	return Kodiak::g_dispatcher.vkGetDeviceMemoryOpaqueCaptureAddress(device, pInfo);
+}
+inline KODIAK_NODISCARD VkResult vkGetSemaphoreCounterValue(VkDevice device, VkSemaphore semaphore, uint64_t* pValue)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetSemaphoreCounterValue);
+	return Kodiak::g_dispatcher.vkGetSemaphoreCounterValue(device, semaphore, pValue);
+}
+inline void vkResetQueryPool(VkDevice device, VkQueryPool queryPool, uint32_t firstQuery, uint32_t queryCount)
+{
+	VALIDATE_FUNCTION_POINTER(vkResetQueryPool);
+	Kodiak::g_dispatcher.vkResetQueryPool(device, queryPool, firstQuery, queryCount);
+}
+inline KODIAK_NODISCARD VkResult vkSignalSemaphore(VkDevice device, const VkSemaphoreSignalInfo* pSignalInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkSignalSemaphore);
+	return Kodiak::g_dispatcher.vkSignalSemaphore(device, pSignalInfo);
+}
+inline KODIAK_NODISCARD VkResult vkWaitSemaphores(VkDevice device, const VkSemaphoreWaitInfo* pWaitInfo, uint64_t timeout)
+{
+	VALIDATE_FUNCTION_POINTER(vkWaitSemaphores);
+	return Kodiak::g_dispatcher.vkWaitSemaphores(device, pWaitInfo, timeout);
+}
+
 #undef VALIDATE_FUNCTION_POINTER

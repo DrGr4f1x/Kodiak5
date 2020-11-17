@@ -17,6 +17,9 @@ namespace Kodiak
 PFN_##name name = nullptr
 
 
+enum class Extension : uint32_t;
+
+
 class Dispatcher
 {
 public:
@@ -27,6 +30,11 @@ public:
 	void Initialize(PFN_vkGetInstanceProcAddr getInstanceProcAddr);
 	void Initialize(VkInstance instance);
 	void Initialize(VkDevice device);
+	void LoadExtension(Extension extension);
+
+	//
+	//  CORE VULKAN
+	//
 
 	// Base functions (loaded without a VkInstance handle)
 	DECLARE_FUNCTION(vkCreateInstance);
@@ -214,6 +222,131 @@ public:
 	DECLARE_FUNCTION(vkSignalSemaphore);
 	DECLARE_FUNCTION(vkWaitSemaphores);
 
+
+	//
+	//  VULKAN EXTENSIONS
+	//
+
+	// VK_KHR_android_surface
+#ifdef VK_USE_PLATFORM_ANDROID_KHR
+	DECLARE_FUNCTION(vkCreateAndroidSurfaceKHR);
+#endif
+
+	// VK_KHR_copy_commands2
+	DECLARE_FUNCTION(vkCmdBlitImage2KHR);
+	DECLARE_FUNCTION(vkCmdCopyBuffer2KHR);
+	DECLARE_FUNCTION(vkCmdCopyBufferToImage2KHR);
+	DECLARE_FUNCTION(vkCmdCopyImage2KHR);
+	DECLARE_FUNCTION(vkCmdCopyImageToBuffer2KHR);
+	DECLARE_FUNCTION(vkCmdResolveImage2KHR);
+
+	// VK_KHR_display
+	DECLARE_FUNCTION(vkCreateDisplayModeKHR);
+	DECLARE_FUNCTION(vkCreateDisplayPlaneSurfaceKHR);
+	DECLARE_FUNCTION(vkGetDisplayModePropertiesKHR);
+	DECLARE_FUNCTION(vkGetDisplayPlaneCapabilitiesKHR);
+	DECLARE_FUNCTION(vkGetDisplayPlaneSupportedDisplaysKHR);
+	DECLARE_FUNCTION(vkGetPhysicalDeviceDisplayPlanePropertiesKHR);
+	DECLARE_FUNCTION(vkGetPhysicalDeviceDisplayPropertiesKHR);
+
+	// VK_KHR_display_swapchain
+	DECLARE_FUNCTION(vkCreateSharedSwapchainsKHR);
+
+	// VK_KHR_external_fence_fd
+	DECLARE_FUNCTION(vkGetFenceFdKHR);
+	DECLARE_FUNCTION(vkImportFenceFdKHR);
+
+	// VK_KHR_external_fence_win32
+	DECLARE_FUNCTION(vkGetFenceWin32HandleKHR);
+	DECLARE_FUNCTION(vkImportFenceWin32HandleKHR);
+
+	// VK_KHR_external_memory_fd
+	DECLARE_FUNCTION(vkGetMemoryFdKHR);
+	DECLARE_FUNCTION(vkGetMemoryFdPropertiesKHR);
+
+	// VK_KHR_external_memory_win32
+	DECLARE_FUNCTION(vkGetMemoryWin32HandleKHR);
+	DECLARE_FUNCTION(vkGetMemoryWin32HandlePropertiesKHR);
+
+	// VK_KHR_external_semaphore_fd
+	DECLARE_FUNCTION(vkGetSemaphoreFdKHR);
+	DECLARE_FUNCTION(vkImportSemaphoreFdKHR);
+
+	// VK_KHR_external_semaphore_win32
+	DECLARE_FUNCTION(vkGetSemaphoreWin32HandleKHR);
+	DECLARE_FUNCTION(vkImportSemaphoreWin32HandleKHR);
+
+#if 0
+	// VK_KHR_fragment_shading_rate
+	DECLARE_FUNCTION(vkCmdSetFragmentShadingRateKHR);
+	DECLARE_FUNCTION(vkGetPhysicalDeviceFragmentShadingRatesKHR);
+#endif
+
+	// VK_KHR_get_display_properties2
+	DECLARE_FUNCTION(vkGetDisplayModeProperties2KHR);
+	DECLARE_FUNCTION(vkGetDisplayPlaneCapabilities2KHR);
+	DECLARE_FUNCTION(vkGetPhysicalDeviceDisplayPlaneProperties2KHR);
+	DECLARE_FUNCTION(vkGetPhysicalDeviceDisplayProperties2KHR);
+
+	// VK_KHR_get_surface_capabilities2
+	DECLARE_FUNCTION(vkGetPhysicalDeviceSurfaceCapabilities2KHR);
+	DECLARE_FUNCTION(vkGetPhysicalDeviceSurfaceFormats2KHR);
+
+	// VK_KHR_performance_query
+	DECLARE_FUNCTION(vkAcquireProfilingLockKHR);
+	DECLARE_FUNCTION(vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR);
+	DECLARE_FUNCTION(vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR);
+	DECLARE_FUNCTION(vkReleaseProfilingLockKHR);
+
+	// VK_KHR_pipeline_executable_properties
+	DECLARE_FUNCTION(vkGetPipelineExecutableInternalRepresentationsKHR);
+	DECLARE_FUNCTION(vkGetPipelineExecutablePropertiesKHR);
+	DECLARE_FUNCTION(vkGetPipelineExecutableStatisticsKHR);
+
+	// VK_KHR_push_descriptor
+	DECLARE_FUNCTION(vkCmdPushDescriptorSetKHR);
+	DECLARE_FUNCTION(vkCmdPushDescriptorSetWithTemplateKHR);
+
+	// VK_KHR_shared_presentable_image
+	DECLARE_FUNCTION(vkGetSwapchainStatusKHR);
+
+	// VK_KHR_surface
+	DECLARE_FUNCTION(vkDestroySurfaceKHR);
+	DECLARE_FUNCTION(vkGetPhysicalDeviceSurfaceCapabilitiesKHR);
+	DECLARE_FUNCTION(vkGetPhysicalDeviceSurfaceFormatsKHR);
+	DECLARE_FUNCTION(vkGetPhysicalDeviceSurfacePresentModesKHR);
+	DECLARE_FUNCTION(vkGetPhysicalDeviceSurfaceSupportKHR);
+
+	// VK_KHR_swapchain
+	DECLARE_FUNCTION(vkAcquireNextImageKHR);
+	DECLARE_FUNCTION(vkCreateSwapchainKHR);
+	DECLARE_FUNCTION(vkDestroySwapchainKHR);
+	DECLARE_FUNCTION(vkGetSwapchainImagesKHR);
+	DECLARE_FUNCTION(vkQueuePresentKHR);
+
+#ifdef VK_USE_PLATFORM_WAYLAND_KHR
+	// VK_KHR_wayland_surface
+	DECLARE_FUNCTION(vkCreateWaylandSurfaceKHR);
+	DECLARE_FUNCTION(vkGetPhysicalDeviceWaylandPresentationSupportKHR);
+#endif
+
+#ifdef VK_USE_PLATFORM_WIN32_KHR
+	// VK_KHR_win32_surface
+	DECLARE_FUNCTION(vkCreateWin32SurfaceKHR);
+	DECLARE_FUNCTION(vkGetPhysicalDeviceWin32PresentationSupportKHR);
+#endif
+
+#ifdef VK_USE_PLATFORM_XCB_KHR
+	// VK_KHR_xcb_surface
+	DECLARE_FUNCTION(vkCreateXcbSurfaceKHR);
+	DECLARE_FUNCTION(vkGetPhysicalDeviceXcbPresentationSupportKHR);
+#endif
+
+#ifdef VK_USE_PLATFORM_XLIB_KHR
+	// VK_KHR_xlib_surface
+	DECLARE_FUNCTION(vkCreateXlibSurfaceKHR);
+	DECLARE_FUNCTION(vkGetPhysicalDeviceXlibPresentationSupportKHR);
+#endif
 
 private:
 	uint32_t m_apiVersion{ 0 };

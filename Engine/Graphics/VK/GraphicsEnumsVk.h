@@ -363,6 +363,7 @@ enum class Format : uint32_t
 
 Format VulkanFormatToEngine(VkFormat format);
 
+
 enum class Extension : uint32_t
 {
 #ifdef VK_USE_PLATFORM_ANDROID_KHR
@@ -377,7 +378,9 @@ enum class Extension : uint32_t
 	KHR_ExternalMemoryWin32,
 	KHR_ExternalSemaphoreFd,
 	KHR_ExternalSemaphoreWin32,
+#if 0
 	KHR_FragmentShadingRate,
+#endif
 	KHR_GetDisplayProperties2,
 	KHR_GetSurfaceCapabilities2,
 	KHR_IncrementalPresent,

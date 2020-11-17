@@ -507,6 +507,63 @@ public:
 	DECLARE_FUNCTION(vkCreateViSurfaceNN);
 #endif
 
+	// VK_NV_clip_space_w_scaling
+	DECLARE_FUNCTION(vkCmdSetViewportWScalingNV);
+
+	// VK_NV_cooperative_matrix
+	DECLARE_FUNCTION(vkGetPhysicalDeviceCooperativeMatrixPropertiesNV);
+
+	// VK_NV_coverage_reduction_mode
+	DECLARE_FUNCTION(vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV);
+
+	// VK_NV_device_diagnostic_checkpoints
+	DECLARE_FUNCTION(vkCmdSetCheckpointNV);
+	DECLARE_FUNCTION(vkGetQueueCheckpointDataNV);
+
+	// VK_NV_device_generated_commands
+	DECLARE_FUNCTION(vkCmdBindPipelineShaderGroupNV);
+	DECLARE_FUNCTION(vkCmdExecuteGeneratedCommandsNV);
+	DECLARE_FUNCTION(vkCmdPreprocessGeneratedCommandsNV);
+	DECLARE_FUNCTION(vkCreateIndirectCommandsLayoutNV);
+	DECLARE_FUNCTION(vkDestroyIndirectCommandsLayoutNV);
+	DECLARE_FUNCTION(vkGetGeneratedCommandsMemoryRequirementsNV);
+
+#if 0
+	// VK_NV_fragment_shading_rate_enums
+	DECLARE_FUNCTION(vkCmdSetFragmentShadingRateEnumNV);
+#endif
+
+	// VK_NV_mesh_shader
+	DECLARE_FUNCTION(vkCmdDrawMeshTasksIndirectCountNV);
+	DECLARE_FUNCTION(vkCmdDrawMeshTasksIndirectNV);
+	DECLARE_FUNCTION(vkCmdDrawMeshTasksNV);
+
+	// VK_NV_ray_tracing
+	DECLARE_FUNCTION(vkBindAccelerationStructureMemoryNV);
+	DECLARE_FUNCTION(vkCmdBuildAccelerationStructureNV);
+	DECLARE_FUNCTION(vkCmdCopyAccelerationStructureNV);
+	DECLARE_FUNCTION(vkCmdTraceRaysNV);
+	DECLARE_FUNCTION(vkCmdWriteAccelerationStructuresPropertiesNV);
+	DECLARE_FUNCTION(vkCompileDeferredNV);
+	DECLARE_FUNCTION(vkCreateAccelerationStructureNV);
+	DECLARE_FUNCTION(vkCreateRayTracingPipelinesNV);
+	DECLARE_FUNCTION(vkDestroyAccelerationStructureNV);
+	DECLARE_FUNCTION(vkGetAccelerationStructureHandleNV);
+	DECLARE_FUNCTION(vkGetAccelerationStructureMemoryRequirementsNV);
+	DECLARE_FUNCTION(vkGetRayTracingShaderGroupHandlesNV);
+
+	// VK_NV_scissor_exclusive
+	DECLARE_FUNCTION(vkCmdSetExclusiveScissorNV);
+
+	// VK_NV_shading_rate_image
+	DECLARE_FUNCTION(vkCmdBindShadingRateImageNV);
+	DECLARE_FUNCTION(vkCmdSetCoarseSampleOrderNV);
+	DECLARE_FUNCTION(vkCmdSetViewportShadingRatePaletteNV);
+
+	// VK_NVX_image_view_handle
+	DECLARE_FUNCTION(vkGetImageViewAddressNVX);
+	DECLARE_FUNCTION(vkGetImageViewHandleNVX);
+
 private:
 	uint32_t m_apiVersion{ 0 };
 	VkInstance m_instance{ VK_NULL_HANDLE };

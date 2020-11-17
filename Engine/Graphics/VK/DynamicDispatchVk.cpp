@@ -767,6 +767,74 @@ void Dispatcher::LoadExtension(Extension extension)
 		LOAD(vkCreateViSurfaceNN);
 		break;
 #endif
+
+	case Extension::NV_ClipSpaceWScaling:
+		LOAD(vkCmdSetViewportWScalingNV);
+		break;
+
+	case Extension::NV_CooperativeMatrix:
+		LOAD(vkGetPhysicalDeviceCooperativeMatrixPropertiesNV);
+		break;
+
+	case Extension::NV_CoverageReductionMode:
+		LOAD(vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV);
+		break;
+
+	case Extension::NV_DeviceDiagnosticCheckpoints:
+		LOAD(vkCmdSetCheckpointNV);
+		LOAD(vkGetQueueCheckpointDataNV);
+		break;
+
+	case Extension::NV_DeviceGeneratedCommands:
+		LOAD(vkCmdBindPipelineShaderGroupNV);
+		LOAD(vkCmdExecuteGeneratedCommandsNV);
+		LOAD(vkCmdPreprocessGeneratedCommandsNV);
+		LOAD(vkCreateIndirectCommandsLayoutNV);
+		LOAD(vkDestroyIndirectCommandsLayoutNV);
+		LOAD(vkGetGeneratedCommandsMemoryRequirementsNV);
+		break;
+
+#if 0
+	case Extension::NV_FragmentShadingRateEnums:
+		LOAD(vkCmdSetFragmentShadingRateEnumNV);
+		break;
+#endif
+
+	case Extension::NV_MeshShader:
+		LOAD(vkCmdDrawMeshTasksIndirectCountNV);
+		LOAD(vkCmdDrawMeshTasksIndirectNV);
+		LOAD(vkCmdDrawMeshTasksNV);
+		break;
+
+	case Extension::NV_RayTracing:
+		LOAD(vkBindAccelerationStructureMemoryNV);
+		LOAD(vkCmdBuildAccelerationStructureNV);
+		LOAD(vkCmdCopyAccelerationStructureNV);
+		LOAD(vkCmdTraceRaysNV);
+		LOAD(vkCmdWriteAccelerationStructuresPropertiesNV);
+		LOAD(vkCompileDeferredNV);
+		LOAD(vkCreateAccelerationStructureNV);
+		LOAD(vkCreateRayTracingPipelinesNV);
+		LOAD(vkDestroyAccelerationStructureNV);
+		LOAD(vkGetAccelerationStructureHandleNV);
+		LOAD(vkGetAccelerationStructureMemoryRequirementsNV);
+		LOAD(vkGetRayTracingShaderGroupHandlesNV);
+		break;
+
+	case Extension::NV_ScissorExclusive:
+		LOAD(vkCmdSetExclusiveScissorNV);
+		break;
+
+	case Extension::NV_ShadingRateImage:
+		LOAD(vkCmdBindShadingRateImageNV);
+		LOAD(vkCmdSetCoarseSampleOrderNV);
+		LOAD(vkCmdSetViewportShadingRatePaletteNV);
+		break;
+
+	case Extension::NVX_ImageViewHandle:
+		LOAD(vkGetImageViewAddressNVX);
+		LOAD(vkGetImageViewHandleNVX);
+		break;
 	}
 
 	#undef LOAD

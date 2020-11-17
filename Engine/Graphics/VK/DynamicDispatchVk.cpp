@@ -841,34 +841,3 @@ void Dispatcher::LoadExtension(Extension extension)
 }
 
 } // namespace Kodiak
-
-
-// Base functions
-VkResult vkCreateInstance(const VkInstanceCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkInstance* pInstance)
-{
-	return g_dispatcher.vkCreateInstance(pCreateInfo, pAllocator, pInstance);
-}
-
-
-VkResult vkEnumerateInstanceExtensionProperties(const char* pLayerName, uint32_t* pPropertyCount, VkExtensionProperties* pProperties)
-{
-	return g_dispatcher.vkEnumerateInstanceExtensionProperties(pLayerName, pPropertyCount, pProperties);
-}
-
-
-VkResult vkEnumerateInstanceLayerProperties(uint32_t* pPropertyCount, VkLayerProperties* pProperties)
-{
-	return g_dispatcher.vkEnumerateInstanceLayerProperties(pPropertyCount, pProperties);
-}
-
-
-VkResult vkEnumerateInstanceVersion(uint32_t* pApiVersion)
-{
-	return g_dispatcher.vkEnumerateInstanceVersion(pApiVersion);
-}
-
-
-PFN_vkVoidFunction vkGetInstanceProcAddr(VkInstance instance, const char* pName)
-{
-	return g_dispatcher.vkGetInstanceProcAddr(instance, pName);
-}

@@ -90,9 +90,6 @@ inline void ThrowIfFailed(HRESULT hr)
 #include "Utility.h"
 #include "VectorMath.h"
 
-// Engine\Graphics headers
-#include "Graphics\GraphicsEnums.h"
-
 // Graphics API headers
 #if defined(DX12)
 #include "Graphics\DX12\Platform12.h"
@@ -101,6 +98,9 @@ inline void ThrowIfFailed(HRESULT hr)
 #else
 #error No graphics API defined!
 #endif
+
+// Engine\Graphics headers
+#include "Graphics\GraphicsEnums.h"
 
 // Engine info
 #define KODIAK_MAKE_VERSION(major, minor, patch) \

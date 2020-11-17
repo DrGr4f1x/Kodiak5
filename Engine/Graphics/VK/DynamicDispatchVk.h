@@ -586,22 +586,22 @@ assert_msg(Kodiak::g_dispatcher.##FPTR, "Function pointer #FPTR is null")
 
 
 // Base functions
-inline VkResult vkCreateInstance(const VkInstanceCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkInstance* pInstance)
+inline KODIAK_NODISCARD VkResult vkCreateInstance(const VkInstanceCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkInstance* pInstance)
 {
 	VALIDATE_FUNCTION_POINTER(vkCreateInstance);
 	return Kodiak::g_dispatcher.vkCreateInstance(pCreateInfo, pAllocator, pInstance);
 }
-inline VkResult vkEnumerateInstanceExtensionProperties(const char* pLayerName, uint32_t* pPropertyCount, VkExtensionProperties* pProperties)
+inline KODIAK_NODISCARD VkResult vkEnumerateInstanceExtensionProperties(const char* pLayerName, uint32_t* pPropertyCount, VkExtensionProperties* pProperties)
 {
 	VALIDATE_FUNCTION_POINTER(vkEnumerateInstanceExtensionProperties);
 	return Kodiak::g_dispatcher.vkEnumerateInstanceExtensionProperties(pLayerName, pPropertyCount, pProperties);
 }
-inline VkResult vkEnumerateInstanceLayerProperties(uint32_t* pPropertyCount, VkLayerProperties* pProperties)
+inline KODIAK_NODISCARD VkResult vkEnumerateInstanceLayerProperties(uint32_t* pPropertyCount, VkLayerProperties* pProperties)
 {
 	VALIDATE_FUNCTION_POINTER(vkEnumerateInstanceLayerProperties);
 	return Kodiak::g_dispatcher.vkEnumerateInstanceLayerProperties(pPropertyCount, pProperties);
 }
-inline VkResult vkEnumerateInstanceVersion(uint32_t* pApiVersion)
+inline KODIAK_NODISCARD VkResult vkEnumerateInstanceVersion(uint32_t* pApiVersion)
 {
 	VALIDATE_FUNCTION_POINTER(vkEnumerateInstanceVersion);
 	return Kodiak::g_dispatcher.vkEnumerateInstanceVersion(pApiVersion);
@@ -1075,59 +1075,260 @@ inline KODIAK_NODISCARD VkResult vkCreateShaderModule(VkDevice device, const VkS
 	VALIDATE_FUNCTION_POINTER(vkCreateShaderModule);
 	return Kodiak::g_dispatcher.vkCreateShaderModule(device, pCreateInfo, pAllocator, pShaderModule);
 }
-
-
-
-DECLARE_FUNCTION(vkDestroyBuffer);
-DECLARE_FUNCTION(vkDestroyBufferView);
-DECLARE_FUNCTION(vkDestroyCommandPool);
-DECLARE_FUNCTION(vkDestroyDescriptorPool);
-DECLARE_FUNCTION(vkDestroyDescriptorSetLayout);
-DECLARE_FUNCTION(vkDestroyDevice);
-DECLARE_FUNCTION(vkDestroyEvent);
-DECLARE_FUNCTION(vkDestroyFence);
-DECLARE_FUNCTION(vkDestroyFramebuffer);
-DECLARE_FUNCTION(vkDestroyImage);
-DECLARE_FUNCTION(vkDestroyImageView);
-DECLARE_FUNCTION(vkDestroyPipeline);
-DECLARE_FUNCTION(vkDestroyPipelineCache);
-DECLARE_FUNCTION(vkDestroyPipelineLayout);
-DECLARE_FUNCTION(vkDestroyQueryPool);
-DECLARE_FUNCTION(vkDestroyRenderPass);
-DECLARE_FUNCTION(vkDestroySampler);
-DECLARE_FUNCTION(vkDestroySemaphore);
-DECLARE_FUNCTION(vkDestroyShaderModule);
-DECLARE_FUNCTION(vkDeviceWaitIdle);
-DECLARE_FUNCTION(vkEndCommandBuffer);
-DECLARE_FUNCTION(vkFlushMappedMemoryRanges);
-DECLARE_FUNCTION(vkFreeCommandBuffers);
-DECLARE_FUNCTION(vkFreeDescriptorSets);
-DECLARE_FUNCTION(vkFreeMemory);
-DECLARE_FUNCTION(vkGetBufferMemoryRequirements);
-DECLARE_FUNCTION(vkGetDeviceMemoryCommitment);
-DECLARE_FUNCTION(vkGetDeviceQueue);
-DECLARE_FUNCTION(vkGetEventStatus);
-DECLARE_FUNCTION(vkGetFenceStatus);
-DECLARE_FUNCTION(vkGetImageMemoryRequirements);
-DECLARE_FUNCTION(vkGetImageSparseMemoryRequirements);
-DECLARE_FUNCTION(vkGetImageSubresourceLayout);
-DECLARE_FUNCTION(vkGetPipelineCacheData);
-DECLARE_FUNCTION(vkGetQueryPoolResults);
-DECLARE_FUNCTION(vkGetRenderAreaGranularity);
-DECLARE_FUNCTION(vkInvalidateMappedMemoryRanges);
-DECLARE_FUNCTION(vkMapMemory);
-DECLARE_FUNCTION(vkMergePipelineCaches);
-DECLARE_FUNCTION(vkQueueBindSparse);
-DECLARE_FUNCTION(vkQueueSubmit);
-DECLARE_FUNCTION(vkQueueWaitIdle);
-DECLARE_FUNCTION(vkResetCommandBuffer);
-DECLARE_FUNCTION(vkResetCommandPool);
-DECLARE_FUNCTION(vkResetDescriptorPool);
-DECLARE_FUNCTION(vkResetEvent);
-DECLARE_FUNCTION(vkResetFences);
-DECLARE_FUNCTION(vkSetEvent);
-DECLARE_FUNCTION(vkUnmapMemory);
-DECLARE_FUNCTION(vkUpdateDescriptorSets);
-DECLARE_FUNCTION(vkWaitForFences);
+inline void vkDestroyBuffer(VkDevice device, VkBuffer buffer, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroyBuffer);
+	Kodiak::g_dispatcher.vkDestroyBuffer(device, buffer, pAllocator);
+}
+inline void vkDestroyBufferView(VkDevice device, VkBufferView bufferView, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroyBufferView);
+	Kodiak::g_dispatcher.vkDestroyBufferView(device, bufferView, pAllocator);
+}
+inline void vkDestroyCommandPool(VkDevice device, VkCommandPool commandPool, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroyCommandPool);
+	Kodiak::g_dispatcher.vkDestroyCommandPool(device, commandPool, pAllocator);
+}
+inline void vkDestroyDescriptorPool(VkDevice device, VkDescriptorPool descriptorPool, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroyDescriptorPool);
+	Kodiak::g_dispatcher.vkDestroyDescriptorPool(device, descriptorPool, pAllocator);
+}
+inline void vkDestroyDescriptorSetLayout(VkDevice device, VkDescriptorSetLayout descriptorSetLayout, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroyDescriptorSetLayout);
+	Kodiak::g_dispatcher.vkDestroyDescriptorSetLayout(device, descriptorSetLayout, pAllocator);
+}
+inline void vkDestroyDevice(VkDevice device, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroyDevice);
+	Kodiak::g_dispatcher.vkDestroyDevice(device, pAllocator);
+}
+inline void vkDestroyEvent(VkDevice device, VkEvent event, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroyEvent);
+	Kodiak::g_dispatcher.vkDestroyEvent(device, event, pAllocator);
+}
+inline void vkDestroyFence(VkDevice device, VkFence fence, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroyFence);
+	Kodiak::g_dispatcher.vkDestroyFence(device, fence, pAllocator);
+}
+inline void vkDestroyFramebuffer(VkDevice device, VkFramebuffer framebuffer, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroyFramebuffer);
+	Kodiak::g_dispatcher.vkDestroyFramebuffer(device, framebuffer, pAllocator);
+}
+inline void vkDestroyImage(VkDevice device, VkImage image, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroyImage);
+	Kodiak::g_dispatcher.vkDestroyImage(device, image, pAllocator);
+}
+inline void vkDestroyImageView(VkDevice device, VkImageView imageView, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroyImageView);
+	Kodiak::g_dispatcher.vkDestroyImageView(device, imageView, pAllocator);
+}
+inline void vkDestroyPipeline(VkDevice device, VkPipeline pipeline, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroyPipeline);
+	Kodiak::g_dispatcher.vkDestroyPipeline(device, pipeline, pAllocator);
+}
+inline void vkDestroyPipelineCache(VkDevice device, VkPipelineCache pipelineCache, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroyPipelineCache);
+	Kodiak::g_dispatcher.vkDestroyPipelineCache(device, pipelineCache, pAllocator);
+}
+inline void vkDestroyPipelineLayout(VkDevice device, VkPipelineLayout pipelineLayout, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroyPipelineLayout);
+	Kodiak::g_dispatcher.vkDestroyPipelineLayout(device, pipelineLayout, pAllocator);
+}
+inline void vkDestroyQueryPool(VkDevice device, VkQueryPool queryPool, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroyQueryPool);
+	Kodiak::g_dispatcher.vkDestroyQueryPool(device, queryPool, pAllocator);
+}
+inline void vkDestroyRenderPass(VkDevice device, VkRenderPass renderPass, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroyRenderPass);
+	Kodiak::g_dispatcher.vkDestroyRenderPass(device, renderPass, pAllocator);
+}
+inline void vkDestroySampler(VkDevice device, VkSampler sampler, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroySampler);
+	Kodiak::g_dispatcher.vkDestroySampler(device, sampler, pAllocator);
+}
+inline void vkDestroySemaphore(VkDevice device, VkSemaphore semaphore, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroySemaphore);
+	Kodiak::g_dispatcher.vkDestroySemaphore(device, semaphore, pAllocator);
+}
+inline void vkDestroyShaderModule(VkDevice device, VkShaderModule shaderModule, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroyShaderModule);
+	Kodiak::g_dispatcher.vkDestroyShaderModule(device, shaderModule, pAllocator);
+}
+inline KODIAK_NODISCARD VkResult vkDeviceWaitIdle(VkDevice device)
+{
+	VALIDATE_FUNCTION_POINTER(vkDeviceWaitIdle);
+	return Kodiak::g_dispatcher.vkDeviceWaitIdle(device);
+}
+inline KODIAK_NODISCARD VkResult vkEndCommandBuffer(VkCommandBuffer commandBuffer)
+{
+	VALIDATE_FUNCTION_POINTER(vkEndCommandBuffer);
+	return Kodiak::g_dispatcher.vkEndCommandBuffer(commandBuffer);
+}
+inline KODIAK_NODISCARD VkResult vkFlushMappedMemoryRanges(VkDevice device, uint32_t memoryRangeCount, const VkMappedMemoryRange* pMemoryRanges)
+{
+	VALIDATE_FUNCTION_POINTER(vkFlushMappedMemoryRanges);
+	return Kodiak::g_dispatcher.vkFlushMappedMemoryRanges(device, memoryRangeCount, pMemoryRanges);
+}
+inline void vkFreeCommandBuffers(VkDevice device, VkCommandPool commandPool, uint32_t commandBufferCount, const VkCommandBuffer* pCommandBuffers)
+{
+	VALIDATE_FUNCTION_POINTER(vkFreeCommandBuffers);
+	Kodiak::g_dispatcher.vkFreeCommandBuffers(device, commandPool, commandBufferCount, pCommandBuffers);
+}
+inline KODIAK_NODISCARD VkResult vkFreeDescriptorSets(VkDevice device, VkDescriptorPool descriptorPool, uint32_t descriptorSetCount, const VkDescriptorSet* pDescriptorSets)
+{
+	VALIDATE_FUNCTION_POINTER(vkFreeDescriptorSets);
+	Kodiak::g_dispatcher.vkFreeDescriptorSets(device, descriptorPool, descriptorSetCount, pDescriptorSets);
+}
+inline void vkFreeMemory(VkDevice device, VkDeviceMemory memory, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkFreeMemory);
+	Kodiak::g_dispatcher.vkFreeMemory(device, memory, pAllocator);
+}
+inline void vkGetBufferMemoryRequirements(VkDevice device, VkBuffer buffer, VkMemoryRequirements* pMemoryRequirements)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetBufferMemoryRequirements);
+	Kodiak::g_dispatcher.vkGetBufferMemoryRequirements(device, buffer, pMemoryRequirements);
+}
+inline void vkGetDeviceMemoryCommitment(VkDevice device, VkDeviceMemory memory, VkDeviceSize* pCommittedMemoryInBytes)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetDeviceMemoryCommitment);
+	Kodiak::g_dispatcher.vkGetDeviceMemoryCommitment(device, memory, pCommittedMemoryInBytes);
+}
+inline void vkGetDeviceQueue(VkDevice device, uint32_t queueFamilyIndex, uint32_t queueIndex, VkQueue* pQueue)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetDeviceQueue);
+	Kodiak::g_dispatcher.vkGetDeviceQueue(device, queueFamilyIndex, queueIndex, pQueue);
+}
+inline KODIAK_NODISCARD VkResult vkGetEventStatus(VkDevice device, VkEvent event)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetEventStatus);
+	return Kodiak::g_dispatcher.vkGetEventStatus(device, event);
+}
+inline KODIAK_NODISCARD VkResult vkGetFenceStatus(VkDevice device, VkFence fence)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetEventStatus);
+	return Kodiak::g_dispatcher.vkGetFenceStatus(device, fence);
+}
+inline void vkGetImageMemoryRequirements(VkDevice device, VkImage image, VkMemoryRequirements* pMemoryRequirements)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetImageMemoryRequirements);
+	Kodiak::g_dispatcher.vkGetImageMemoryRequirements(device, image, pMemoryRequirements);
+}
+inline void vkGetImageSparseMemoryRequirements(VkDevice device, VkImage image, uint32_t* pSparseMemoryRequirementCount, VkSparseImageMemoryRequirements* pSparseMemoryRequirements)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetImageSparseMemoryRequirements);
+	Kodiak::g_dispatcher.vkGetImageSparseMemoryRequirements(device, image, pSparseMemoryRequirementCount, pSparseMemoryRequirements);
+}
+inline void vkGetImageSubresourceLayout(VkDevice device, VkImage image, const VkImageSubresource* pSubresource, VkSubresourceLayout* pLayout)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetImageSubresourceLayout);
+	Kodiak::g_dispatcher.vkGetImageSubresourceLayout(device, image, pSubresource, pLayout);
+}
+inline KODIAK_NODISCARD VkResult vkGetPipelineCacheData(VkDevice device, VkPipelineCache pipelineCache, size_t* pDataSize, void* pData)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPipelineCacheData);
+	return Kodiak::g_dispatcher.vkGetPipelineCacheData(device, pipelineCache, pDataSize, pData);
+}
+inline KODIAK_NODISCARD VkResult vkGetQueryPoolResults(VkDevice device, VkQueryPool queryPool, uint32_t firstQuery, uint32_t queryCount, size_t dataSize, void* pData, VkDeviceSize stride, VkQueryResultFlags flags)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetQueryPoolResults);
+	return Kodiak::g_dispatcher.vkGetQueryPoolResults(device, queryPool, firstQuery, queryCount, dataSize, pData, stride, flags);
+}
+inline void vkGetRenderAreaGranularity(VkDevice device, VkRenderPass renderPass, VkExtent2D* pGranularity)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetRenderAreaGranularity);
+	Kodiak::g_dispatcher.vkGetRenderAreaGranularity(device, renderPass, pGranularity);
+}
+inline KODIAK_NODISCARD VkResult vkInvalidateMappedMemoryRanges(VkDevice device, uint32_t memoryRangeCount, const VkMappedMemoryRange* pMemoryRanges)
+{
+	VALIDATE_FUNCTION_POINTER(vkInvalidateMappedMemoryRanges);
+	return Kodiak::g_dispatcher.vkInvalidateMappedMemoryRanges(device, memoryRangeCount, pMemoryRanges);
+}
+inline KODIAK_NODISCARD VkResult vkMapMemory(VkDevice device, VkDeviceMemory memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, void** ppData)
+{
+	VALIDATE_FUNCTION_POINTER(vkMapMemory);
+	return Kodiak::g_dispatcher.vkMapMemory(device, memory, offset, size, flags, ppData);
+}
+inline KODIAK_NODISCARD VkResult vkMergePipelineCaches(VkDevice device, VkPipelineCache dstCache, uint32_t srcCacheCount, const VkPipelineCache* pSrcCaches)
+{
+	VALIDATE_FUNCTION_POINTER(vkMergePipelineCaches);
+	return Kodiak::g_dispatcher.vkMergePipelineCaches(device, dstCache, srcCacheCount, pSrcCaches);
+}
+inline KODIAK_NODISCARD VkResult vkQueueBindSparse(VkQueue queue, uint32_t bindInfoCount, const VkBindSparseInfo* pBindInfo, VkFence fence)
+{
+	VALIDATE_FUNCTION_POINTER(vkQueueBindSparse);
+	return Kodiak::g_dispatcher.vkQueueBindSparse(queue, bindInfoCount, pBindInfo, fence);
+}
+inline KODIAK_NODISCARD VkResult vkQueueSubmit(VkQueue queue, uint32_t submitCount, const VkSubmitInfo* pSubmits, VkFence fence)
+{
+	VALIDATE_FUNCTION_POINTER(vkQueueSubmit);
+	return Kodiak::g_dispatcher.vkQueueSubmit(queue, submitCount, pSubmits, fence);
+}
+inline KODIAK_NODISCARD VkResult vkQueueWaitIdle(VkQueue queue)
+{
+	VALIDATE_FUNCTION_POINTER(vkQueueWaitIdle);
+	return Kodiak::g_dispatcher.vkQueueWaitIdle(queue);
+}
+inline KODIAK_NODISCARD VkResult vkResetCommandBuffer(VkCommandBuffer commandBuffer, VkCommandBufferResetFlags flags)
+{
+	VALIDATE_FUNCTION_POINTER(vkResetCommandBuffer);
+	return Kodiak::g_dispatcher.vkResetCommandBuffer(commandBuffer, flags);
+}
+inline KODIAK_NODISCARD VkResult vkResetCommandPool(VkDevice device, VkCommandPool commandPool, VkCommandPoolResetFlags flags)
+{
+	VALIDATE_FUNCTION_POINTER(vkResetCommandPool);
+	return Kodiak::g_dispatcher.vkResetCommandPool(device, commandPool, flags);
+}
+inline KODIAK_NODISCARD VkResult vkResetDescriptorPool(VkDevice device, VkDescriptorPool descriptorPool, VkDescriptorPoolResetFlags flags)
+{
+	VALIDATE_FUNCTION_POINTER(vkResetDescriptorPool);
+	return Kodiak::g_dispatcher.vkResetDescriptorPool(device, descriptorPool, flags);
+}
+inline KODIAK_NODISCARD VkResult vkResetEvent(VkDevice device, VkEvent event)
+{
+	VALIDATE_FUNCTION_POINTER(vkResetEvent);
+	return Kodiak::g_dispatcher.vkResetEvent(device, event);
+}
+inline KODIAK_NODISCARD VkResult vkResetFences(VkDevice device, uint32_t fenceCount, const VkFence* pFences)
+{
+	VALIDATE_FUNCTION_POINTER(vkResetFences);
+	return Kodiak::g_dispatcher.vkResetFences(device, fenceCount, pFences);
+}
+inline KODIAK_NODISCARD VkResult vkSetEvent(VkDevice device, VkEvent event)
+{
+	VALIDATE_FUNCTION_POINTER(vkSetEvent);
+	return Kodiak::g_dispatcher.vkSetEvent(device, event);
+}
+inline void vkUnmapMemory(VkDevice device, VkDeviceMemory memory)
+{
+	VALIDATE_FUNCTION_POINTER(vkUnmapMemory);
+	Kodiak::g_dispatcher.vkUnmapMemory(device, memory);
+}
+inline void vkUpdateDescriptorSets(VkDevice device, uint32_t descriptorWriteCount, const VkWriteDescriptorSet* pDescriptorWrites, uint32_t descriptorCopyCount, const VkCopyDescriptorSet* pDescriptorCopies)
+{
+	VALIDATE_FUNCTION_POINTER(vkUpdateDescriptorSets);
+	Kodiak::g_dispatcher.vkUpdateDescriptorSets(device, descriptorWriteCount, pDescriptorWrites, descriptorCopyCount, pDescriptorCopies);
+}
+inline KODIAK_NODISCARD VkResult vkWaitForFences(VkDevice device, uint32_t fenceCount, const VkFence* pFences, VkBool32 waitAll, uint64_t timeout)
+{
+	VALIDATE_FUNCTION_POINTER(vkWaitForFences);
+	return Kodiak::g_dispatcher.vkWaitForFences(device, fenceCount, pFences, waitAll, timeout);
+}
 
 #undef VALIDATE_FUNCTION_POINTER

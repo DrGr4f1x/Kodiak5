@@ -17,6 +17,30 @@
 #define NOMINMAX
 #endif
 
+#if defined(_MSVC_LANG)
+#define KODIAK_CPLUSPLUS _MSVC_LANG
+#else
+#define KODIAK_CPLUSPLUS __cplusplus
+#endif
+
+#if 201703L < KODIAK_CPLUSPLUS
+#define KODIAK_CPP_VERSION 20
+#elif 201402L < KODIAK_CPLUSPLUS
+#define KODIAK_CPP_VERSION 17
+#elif 201103L < KODIAK_CPLUSPLUS
+#define KODIAK_CPP_VERSION 14
+#elif 199711L < KODIAK_CPLUSPLUS
+#define KODIAK_CPP_VERSION 11
+#else
+#error "Kodiak needs at least C++ standard version 11"
+#endif
+
+#if (17 <= KODIAK_CPP_VERSION)
+#define KODIAK_NODISCARD [[nodiscard]]
+#else
+#define KODIAK_NODISCARD
+#endif
+
 // Windows headers
 #include <windows.h>
 #include <wrl.h>
@@ -63,9 +87,6 @@ inline void ThrowIfFailed(HRESULT hr)
 #include "Utility.h"
 #include "VectorMath.h"
 
-// Engine\Graphics headers
-#include "Graphics\GraphicsEnums.h"
-
 // Graphics API headers
 #if defined(DX12)
 #include "Graphics\DX12\Platform12.h"
@@ -74,3 +95,6 @@ inline void ThrowIfFailed(HRESULT hr)
 #else
 #error No graphics API defined!
 #endif
+
+// Engine\Graphics headers
+#include "Graphics\GraphicsEnums.h"

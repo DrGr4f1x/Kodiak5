@@ -729,4 +729,216 @@ inline void vkGetPhysicalDeviceSparseImageFormatProperties2(VkPhysicalDevice phy
 }
 
 
+// Vulkan 1.0 device functions
+inline KODIAK_NODISCARD VkResult vkAllocateCommandBuffers(VkDevice device, const VkCommandBufferAllocateInfo* pAllocateInfo, VkCommandBuffer* pCommandBuffers)
+{
+	VALIDATE_FUNCTION_POINTER(vkAllocateCommandBuffers);
+	return Kodiak::g_dispatcher.vkAllocateCommandBuffers(device, pAllocateInfo, pCommandBuffers);
+}
+inline KODIAK_NODISCARD VkResult vkAllocateDescriptorSets(VkDevice device, const VkDescriptorSetAllocateInfo* pAllocateInfo, VkDescriptorSet* pDescriptorSets)
+{
+	VALIDATE_FUNCTION_POINTER(vkAllocateDescriptorSets);
+	return Kodiak::g_dispatcher.vkAllocateDescriptorSets(device, pAllocateInfo, pDescriptorSets);
+}
+inline KODIAK_NODISCARD VkResult vkAllocateMemory(VkDevice device, const VkMemoryAllocateInfo* pAllocateInfo, const VkAllocationCallbacks* pAllocator, VkDeviceMemory* pMemory)
+{
+	VALIDATE_FUNCTION_POINTER(vkAllocateMemory);
+	return Kodiak::g_dispatcher.vkAllocateMemory(device, pAllocateInfo, pAllocator, pMemory);
+}
+inline KODIAK_NODISCARD VkResult vkBeginCommandBuffer(VkCommandBuffer commandBuffer, const VkCommandBufferBeginInfo* pBeginInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkBeginCommandBuffer);
+	return Kodiak::g_dispatcher.vkBeginCommandBuffer(commandBuffer, pBeginInfo);
+}
+inline KODIAK_NODISCARD VkResult vkBindBufferMemory(VkDevice device, VkBuffer buffer, VkDeviceMemory memory, VkDeviceSize memoryOffset)
+{
+	VALIDATE_FUNCTION_POINTER(vkBindBufferMemory);
+	return Kodiak::g_dispatcher.vkBindBufferMemory(device, buffer, memory, memoryOffset);
+}
+inline KODIAK_NODISCARD VkResult vkBindImageMemory(VkDevice device, VkImage image, VkDeviceMemory memory, VkDeviceSize memoryOffset)
+{
+	VALIDATE_FUNCTION_POINTER(vkBindImageMemory);
+	return Kodiak::g_dispatcher.vkBindImageMemory(device, image, memory, memoryOffset);
+}
+inline void vkCmdBeginQuery(VkCommandBuffer commandBuffer, VkQueryPool queryPool, uint32_t query, VkQueryControlFlags flags)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdBeginQuery);
+	Kodiak::g_dispatcher.vkCmdBeginQuery(commandBuffer, queryPool, query, flags);
+}
+inline void vkCmdBeginRenderPass(VkCommandBuffer commandBuffer, const VkRenderPassBeginInfo* pRenderPassBegin, VkSubpassContents contents)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdBeginRenderPass);
+	Kodiak::g_dispatcher.vkCmdBeginRenderPass(commandBuffer, pRenderPassBegin, contents);
+}
+inline void vkCmdBindDescriptorSets(VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipelineLayout layout, uint32_t firstSet, uint32_t descriptorSetCount, const VkDescriptorSet* pDescriptorSets, uint32_t dynamicOffsetCount, const uint32_t* pDynamicOffsets)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdBindDescriptorSets);
+	Kodiak::g_dispatcher.vkCmdBindDescriptorSets(commandBuffer, pipelineBindPoint, layout, firstSet, descriptorSetCount, pDescriptorSets, dynamicOffsetCount, pDynamicOffsets);
+}
+inline void vkCmdBindIndexBuffer(VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset, VkIndexType indexType)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdBindIndexBuffer);
+	Kodiak::g_dispatcher.vkCmdBindIndexBuffer(commandBuffer, buffer, offset, indexType);
+}
+inline void vkCmdBindPipeline(VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipeline pipeline)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdBindPipeline);
+	Kodiak::g_dispatcher.vkCmdBindPipeline(commandBuffer, pipelineBindPoint, pipeline);
+}
+inline void vkCmdBindVertexBuffers(VkCommandBuffer commandBuffer, uint32_t firstBinding, uint32_t bindingCount, const VkBuffer* pBuffers, const VkDeviceSize* pOffsets)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdBindVertexBuffers);
+	Kodiak::g_dispatcher.vkCmdBindVertexBuffers(commandBuffer, firstBinding, bindingCount, pBuffers, pOffsets);
+}
+inline void vkCmdBlitImage(VkCommandBuffer commandBuffer, VkImage srcImage, VkImageLayout srcImageLayout, VkImage dstImage, VkImageLayout dstImageLayout, uint32_t regionCount, const VkImageBlit* pRegions, VkFilter filter)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdBlitImage);
+	Kodiak::g_dispatcher.vkCmdBlitImage(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions, filter);
+}
+inline void vkCmdClearAttachments(VkCommandBuffer commandBuffer, uint32_t attachmentCount, const VkClearAttachment* pAttachments, uint32_t rectCount, const VkClearRect* pRects)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdClearAttachments);
+	Kodiak::g_dispatcher.vkCmdClearAttachments(commandBuffer, attachmentCount, pAttachments, rectCount, pRects);
+}
+inline void vkCmdClearColorImage(VkCommandBuffer commandBuffer, VkImage image, VkImageLayout imageLayout, const VkClearColorValue* pColor, uint32_t rangeCount, const VkImageSubresourceRange* pRanges)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdClearColorImage);
+	Kodiak::g_dispatcher.vkCmdClearColorImage(commandBuffer, image, imageLayout, pColor, rangeCount, pRanges);
+}
+inline void vkCmdClearDepthStencilImage(VkCommandBuffer commandBuffer, VkImage image, VkImageLayout imageLayout, const VkClearDepthStencilValue* pDepthStencil, uint32_t rangeCount, const VkImageSubresourceRange* pRanges)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdClearDepthStencilImage);
+	Kodiak::g_dispatcher.vkCmdClearDepthStencilImage(commandBuffer, image, imageLayout, pDepthStencil, rangeCount, pRanges);
+}
+inline void vkCmdCopyBuffer(VkCommandBuffer commandBuffer, VkBuffer srcBuffer, VkBuffer dstBuffer, uint32_t regionCount, const VkBufferCopy* pRegions)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdCopyBuffer);
+	Kodiak::g_dispatcher.vkCmdCopyBuffer(commandBuffer, srcBuffer, dstBuffer, regionCount, pRegions);
+}
+inline void vkCmdCopyBufferToImage(VkCommandBuffer commandBuffer, VkBuffer srcBuffer, VkImage dstImage, VkImageLayout dstImageLayout, uint32_t regionCount, const VkBufferImageCopy* pRegions)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdCopyBufferToImage);
+	Kodiak::g_dispatcher.vkCmdCopyBufferToImage(commandBuffer, srcBuffer, dstImage, dstImageLayout, regionCount, pRegions);
+}
+inline void vkCmdCopyImage(VkCommandBuffer commandBuffer, VkImage srcImage, VkImageLayout srcImageLayout, VkImage dstImage, VkImageLayout dstImageLayout, uint32_t regionCount, const VkImageCopy* pRegions)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdCopyImage);
+	Kodiak::g_dispatcher.vkCmdCopyImage(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions);
+}
+inline void vkCmdCopyImageToBuffer(VkCommandBuffer commandBuffer, VkImage srcImage, VkImageLayout srcImageLayout, VkBuffer dstBuffer, uint32_t regionCount, const VkBufferImageCopy* pRegions)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdCopyImageToBuffer);
+	Kodiak::g_dispatcher.vkCmdCopyImageToBuffer(commandBuffer, srcImage, srcImageLayout, dstBuffer, regionCount, pRegions);
+}
+inline void vkCmdCopyQueryPoolResults(VkCommandBuffer commandBuffer, VkQueryPool queryPool, uint32_t firstQuery, uint32_t queryCount, VkBuffer dstBuffer, VkDeviceSize dstOffset, VkDeviceSize stride, VkQueryResultFlags flags)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdCopyQueryPoolResults);
+	Kodiak::g_dispatcher.vkCmdCopyQueryPoolResults(commandBuffer, queryPool, firstQuery, queryCount, dstBuffer, dstOffset, stride, flags);
+}
+inline void vkCmdDispatch(VkCommandBuffer commandBuffer, uint32_t groupCountX, uint32_t groupCountY, uint32_t groupCountZ)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdDispatch);
+	Kodiak::g_dispatcher.vkCmdDispatch(commandBuffer, groupCountX, groupCountY, groupCountZ);
+}
+
+
+DECLARE_FUNCTION(vkCmdDispatchIndirect);
+DECLARE_FUNCTION(vkCmdDraw);
+DECLARE_FUNCTION(vkCmdDrawIndexed);
+DECLARE_FUNCTION(vkCmdDrawIndexedIndirect);
+DECLARE_FUNCTION(vkCmdDrawIndirect);
+DECLARE_FUNCTION(vkCmdEndQuery);
+DECLARE_FUNCTION(vkCmdEndRenderPass);
+DECLARE_FUNCTION(vkCmdExecuteCommands);
+DECLARE_FUNCTION(vkCmdFillBuffer);
+DECLARE_FUNCTION(vkCmdNextSubpass);
+DECLARE_FUNCTION(vkCmdPipelineBarrier);
+DECLARE_FUNCTION(vkCmdPushConstants);
+DECLARE_FUNCTION(vkCmdResetEvent);
+DECLARE_FUNCTION(vkCmdResetQueryPool);
+DECLARE_FUNCTION(vkCmdResolveImage);
+DECLARE_FUNCTION(vkCmdSetBlendConstants);
+DECLARE_FUNCTION(vkCmdSetDepthBias);
+DECLARE_FUNCTION(vkCmdSetDepthBounds);
+DECLARE_FUNCTION(vkCmdSetEvent);
+DECLARE_FUNCTION(vkCmdSetLineWidth);
+DECLARE_FUNCTION(vkCmdSetScissor);
+DECLARE_FUNCTION(vkCmdSetStencilCompareMask);
+DECLARE_FUNCTION(vkCmdSetStencilReference);
+DECLARE_FUNCTION(vkCmdSetStencilWriteMask);
+DECLARE_FUNCTION(vkCmdSetViewport);
+DECLARE_FUNCTION(vkCmdUpdateBuffer);
+DECLARE_FUNCTION(vkCmdWaitEvents);
+DECLARE_FUNCTION(vkCmdWriteTimestamp);
+DECLARE_FUNCTION(vkCreateBuffer);
+DECLARE_FUNCTION(vkCreateBufferView);
+DECLARE_FUNCTION(vkCreateCommandPool);
+DECLARE_FUNCTION(vkCreateComputePipelines);
+DECLARE_FUNCTION(vkCreateDescriptorPool);
+DECLARE_FUNCTION(vkCreateDescriptorSetLayout);
+DECLARE_FUNCTION(vkCreateEvent);
+DECLARE_FUNCTION(vkCreateFence);
+DECLARE_FUNCTION(vkCreateFramebuffer);
+DECLARE_FUNCTION(vkCreateGraphicsPipelines);
+DECLARE_FUNCTION(vkCreateImage);
+DECLARE_FUNCTION(vkCreateImageView);
+DECLARE_FUNCTION(vkCreatePipelineCache);
+DECLARE_FUNCTION(vkCreatePipelineLayout);
+DECLARE_FUNCTION(vkCreateQueryPool);
+DECLARE_FUNCTION(vkCreateRenderPass);
+DECLARE_FUNCTION(vkCreateSampler);
+DECLARE_FUNCTION(vkCreateSemaphore);
+DECLARE_FUNCTION(vkCreateShaderModule);
+DECLARE_FUNCTION(vkDestroyBuffer);
+DECLARE_FUNCTION(vkDestroyBufferView);
+DECLARE_FUNCTION(vkDestroyCommandPool);
+DECLARE_FUNCTION(vkDestroyDescriptorPool);
+DECLARE_FUNCTION(vkDestroyDescriptorSetLayout);
+DECLARE_FUNCTION(vkDestroyDevice);
+DECLARE_FUNCTION(vkDestroyEvent);
+DECLARE_FUNCTION(vkDestroyFence);
+DECLARE_FUNCTION(vkDestroyFramebuffer);
+DECLARE_FUNCTION(vkDestroyImage);
+DECLARE_FUNCTION(vkDestroyImageView);
+DECLARE_FUNCTION(vkDestroyPipeline);
+DECLARE_FUNCTION(vkDestroyPipelineCache);
+DECLARE_FUNCTION(vkDestroyPipelineLayout);
+DECLARE_FUNCTION(vkDestroyQueryPool);
+DECLARE_FUNCTION(vkDestroyRenderPass);
+DECLARE_FUNCTION(vkDestroySampler);
+DECLARE_FUNCTION(vkDestroySemaphore);
+DECLARE_FUNCTION(vkDestroyShaderModule);
+DECLARE_FUNCTION(vkDeviceWaitIdle);
+DECLARE_FUNCTION(vkEndCommandBuffer);
+DECLARE_FUNCTION(vkFlushMappedMemoryRanges);
+DECLARE_FUNCTION(vkFreeCommandBuffers);
+DECLARE_FUNCTION(vkFreeDescriptorSets);
+DECLARE_FUNCTION(vkFreeMemory);
+DECLARE_FUNCTION(vkGetBufferMemoryRequirements);
+DECLARE_FUNCTION(vkGetDeviceMemoryCommitment);
+DECLARE_FUNCTION(vkGetDeviceQueue);
+DECLARE_FUNCTION(vkGetEventStatus);
+DECLARE_FUNCTION(vkGetFenceStatus);
+DECLARE_FUNCTION(vkGetImageMemoryRequirements);
+DECLARE_FUNCTION(vkGetImageSparseMemoryRequirements);
+DECLARE_FUNCTION(vkGetImageSubresourceLayout);
+DECLARE_FUNCTION(vkGetPipelineCacheData);
+DECLARE_FUNCTION(vkGetQueryPoolResults);
+DECLARE_FUNCTION(vkGetRenderAreaGranularity);
+DECLARE_FUNCTION(vkInvalidateMappedMemoryRanges);
+DECLARE_FUNCTION(vkMapMemory);
+DECLARE_FUNCTION(vkMergePipelineCaches);
+DECLARE_FUNCTION(vkQueueBindSparse);
+DECLARE_FUNCTION(vkQueueSubmit);
+DECLARE_FUNCTION(vkQueueWaitIdle);
+DECLARE_FUNCTION(vkResetCommandBuffer);
+DECLARE_FUNCTION(vkResetCommandPool);
+DECLARE_FUNCTION(vkResetDescriptorPool);
+DECLARE_FUNCTION(vkResetEvent);
+DECLARE_FUNCTION(vkResetFences);
+DECLARE_FUNCTION(vkSetEvent);
+DECLARE_FUNCTION(vkUnmapMemory);
+DECLARE_FUNCTION(vkUpdateDescriptorSets);
+DECLARE_FUNCTION(vkWaitForFences);
+
 #undef VALIDATE_FUNCTION_POINTER

@@ -577,9 +577,156 @@ extern Dispatcher g_dispatcher;
 } // namespace Kodiak
 
 
+#if VALIDATE_FUNCTION_POINTERS
+#define VALIDATE_FUNCTION_POINTER(FPTR) \
+assert_msg(Kodiak::g_dispatcher.##FPTR, "Function pointer #FPTR is null")
+#else
+#define VALIDATE_FUNCTION_POINTER(FPTR) 
+#endif
+
+
 // Base functions
-VkResult vkCreateInstance(const VkInstanceCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkInstance* pInstance);
-VkResult vkEnumerateInstanceExtensionProperties(const char* pLayerName,	uint32_t* pPropertyCount, VkExtensionProperties* pProperties);
-VkResult vkEnumerateInstanceLayerProperties(uint32_t* pPropertyCount, VkLayerProperties* pProperties);
-VkResult vkEnumerateInstanceVersion(uint32_t* pApiVersion);
-PFN_vkVoidFunction vkGetInstanceProcAddr(VkInstance instance, const char* pName);
+inline VkResult vkCreateInstance(const VkInstanceCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkInstance* pInstance)
+{
+	VALIDATE_FUNCTION_POINTER(vkCreateInstance);
+	return Kodiak::g_dispatcher.vkCreateInstance(pCreateInfo, pAllocator, pInstance);
+}
+inline VkResult vkEnumerateInstanceExtensionProperties(const char* pLayerName, uint32_t* pPropertyCount, VkExtensionProperties* pProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkEnumerateInstanceExtensionProperties);
+	return Kodiak::g_dispatcher.vkEnumerateInstanceExtensionProperties(pLayerName, pPropertyCount, pProperties);
+}
+inline VkResult vkEnumerateInstanceLayerProperties(uint32_t* pPropertyCount, VkLayerProperties* pProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkEnumerateInstanceLayerProperties);
+	return Kodiak::g_dispatcher.vkEnumerateInstanceLayerProperties(pPropertyCount, pProperties);
+}
+inline VkResult vkEnumerateInstanceVersion(uint32_t* pApiVersion)
+{
+	VALIDATE_FUNCTION_POINTER(vkEnumerateInstanceVersion);
+	return Kodiak::g_dispatcher.vkEnumerateInstanceVersion(pApiVersion);
+}
+inline PFN_vkVoidFunction vkGetInstanceProcAddr(VkInstance instance, const char* pName)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetInstanceProcAddr);
+	return Kodiak::g_dispatcher.vkGetInstanceProcAddr(instance, pName);
+}
+
+
+// Vulkan 1.0 instance functions
+inline KODIAK_NODISCARD VkResult vkCreateDevice(VkPhysicalDevice physicalDevice, const VkDeviceCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDevice* pDevice)
+{
+	VALIDATE_FUNCTION_POINTER(vkCreateDevice);
+	return Kodiak::g_dispatcher.vkCreateDevice(physicalDevice, pCreateInfo, pAllocator, pDevice);
+}
+inline void vkDestroyInstance(VkInstance instance, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroyInstance);
+	Kodiak::g_dispatcher.vkDestroyInstance(instance, pAllocator);
+}
+inline KODIAK_NODISCARD VkResult vkEnumeratePhysicalDevices(VkInstance instance, uint32_t* pPhysicalDeviceCount, VkPhysicalDevice* pPhysicalDevices)
+{
+	VALIDATE_FUNCTION_POINTER(vkEnumeratePhysicalDevices);
+	return Kodiak::g_dispatcher.vkEnumeratePhysicalDevices(instance, pPhysicalDeviceCount, pPhysicalDevices);
+}
+inline KODIAK_NODISCARD PFN_vkVoidFunction vkGetDeviceProcAddr(VkDevice device, const char* pName)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetDeviceProcAddr);
+	return Kodiak::g_dispatcher.vkGetDeviceProcAddr(device, pName);
+}
+inline void vkGetPhysicalDeviceFeatures(VkPhysicalDevice physicalDevice, VkPhysicalDeviceFeatures* pFeatures)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceFeatures);
+	Kodiak::g_dispatcher.vkGetPhysicalDeviceFeatures(physicalDevice, pFeatures);
+}
+inline void vkGetPhysicalDeviceFormatProperties(VkPhysicalDevice physicalDevice, VkFormat format, VkFormatProperties* pFormatProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceFormatProperties);
+	Kodiak::g_dispatcher.vkGetPhysicalDeviceFormatProperties(physicalDevice, format, pFormatProperties);
+}
+inline KODIAK_NODISCARD VkResult vkGetPhysicalDeviceImageFormatProperties(VkPhysicalDevice physicalDevice, VkFormat format, VkImageType type, VkImageTiling tiling, VkImageUsageFlags usage, VkImageCreateFlags flags, VkImageFormatProperties* pImageFormatProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceImageFormatProperties);
+	return Kodiak::g_dispatcher.vkGetPhysicalDeviceImageFormatProperties(physicalDevice, format, type, tiling, usage, flags, pImageFormatProperties);
+}
+inline void vkGetPhysicalDeviceMemoryProperties(VkPhysicalDevice physicalDevice, VkPhysicalDeviceMemoryProperties* pMemoryProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceMemoryProperties);
+	Kodiak::g_dispatcher.vkGetPhysicalDeviceMemoryProperties(physicalDevice, pMemoryProperties);
+}
+inline void vkGetPhysicalDeviceProperties(VkPhysicalDevice physicalDevice, VkPhysicalDeviceProperties* pProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceProperties);
+	Kodiak::g_dispatcher.vkGetPhysicalDeviceProperties(physicalDevice, pProperties);
+}
+inline void vkGetPhysicalDeviceQueueFamilyProperties(VkPhysicalDevice physicalDevice, uint32_t* pQueueFamilyPropertyCount, VkQueueFamilyProperties* pQueueFamilyProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceQueueFamilyProperties);
+	Kodiak::g_dispatcher.vkGetPhysicalDeviceQueueFamilyProperties(physicalDevice, pQueueFamilyPropertyCount, pQueueFamilyProperties);
+}
+inline void vkGetPhysicalDeviceSparseImageFormatProperties(VkPhysicalDevice physicalDevice, VkFormat format, VkImageType type, VkSampleCountFlagBits samples, VkImageUsageFlags usage, VkImageTiling tiling, uint32_t* pPropertyCount, VkSparseImageFormatProperties* pProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceSparseImageFormatProperties);
+	Kodiak::g_dispatcher.vkGetPhysicalDeviceSparseImageFormatProperties(physicalDevice, format, type, samples, usage, tiling, pPropertyCount, pProperties);
+}
+
+
+// Vulkan 1.1 instance functions
+inline KODIAK_NODISCARD VkResult vkEnumeratePhysicalDeviceGroups(VkInstance instance, uint32_t* pPhysicalDeviceGroupCount, VkPhysicalDeviceGroupProperties* pPhysicalDeviceGroupProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkEnumeratePhysicalDeviceGroups);
+	return Kodiak::g_dispatcher.vkEnumeratePhysicalDeviceGroups(instance, pPhysicalDeviceGroupCount, pPhysicalDeviceGroupProperties);
+}
+inline void vkGetPhysicalDeviceExternalBufferProperties(VkPhysicalDevice physicalDevice, const VkPhysicalDeviceExternalBufferInfo* pExternalBufferInfo, VkExternalBufferProperties* pExternalBufferProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceExternalBufferProperties);
+	Kodiak::g_dispatcher.vkGetPhysicalDeviceExternalBufferProperties(physicalDevice, pExternalBufferInfo, pExternalBufferProperties);
+}
+inline void vkGetPhysicalDeviceExternalFenceProperties(VkPhysicalDevice physicalDevice, const VkPhysicalDeviceExternalFenceInfo* pExternalFenceInfo, VkExternalFenceProperties* pExternalFenceProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceExternalFenceProperties);
+	Kodiak::g_dispatcher.vkGetPhysicalDeviceExternalFenceProperties(physicalDevice, pExternalFenceInfo, pExternalFenceProperties);
+}
+inline void vkGetPhysicalDeviceExternalSemaphoreProperties(VkPhysicalDevice physicalDevice, const VkPhysicalDeviceExternalSemaphoreInfo* pExternalSemaphoreInfo, VkExternalSemaphoreProperties* pExternalSemaphoreProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceExternalSemaphoreProperties);
+	Kodiak::g_dispatcher.vkGetPhysicalDeviceExternalSemaphoreProperties(physicalDevice, pExternalSemaphoreInfo, pExternalSemaphoreProperties);
+}
+inline void vkGetPhysicalDeviceFeatures2(VkPhysicalDevice physicalDevice, VkPhysicalDeviceFeatures2* pFeatures)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceFeatures2);
+	Kodiak::g_dispatcher.vkGetPhysicalDeviceFeatures2(physicalDevice, pFeatures);
+}
+inline void vkGetPhysicalDeviceFormatProperties2(VkPhysicalDevice physicalDevice, VkFormat format, VkFormatProperties2* pFormatProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceFormatProperties2);
+	Kodiak::g_dispatcher.vkGetPhysicalDeviceFormatProperties2(physicalDevice, format, pFormatProperties);
+}
+inline KODIAK_NODISCARD VkResult vkGetPhysicalDeviceImageFormatProperties2(VkPhysicalDevice physicalDevice, const VkPhysicalDeviceImageFormatInfo2* pImageFormatInfo, VkImageFormatProperties2* pImageFormatProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceImageFormatProperties2);
+	return Kodiak::g_dispatcher.vkGetPhysicalDeviceImageFormatProperties2(physicalDevice, pImageFormatInfo, pImageFormatProperties);
+}
+inline void vkGetPhysicalDeviceMemoryProperties2(VkPhysicalDevice physicalDevice, VkPhysicalDeviceMemoryProperties2* pMemoryProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceMemoryProperties2);
+	Kodiak::g_dispatcher.vkGetPhysicalDeviceMemoryProperties2(physicalDevice, pMemoryProperties);
+}
+inline void vkGetPhysicalDeviceProperties2(VkPhysicalDevice physicalDevice, VkPhysicalDeviceProperties2* pProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceProperties2);
+	Kodiak::g_dispatcher.vkGetPhysicalDeviceProperties2(physicalDevice, pProperties);
+}
+inline void vkGetPhysicalDeviceQueueFamilyProperties2(VkPhysicalDevice physicalDevice, uint32_t* pQueueFamilyPropertyCount, VkQueueFamilyProperties2* pQueueFamilyProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceQueueFamilyProperties2);
+	Kodiak::g_dispatcher.vkGetPhysicalDeviceQueueFamilyProperties2(physicalDevice, pQueueFamilyPropertyCount, pQueueFamilyProperties);
+}
+inline void vkGetPhysicalDeviceSparseImageFormatProperties2(VkPhysicalDevice physicalDevice, const VkPhysicalDeviceSparseImageFormatInfo2* pFormatInfo, uint32_t* pPropertyCount, VkSparseImageFormatProperties2* pProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceSparseImageFormatProperties2);
+	Kodiak::g_dispatcher.vkGetPhysicalDeviceSparseImageFormatProperties2(physicalDevice, pFormatInfo, pPropertyCount, pProperties);
+}
+
+
+#undef VALIDATE_FUNCTION_POINTER

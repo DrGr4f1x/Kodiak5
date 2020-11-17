@@ -47,15 +47,6 @@ inline void ThrowIfFailed(HRESULT hr)
 	}
 }
 
-// Graphics API headers
-#if defined(DX12)
-#include "Graphics\DX12\Platform12.h"
-#elif defined(VK)
-#include "Graphics\VK\PlatformVk.h"
-#else
-#error No graphics API defined!
-#endif
-
 // Standard library headers
 #include <filesystem>
 #include <fstream>
@@ -74,3 +65,12 @@ inline void ThrowIfFailed(HRESULT hr)
 
 // Engine\Graphics headers
 #include "Graphics\GraphicsEnums.h"
+
+// Graphics API headers
+#if defined(DX12)
+#include "Graphics\DX12\Platform12.h"
+#elif defined(VK)
+#include "Graphics\VK\PlatformVk.h"
+#else
+#error No graphics API defined!
+#endif

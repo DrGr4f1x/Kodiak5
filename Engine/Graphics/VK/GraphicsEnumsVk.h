@@ -373,11 +373,17 @@ enum class Extension : uint32_t
 	KHR_Display,
 	KHR_DisplaySwapChain,
 	KHR_ExternalFenceFd,
+#ifdef VK_USE_PLATFORM_WIN32_KHR
 	KHR_ExternalFenceWin32,
+#endif
 	KHR_ExternalMemoryFd,
+#ifdef VK_USE_PLATFORM_WIN32_KHR
 	KHR_ExternalMemoryWin32,
+#endif
 	KHR_ExternalSemaphoreFd,
+#ifdef VK_USE_PLATFORM_WIN32_KHR
 	KHR_ExternalSemaphoreWin32,
+#endif
 #if 0
 	KHR_FragmentShadingRate,
 #endif

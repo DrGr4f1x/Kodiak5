@@ -468,30 +468,36 @@ void Dispatcher::LoadExtension(Extension extension)
 		LOAD(vkImportFenceFdKHR);
 		break;
 
+#ifdef VK_USE_PLATFORM_WIN32_KHR
 	case Extension::KHR_ExternalFenceWin32:
 		LOAD(vkGetFenceWin32HandleKHR);
 		LOAD(vkImportFenceWin32HandleKHR);
 		break;
+#endif
 
 	case Extension::KHR_ExternalMemoryFd:
 		LOAD(vkGetMemoryFdKHR);
 		LOAD(vkGetMemoryFdPropertiesKHR);
 		break;
 
+#ifdef VK_USE_PLATFORM_WIN32_KHR
 	case Extension::KHR_ExternalMemoryWin32:
 		LOAD(vkGetMemoryWin32HandleKHR);
 		LOAD(vkGetMemoryWin32HandlePropertiesKHR);
 		break;
+#endif
 
 	case Extension::KHR_ExternalSemaphoreFd:
 		LOAD(vkGetSemaphoreFdKHR);
 		LOAD(vkImportSemaphoreFdKHR);
 		break;
 
+#ifdef VK_USE_PLATFORM_WIN32_KHR
 	case Extension::KHR_ExternalSemaphoreWin32:
 		LOAD(vkGetSemaphoreWin32HandleKHR);
 		LOAD(vkImportSemaphoreWin32HandleKHR);
 		break;
+#endif
 
 #if 0
 	case Extension::KHR_FragmentShadingRate:

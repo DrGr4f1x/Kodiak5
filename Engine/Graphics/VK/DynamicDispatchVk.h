@@ -2386,4 +2386,194 @@ inline KODIAK_NODISCARD VkResult vkCreateViSurfaceNN(VkInstance instance, const 
 }
 #endif
 
+
+// VK_NV_clip_space_w_scaling
+inline void vkCmdSetViewportWScalingNV(VkCommandBuffer commandBuffer, uint32_t firstViewport, uint32_t viewportCount, const VkViewportWScalingNV* pViewportWScalings)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdSetViewportWScalingNV);
+	Kodiak::g_dispatcher.vkCmdSetViewportWScalingNV(commandBuffer, firstViewport, viewportCount, pViewportWScalings);
+}
+
+
+// VK_NV_cooperative_matrix
+inline KODIAK_NODISCARD VkResult vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(VkPhysicalDevice physicalDevice, uint32_t* pPropertyCount, VkCooperativeMatrixPropertiesNV* pProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceCooperativeMatrixPropertiesNV);
+	return Kodiak::g_dispatcher.vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(physicalDevice, pPropertyCount, pProperties);
+}
+
+
+// VK_NV_coverage_reduction_mode
+inline KODIAK_NODISCARD VkResult vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(VkPhysicalDevice physicalDevice, uint32_t* pCombinationCount, VkFramebufferMixedSamplesCombinationNV* pCombinations)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV);
+	return Kodiak::g_dispatcher.vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(physicalDevice, pCombinationCount, pCombinations);
+}
+
+
+// VK_NV_device_diagnostic_checkpoints
+inline void vkCmdSetCheckpointNV(VkCommandBuffer commandBuffer, const void* pCheckpointMarker)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdSetCheckpointNV);
+	Kodiak::g_dispatcher.vkCmdSetCheckpointNV(commandBuffer, pCheckpointMarker);
+}
+inline void vkGetQueueCheckpointDataNV(VkQueue queue, uint32_t* pCheckpointDataCount, VkCheckpointDataNV* pCheckpointData)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetQueueCheckpointDataNV);
+	Kodiak::g_dispatcher.vkGetQueueCheckpointDataNV(queue, pCheckpointDataCount, pCheckpointData);
+}
+
+
+// VK_NV_device_generated_commands
+inline void vkCmdBindPipelineShaderGroupNV(VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipeline pipeline, uint32_t groupIndex)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdBindPipelineShaderGroupNV);
+	Kodiak::g_dispatcher.vkCmdBindPipelineShaderGroupNV(commandBuffer, pipelineBindPoint, pipeline, groupIndex);
+}
+inline void vkCmdExecuteGeneratedCommandsNV(VkCommandBuffer commandBuffer, VkBool32 isPreprocessed, const VkGeneratedCommandsInfoNV* pGeneratedCommandsInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdExecuteGeneratedCommandsNV);
+	Kodiak::g_dispatcher.vkCmdExecuteGeneratedCommandsNV(commandBuffer, isPreprocessed, pGeneratedCommandsInfo);
+}
+inline void vkCmdPreprocessGeneratedCommandsNV(VkCommandBuffer commandBuffer, const VkGeneratedCommandsInfoNV* pGeneratedCommandsInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdPreprocessGeneratedCommandsNV);
+	Kodiak::g_dispatcher.vkCmdPreprocessGeneratedCommandsNV(commandBuffer, pGeneratedCommandsInfo);
+}
+inline KODIAK_NODISCARD VkResult vkCreateIndirectCommandsLayoutNV(VkDevice device, const VkIndirectCommandsLayoutCreateInfoNV* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkIndirectCommandsLayoutNV* pIndirectCommandsLayout)
+{
+	VALIDATE_FUNCTION_POINTER(vkCreateIndirectCommandsLayoutNV);
+	return Kodiak::g_dispatcher.vkCreateIndirectCommandsLayoutNV(device, pCreateInfo, pAllocator, pIndirectCommandsLayout);
+}
+inline void vkDestroyIndirectCommandsLayoutNV(VkDevice device, VkIndirectCommandsLayoutNV indirectCommandsLayout, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroyIndirectCommandsLayoutNV);
+	Kodiak::g_dispatcher.vkDestroyIndirectCommandsLayoutNV(device, indirectCommandsLayout, pAllocator);
+}
+inline void vkGetGeneratedCommandsMemoryRequirementsNV(VkDevice device, const VkGeneratedCommandsMemoryRequirementsInfoNV* pInfo, VkMemoryRequirements2* pMemoryRequirements)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetGeneratedCommandsMemoryRequirementsNV);
+	Kodiak::g_dispatcher.vkGetGeneratedCommandsMemoryRequirementsNV(device, pInfo, pMemoryRequirements);
+}
+
+
+// VK_NV_mesh_shader
+inline void vkCmdDrawMeshTasksIndirectCountNV(VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset, VkBuffer countBuffer, VkDeviceSize countBufferOffset, uint32_t maxDrawCount, uint32_t stride)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdDrawMeshTasksIndirectCountNV);
+	Kodiak::g_dispatcher.vkCmdDrawMeshTasksIndirectCountNV(commandBuffer, buffer, offset, countBuffer, countBufferOffset, maxDrawCount, stride);
+}
+inline void vkCmdDrawMeshTasksIndirectNV(VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset, uint32_t drawCount, uint32_t stride)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdDrawMeshTasksIndirectNV);
+	Kodiak::g_dispatcher.vkCmdDrawMeshTasksIndirectNV(commandBuffer, buffer, offset, drawCount, stride);
+}
+inline void vkCmdDrawMeshTasksNV(VkCommandBuffer commandBuffer, uint32_t taskCount, uint32_t firstTask)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdDrawMeshTasksNV);
+	Kodiak::g_dispatcher.vkCmdDrawMeshTasksNV(commandBuffer, taskCount, firstTask);
+}
+
+
+// VK_NV_ray_tracing
+inline KODIAK_NODISCARD VkResult vkBindAccelerationStructureMemoryNV(VkDevice device, uint32_t bindInfoCount, const VkBindAccelerationStructureMemoryInfoKHR* pBindInfos)
+{
+	VALIDATE_FUNCTION_POINTER(vkBindAccelerationStructureMemoryNV);
+	return Kodiak::g_dispatcher.vkBindAccelerationStructureMemoryNV(device, bindInfoCount, pBindInfos);
+}
+inline void vkCmdBuildAccelerationStructureNV(VkCommandBuffer commandBuffer, const VkAccelerationStructureInfoNV* pInfo, VkBuffer instanceData, VkDeviceSize instanceOffset, VkBool32 update, VkAccelerationStructureKHR dst, VkAccelerationStructureKHR src, VkBuffer scratch, VkDeviceSize scratchOffset)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdBuildAccelerationStructureNV);
+	Kodiak::g_dispatcher.vkCmdBuildAccelerationStructureNV(commandBuffer, pInfo, instanceData, instanceOffset, update, dst, src, scratch, scratchOffset);
+}
+inline void vkCmdCopyAccelerationStructureNV(VkCommandBuffer commandBuffer, VkAccelerationStructureKHR dst, VkAccelerationStructureKHR src, VkCopyAccelerationStructureModeKHR mode)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdCopyAccelerationStructureNV);
+	Kodiak::g_dispatcher.vkCmdCopyAccelerationStructureNV(commandBuffer, dst, src, mode);
+}
+inline void vkCmdTraceRaysNV(VkCommandBuffer commandBuffer, VkBuffer raygenShaderBindingTableBuffer, VkDeviceSize raygenShaderBindingOffset, VkBuffer missShaderBindingTableBuffer, VkDeviceSize missShaderBindingOffset, VkDeviceSize missShaderBindingStride, VkBuffer hitShaderBindingTableBuffer, VkDeviceSize hitShaderBindingOffset, VkDeviceSize hitShaderBindingStride, VkBuffer callableShaderBindingTableBuffer, VkDeviceSize callableShaderBindingOffset, VkDeviceSize callableShaderBindingStride, uint32_t width, uint32_t height, uint32_t depth)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdTraceRaysNV);
+	Kodiak::g_dispatcher.vkCmdTraceRaysNV(commandBuffer, raygenShaderBindingTableBuffer, raygenShaderBindingOffset, missShaderBindingTableBuffer, missShaderBindingOffset, missShaderBindingStride, hitShaderBindingTableBuffer, hitShaderBindingOffset, hitShaderBindingStride, callableShaderBindingTableBuffer, callableShaderBindingOffset, callableShaderBindingStride, width, height, depth);
+}
+inline void vkCmdWriteAccelerationStructuresPropertiesNV(VkCommandBuffer commandBuffer, uint32_t accelerationStructureCount, const VkAccelerationStructureKHR* pAccelerationStructures, VkQueryType queryType, VkQueryPool queryPool, uint32_t firstQuery)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdWriteAccelerationStructuresPropertiesNV);
+	Kodiak::g_dispatcher.vkCmdWriteAccelerationStructuresPropertiesNV(commandBuffer, accelerationStructureCount, pAccelerationStructures, queryType, queryPool, firstQuery);
+}
+inline KODIAK_NODISCARD VkResult vkCompileDeferredNV(VkDevice device, VkPipeline pipeline, uint32_t shader)
+{
+	VALIDATE_FUNCTION_POINTER(vkCompileDeferredNV);
+	return Kodiak::g_dispatcher.vkCompileDeferredNV(device, pipeline, shader);
+}
+inline KODIAK_NODISCARD VkResult vkCreateAccelerationStructureNV(VkDevice device, const VkAccelerationStructureCreateInfoNV* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkAccelerationStructureNV* pAccelerationStructure)
+{
+	VALIDATE_FUNCTION_POINTER(vkCreateAccelerationStructureNV);
+	return Kodiak::g_dispatcher.vkCreateAccelerationStructureNV(device, pCreateInfo, pAllocator, pAccelerationStructure);
+}
+inline KODIAK_NODISCARD VkResult vkCreateRayTracingPipelinesNV(VkDevice device, VkPipelineCache pipelineCache, uint32_t createInfoCount, const VkRayTracingPipelineCreateInfoNV* pCreateInfos, const VkAllocationCallbacks* pAllocator, VkPipeline* pPipelines)
+{
+	VALIDATE_FUNCTION_POINTER(vkCreateRayTracingPipelinesNV);
+	return Kodiak::g_dispatcher.vkCreateRayTracingPipelinesNV(device, pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
+}
+inline void vkDestroyAccelerationStructureNV(VkDevice device, VkAccelerationStructureKHR accelerationStructure, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroyAccelerationStructureNV);
+	Kodiak::g_dispatcher.vkDestroyAccelerationStructureNV(device, accelerationStructure, pAllocator);
+}
+inline KODIAK_NODISCARD VkResult vkGetAccelerationStructureHandleNV(VkDevice device, VkAccelerationStructureKHR accelerationStructure, size_t dataSize, void* pData)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetAccelerationStructureHandleNV);
+	return Kodiak::g_dispatcher.vkGetAccelerationStructureHandleNV(device, accelerationStructure, dataSize, pData);
+}
+inline void vkGetAccelerationStructureMemoryRequirementsNV(VkDevice device, const VkAccelerationStructureMemoryRequirementsInfoNV* pInfo, VkMemoryRequirements2KHR* pMemoryRequirements)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetAccelerationStructureMemoryRequirementsNV);
+	Kodiak::g_dispatcher.vkGetAccelerationStructureMemoryRequirementsNV(device, pInfo, pMemoryRequirements);
+}
+inline KODIAK_NODISCARD VkResult vkGetRayTracingShaderGroupHandlesNV(VkDevice device, VkPipeline pipeline, uint32_t firstGroup, uint32_t groupCount, size_t dataSize, void* pData)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetRayTracingShaderGroupHandlesNV);
+	return Kodiak::g_dispatcher.vkGetRayTracingShaderGroupHandlesNV(device, pipeline, firstGroup, groupCount, dataSize, pData);
+}
+
+
+// VK_NV_scissor_exclusive
+inline void vkCmdSetExclusiveScissorNV(VkCommandBuffer commandBuffer, uint32_t firstExclusiveScissor, uint32_t exclusiveScissorCount, const VkRect2D* pExclusiveScissors)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdSetExclusiveScissorNV);
+	Kodiak::g_dispatcher.vkCmdSetExclusiveScissorNV(commandBuffer, firstExclusiveScissor, exclusiveScissorCount, pExclusiveScissors);
+}
+
+
+// VK_NV_shading_rate_image
+inline void vkCmdBindShadingRateImageNV(VkCommandBuffer commandBuffer, VkImageView imageView, VkImageLayout imageLayout)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdBindShadingRateImageNV);
+	Kodiak::g_dispatcher.vkCmdBindShadingRateImageNV(commandBuffer, imageView, imageLayout);
+}
+inline void vkCmdSetCoarseSampleOrderNV(VkCommandBuffer commandBuffer, VkCoarseSampleOrderTypeNV sampleOrderType, uint32_t customSampleOrderCount, const VkCoarseSampleOrderCustomNV* pCustomSampleOrders)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdSetCoarseSampleOrderNV);
+	Kodiak::g_dispatcher.vkCmdSetCoarseSampleOrderNV(commandBuffer, sampleOrderType, customSampleOrderCount, pCustomSampleOrders);
+}
+inline void vkCmdSetViewportShadingRatePaletteNV(VkCommandBuffer commandBuffer, uint32_t firstViewport, uint32_t viewportCount, const VkShadingRatePaletteNV* pShadingRatePalettes)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdSetViewportShadingRatePaletteNV);
+	Kodiak::g_dispatcher.vkCmdSetViewportShadingRatePaletteNV(commandBuffer, firstViewport, viewportCount, pShadingRatePalettes);
+}
+
+
+// VK_NVX_image_view_handle
+inline KODIAK_NODISCARD VkResult vkGetImageViewAddressNVX(VkDevice device, VkImageView imageView, VkImageViewAddressPropertiesNVX* pProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetImageViewAddressNVX);
+	return Kodiak::g_dispatcher.vkGetImageViewAddressNVX(device, imageView, pProperties);
+}
+inline KODIAK_NODISCARD uint32_t vkGetImageViewHandleNVX(VkDevice device, const VkImageViewHandleInfoNVX* pInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetImageViewHandleNVX);
+	return Kodiak::g_dispatcher.vkGetImageViewHandleNVX(device, pInfo);
+}
+
 #undef VALIDATE_FUNCTION_POINTER

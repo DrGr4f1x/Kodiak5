@@ -501,8 +501,10 @@ enum class Extension : uint32_t
 #ifdef VK_USE_PLATFORM_FUSCHIA
 	FUSCHIA_ImagepipeSurface,
 #endif
+#ifdef VK_USE_PLATFORM_GGP
 	GGP_FrameToken,
 	GGP_StreamDescriptorSurface,
+#endif
 	GOOGLE_DecorateString,
 	GOOGLE_DisplayTiming,
 	GOOGLE_HlslFunctionality1,

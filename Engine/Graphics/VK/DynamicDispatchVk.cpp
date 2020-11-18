@@ -748,7 +748,7 @@ void Dispatcher::LoadExtension(Extension extension)
 		break;
 #endif
 
-#if 0
+#ifdef VK_USE_PLATFORM_GGP
 	case Extension::GGP_StreamDescriptorSurface:
 		LOAD(vkCreateStreamDescriptorSurfaceGGP);
 		break;
@@ -771,7 +771,7 @@ void Dispatcher::LoadExtension(Extension extension)
 		LOAD(vkUninitializePerformanceApiINTEL);
 		break;
 
-#if VK_USE_PLATFORM_VI_NN
+#ifdef VK_USE_PLATFORM_VI_NN
 	case Extension::NN_ViSurface:
 		LOAD(vkCreateViSurfaceNN);
 		break;

@@ -491,7 +491,7 @@ public:
 	DECLARE_FUNCTION(vkCreateImagePipeSurfaceFUCHSIA);
 #endif
 
-#if 0
+#ifdef VK_USE_PLATFORM_GGP
 	// VK_GGP_stream_descriptor_surface
 	DECLARE_FUNCTION(vkCreateStreamDescriptorSurfaceGGP);
 #endif
@@ -2257,5 +2257,133 @@ inline KODIAK_NODISCARD VkResult vkMergeValidationCachesEXT(VkDevice device, VkV
 	VALIDATE_FUNCTION_POINTER(vkMergeValidationCachesEXT);
 	return Kodiak::g_dispatcher.vkMergeValidationCachesEXT(device, dstCache, srcCacheCount, pSrcCaches);
 }
+
+
+// VK_AMD_buffer_marker
+inline void vkCmdWriteBufferMarkerAMD(VkCommandBuffer commandBuffer, VkPipelineStageFlagBits pipelineStage, VkBuffer dstBuffer, VkDeviceSize dstOffset, uint32_t marker)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdWriteBufferMarkerAMD);
+	Kodiak::g_dispatcher.vkCmdWriteBufferMarkerAMD(commandBuffer, pipelineStage, dstBuffer, dstOffset, marker);
+}
+
+
+// VK_AMD_display_native_hdr
+inline void vkSetLocalDimmingAMD(VkDevice device, VkSwapchainKHR swapChain, VkBool32 localDimmingEnable)
+{
+	VALIDATE_FUNCTION_POINTER(vkSetLocalDimmingAMD);
+	Kodiak::g_dispatcher.vkSetLocalDimmingAMD(device, swapChain, localDimmingEnable);
+}
+
+
+// VK_AMD_shader_info
+inline KODIAK_NODISCARD VkResult vkGetShaderInfoAMD(VkDevice device, VkPipeline pipeline, VkShaderStageFlagBits shaderStage, VkShaderInfoTypeAMD infoType, size_t* pInfoSize, void* pInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetShaderInfoAMD);
+	return Kodiak::g_dispatcher.vkGetShaderInfoAMD(device, pipeline, shaderStage, infoType, pInfoSize, pInfo);
+}
+
+
+#ifdef VK_USE_PLATFORM_ANDROID_KHR
+// VK_ANDROID_external_memory_android_hardware_buffer
+inline KODIAK_NODISCARD VkResult vkGetAndroidHardwareBufferPropertiesANDROID(VkDevice device, const struct AHardwareBuffer* buffer, VkAndroidHardwareBufferPropertiesANDROID* pProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetAndroidHardwareBufferPropertiesANDROID);
+	return Kodiak::g_dispatcher.vkGetAndroidHardwareBufferPropertiesANDROID(device, buffer, pProperties);
+}
+inline KODIAK_NODISCARD VkResult vkGetMemoryAndroidHardwareBufferANDROID(VkDevice device, const VkMemoryGetAndroidHardwareBufferInfoANDROID* pInfo, struct AHardwareBuffer** pBuffer)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetMemoryAndroidHardwareBufferANDROID);
+	return Kodiak::g_dispatcher.vkGetMemoryAndroidHardwareBufferANDROID(device, pInfo, pBuffer);
+}
+#endif
+
+#ifdef VK_USE_PLATFORM_FUSCHIA
+// VK_FUSCHIA_imagepipe_surface
+inline KODIAK_NODISCARD VkResult vkCreateImagePipeSurfaceFUCHSIA(VkInstance instance, const VkImagePipeSurfaceCreateInfoFUCHSIA* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface)
+{
+	VALIDATE_FUNCTION_POINTER(vkCreateImagePipeSurfaceFUCHSIA);
+	return Kodiak::g_dispatcher.vkCreateImagePipeSurfaceFUCHSIA(instance, pCreateInfo, pAllocator, pSurface);
+}
+#endif
+
+#ifdef VK_USE_PLATFORM_GGP
+// VK_GGP_stream_descriptor_surface
+inline KODIAK_NODISCARD VkResult vkCreateStreamDescriptorSurfaceGGP(VkInstance instance, const VkStreamDescriptorSurfaceCreateInfoGGP* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface)
+{
+	VALIDATE_FUNCTION_POINTER(vkCreateStreamDescriptorSurfaceGGP);
+	return Kodiak::g_dispatcher.vkCreateStreamDescriptorSurfaceGGP(instance, pCreateInfo, pAllocator, pSurface);
+}
+#endif
+
+
+// VK_GOOGLE_display_timing
+inline KODIAK_NODISCARD VkResult vkGetPastPresentationTimingGOOGLE(VkDevice device, VkSwapchainKHR swapchain, uint32_t* pPresentationTimingCount, VkPastPresentationTimingGOOGLE* pPresentationTimings)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPastPresentationTimingGOOGLE);
+	return Kodiak::g_dispatcher.vkGetPastPresentationTimingGOOGLE(device, swapchain, pPresentationTimingCount, pPresentationTimings);
+}
+inline KODIAK_NODISCARD VkResult vkGetRefreshCycleDurationGOOGLE(VkDevice device, VkSwapchainKHR swapchain, VkRefreshCycleDurationGOOGLE* pDisplayTimingProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetRefreshCycleDurationGOOGLE);
+	return Kodiak::g_dispatcher.vkGetRefreshCycleDurationGOOGLE(device, swapchain, pDisplayTimingProperties);
+}
+
+
+// VK_INTEL_performance_query
+inline KODIAK_NODISCARD VkResult vkAcquirePerformanceConfigurationINTEL(VkDevice device, const VkPerformanceConfigurationAcquireInfoINTEL* pAcquireInfo, VkPerformanceConfigurationINTEL* pConfiguration)
+{
+	VALIDATE_FUNCTION_POINTER(vkAcquirePerformanceConfigurationINTEL);
+	return Kodiak::g_dispatcher.vkAcquirePerformanceConfigurationINTEL(device, pAcquireInfo, pConfiguration);
+}
+inline KODIAK_NODISCARD VkResult vkCmdSetPerformanceMarkerINTEL(VkCommandBuffer commandBuffer, const VkPerformanceMarkerInfoINTEL* pMarkerInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdSetPerformanceMarkerINTEL);
+	return Kodiak::g_dispatcher.vkCmdSetPerformanceMarkerINTEL(commandBuffer, pMarkerInfo);
+}
+inline KODIAK_NODISCARD VkResult vkCmdSetPerformanceOverrideINTEL(VkCommandBuffer commandBuffer, const VkPerformanceOverrideInfoINTEL* pOverrideInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdSetPerformanceOverrideINTEL);
+	return Kodiak::g_dispatcher.vkCmdSetPerformanceOverrideINTEL(commandBuffer, pOverrideInfo);
+}
+inline KODIAK_NODISCARD VkResult vkCmdSetPerformanceStreamMarkerINTEL(VkCommandBuffer commandBuffer, const VkPerformanceStreamMarkerInfoINTEL* pMarkerInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdSetPerformanceStreamMarkerINTEL);
+	return Kodiak::g_dispatcher.vkCmdSetPerformanceStreamMarkerINTEL(commandBuffer, pMarkerInfo);
+}
+inline KODIAK_NODISCARD VkResult vkGetPerformanceParameterINTEL(VkDevice device, VkPerformanceParameterTypeINTEL parameter, VkPerformanceValueINTEL* pValue)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPerformanceParameterINTEL);
+	return Kodiak::g_dispatcher.vkGetPerformanceParameterINTEL(device, parameter, pValue);
+}
+inline KODIAK_NODISCARD VkResult vkInitializePerformanceApiINTEL(VkDevice device, const VkInitializePerformanceApiInfoINTEL* pInitializeInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkInitializePerformanceApiINTEL);
+	return Kodiak::g_dispatcher.vkInitializePerformanceApiINTEL(device, pInitializeInfo);
+}
+inline KODIAK_NODISCARD VkResult vkQueueSetPerformanceConfigurationINTEL(VkQueue queue, VkPerformanceConfigurationINTEL configuration)
+{
+	VALIDATE_FUNCTION_POINTER(vkQueueSetPerformanceConfigurationINTEL);
+	return Kodiak::g_dispatcher.vkQueueSetPerformanceConfigurationINTEL(queue, configuration);
+}
+inline KODIAK_NODISCARD VkResult vkReleasePerformanceConfigurationINTEL(VkDevice device, VkPerformanceConfigurationINTEL configuration)
+{
+	VALIDATE_FUNCTION_POINTER(vkReleasePerformanceConfigurationINTEL);
+	return Kodiak::g_dispatcher.vkReleasePerformanceConfigurationINTEL(device, configuration);
+}
+inline void vkUninitializePerformanceApiINTEL(VkDevice device)
+{
+	VALIDATE_FUNCTION_POINTER(vkUninitializePerformanceApiINTEL);
+	Kodiak::g_dispatcher.vkUninitializePerformanceApiINTEL(device);
+}
+
+
+#ifdef VK_USE_PLATFORM_VI_NN
+// VK_NN_vi_surface
+inline KODIAK_NODISCARD VkResult vkCreateViSurfaceNN(VkInstance instance, const VkViSurfaceCreateInfoNN* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface)
+{
+	VALIDATE_FUNCTION_POINTER(vkCreateViSurfaceNN);
+	return Kodiak::g_dispatcher.vkCreateViSurfaceNN(instance, pCreateInfo, pAllocator, pSurface);
+}
+#endif
 
 #undef VALIDATE_FUNCTION_POINTER

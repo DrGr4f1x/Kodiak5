@@ -1798,4 +1798,224 @@ inline KODIAK_NODISCARD VkResult vkQueuePresentKHR(VkQueue queue, const VkPresen
 	return Kodiak::g_dispatcher.vkQueuePresentKHR(queue, pPresentInfo);
 }
 
+
+#ifdef VK_USE_PLATFORM_WAYLAND_KHR
+// VK_KHR_wayland_surface
+inline KODIAK_NODISCARD VkResult vkCreateWaylandSurfaceKHR(VkInstance instance, const VkWaylandSurfaceCreateInfoKHR* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface)
+{
+	VALIDATE_FUNCTION_POINTER(vkCreateWaylandSurfaceKHR);
+	return Kodiak::g_dispatcher.vkCreateWaylandSurfaceKHR(instance, pCreateInfo, pAllocator, pSurface);
+}
+inline KODIAK_NODISCARD VkBool32 vkGetPhysicalDeviceWaylandPresentationSupportKHR(VkPhysicalDevice physicalDevice, uint32_t queueFamilyIndex, struct wl_display* display)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceWaylandPresentationSupportKHR);
+	return Kodiak::g_dispathcer.vkGetPhysicalDeviceWaylandPresentationSupportKHR(physicalDevice, queueFamilyIndex, display);
+}
+#endif
+
+
+#ifdef VK_USE_PLATFORM_WIN32_KHR
+// VK_KHR_win32_surface
+inline KODIAK_NODISCARD VkResult vkCreateWin32SurfaceKHR(VkInstance instance, const VkWin32SurfaceCreateInfoKHR* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface)
+{
+	VALIDATE_FUNCTION_POINTER(vkCreateWin32SurfaceKHR);
+	return Kodiak::g_dispatcher.vkCreateWin32SurfaceKHR(instance, pCreateInfo, pAllocator, pSurface);
+}
+inline KODIAK_NODISCARD VkBool32 vkGetPhysicalDeviceWin32PresentationSupportKHR(VkPhysicalDevice physicalDevice, uint32_t queueFamilyIndex)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceWin32PresentationSupportKHR);
+	return Kodiak::g_dispatcher.vkGetPhysicalDeviceWin32PresentationSupportKHR(physicalDevice, queueFamilyIndex);
+}
+#endif
+
+
+#ifdef VK_USE_PLATFORM_XCB_KHR
+// VK_KHR_xcb_surface
+inline KODIAK_NODISCARD VkResult vkCreateXcbSurfaceKHR(VkInstance instance, const VkXcbSurfaceCreateInfoKHR* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface)
+{
+	VALIDATE_FUNCTION_POINTER(vkCreateXcbSurfaceKHR);
+	return Kodiak::g_dispatcher.vkCreateXcbSurfaceKHR(instance, pCreateInfo, pAllocator, pSurface);
+}
+inline KODIAK_NODISCARD VkBool32 vkGetPhysicalDeviceXcbPresentationSupportKHR(VkPhysicalDevice physicalDevice, uint32_t queueFamilyIndex, xcb_connection_t* connection, xcb_visualid_t visual_id)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceXcbPresentationSupportKHR);
+	return Kodiak::g_dispatcher.vkGetPhysicalDeviceXcbPresentationSupportKHR(physicalDevice, queueFamilyIndex, connection, visual_id);
+}
+#endif
+
+
+#ifdef VK_USE_PLATFORM_XLIB_KHR
+// VK_KHR_xlib_surface
+inline KODIAK_NODISCARD VkResult vkCreateXlibSurfaceKHR(VkInstance instance, const VkXlibSurfaceCreateInfoKHR* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface)
+{
+	VALIDATE_FUNCTION_POINTER(vkCreateXlibSurfaceKHR);
+	return Kodiak::g_dispatcher.vkCreateXlibSurfaceKHR(instance, pCreateInfo, pAllocator, pSurface);
+}
+inline KODIAK_NODISCARD VkBool32 vkGetPhysicalDeviceXlibPresentationSupportKHR(VkPhysicalDevice physicalDevice, uint32_t queueFamilyIndex, Display* dpy, VisualID visualID)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceXlibPresentationSupportKHR);
+	return Kodiak::g_dispatcher.vkGetPhysicalDeviceXlibPresentationSupportKHR(physicalDevice, queueFamilyIndex, dpy, visualID);
+}
+#endif
+
+
+#ifdef VK_USE_PLATFORM_XLIB_XRANDR_EXT
+// VK_EXT_acquire_xlib_display
+inline KODIAK_NODISCARD VkResult vkAcquireXlibDisplayEXT(VkPhysicalDevice physicalDevice, Display* dpy, VkDisplayKHR display)
+{
+	VALIDATE_FUNCTION_POINTER(vkAcquireXlibDisplayEXT);
+	return Kodiak::g_dispatcher.vkAcquireXlibDisplayEXT(physicalDevice, dpy, display);
+}
+inline KODIAK_NODISCARD VkResult vkGetRandROutputDisplayEXT(VkPhysicalDevice physicalDevice, Display* dpy, RROutput rrOutput, VkDisplayKHR* pDisplay)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetRandROutputDisplayEXT);
+	return Kodiak::g_dispatcher.vkGetRandROutputDisplayEXT(physicalDevice, dpy, rrOutput, pDisplay);
+}
+#endif
+
+
+// VK_EXT_calibrated_timestamps
+inline KODIAK_NODISCARD VkResult vkGetCalibratedTimestampsEXT(VkDevice device, uint32_t timestampCount, const VkCalibratedTimestampInfoEXT* pTimestampInfos, uint64_t* pTimestamps, uint64_t* pMaxDeviation)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetCalibratedTimestampsEXT);
+	return Kodiak::g_dispatcher.vkGetCalibratedTimestampsEXT(device, timestampCount, pTimestampInfos, pTimestamps, pMaxDeviation);
+}
+inline KODIAK_NODISCARD VkResult vkGetPhysicalDeviceCalibrateableTimeDomainsEXT(VkPhysicalDevice physicalDevice, uint32_t* pTimeDomainCount, VkTimeDomainEXT* pTimeDomains)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceCalibrateableTimeDomainsEXT);
+	return Kodiak::g_dispatcher.vkGetPhysicalDeviceCalibrateableTimeDomainsEXT(physicalDevice, pTimeDomainCount, pTimeDomains);
+}
+
+
+// VK_EXT_conditional_rendering
+inline void vkCmdBeginConditionalRenderingEXT(VkCommandBuffer commandBuffer, const VkConditionalRenderingBeginInfoEXT* pConditionalRenderingBegin)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdBeginConditionalRenderingEXT);
+	Kodiak::g_dispatcher.vkCmdBeginConditionalRenderingEXT(commandBuffer, pConditionalRenderingBegin);
+}
+inline void vkCmdEndConditionalRenderingEXT(VkCommandBuffer commandBuffer)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdEndConditionalRenderingEXT);
+	Kodiak::g_dispatcher.vkCmdEndConditionalRenderingEXT(commandBuffer);
+}
+
+
+// VK_EXT_debug_utils
+inline void vkCmdBeginDebugUtilsLabelEXT(VkCommandBuffer commandBuffer, const VkDebugUtilsLabelEXT* pLabelInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdBeginDebugUtilsLabelEXT);
+	Kodiak::g_dispatcher.vkCmdBeginDebugUtilsLabelEXT(commandBuffer, pLabelInfo);
+}
+inline void vkCmdEndDebugUtilsLabelEXT(VkCommandBuffer commandBuffer)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdEndDebugUtilsLabelEXT);
+	Kodiak::g_dispatcher.vkCmdEndDebugUtilsLabelEXT(commandBuffer);
+}
+inline void vkCmdInsertDebugUtilsLabelEXT(VkCommandBuffer commandBuffer, const VkDebugUtilsLabelEXT* pLabelInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdInsertDebugUtilsLabelEXT);
+	Kodiak::g_dispatcher.vkCmdInsertDebugUtilsLabelEXT(commandBuffer, pLabelInfo);
+}
+inline KODIAK_NODISCARD VkResult vkCreateDebugUtilsMessengerEXT(VkInstance instance, const VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDebugUtilsMessengerEXT* pMessenger)
+{
+	VALIDATE_FUNCTION_POINTER(vkCreateDebugUtilsMessengerEXT);
+	return Kodiak::g_dispatcher.vkCreateDebugUtilsMessengerEXT(instance, pCreateInfo, pAllocator, pMessenger);
+}
+inline void vkDestroyDebugUtilsMessengerEXT(VkInstance instance, VkDebugUtilsMessengerEXT messenger, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroyDebugUtilsMessengerEXT);
+	Kodiak::g_dispatcher.vkDestroyDebugUtilsMessengerEXT(instance, messenger, pAllocator);
+}
+inline void vkQueueBeginDebugUtilsLabelEXT(VkQueue queue, const VkDebugUtilsLabelEXT* pLabelInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkQueueBeginDebugUtilsLabelEXT);
+	Kodiak::g_dispatcher.vkQueueBeginDebugUtilsLabelEXT(queue, pLabelInfo);
+}
+inline void vkQueueEndDebugUtilsLabelEXT(VkQueue queue)
+{
+	VALIDATE_FUNCTION_POINTER(vkQueueEndDebugUtilsLabelEXT);
+	Kodiak::g_dispatcher.vkQueueEndDebugUtilsLabelEXT(queue);
+}
+inline void vkQueueInsertDebugUtilsLabelEXT(VkQueue queue, const VkDebugUtilsLabelEXT* pLabelInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkQueueInsertDebugUtilsLabelEXT);
+	Kodiak::g_dispatcher.vkQueueInsertDebugUtilsLabelEXT(queue, pLabelInfo);
+}
+inline KODIAK_NODISCARD VkResult vkSetDebugUtilsObjectNameEXT(VkDevice device, const VkDebugUtilsObjectNameInfoEXT* pNameInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkSetDebugUtilsObjectNameEXT);
+	return Kodiak::g_dispatcher.vkSetDebugUtilsObjectNameEXT(device, pNameInfo);
+}
+inline KODIAK_NODISCARD VkResult vkSetDebugUtilsObjectTagEXT(VkDevice device, const VkDebugUtilsObjectTagInfoEXT* pTagInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkSetDebugUtilsObjectTagEXT);
+	return Kodiak::g_dispatcher.vkSetDebugUtilsObjectTagEXT(device, pTagInfo);
+}
+inline void vkSubmitDebugUtilsMessageEXT(VkInstance instance, VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageTypes, const VkDebugUtilsMessengerCallbackDataEXT* pCallbackData)
+{
+	VALIDATE_FUNCTION_POINTER(vkSubmitDebugUtilsMessageEXT);
+	Kodiak::g_dispatcher.vkSubmitDebugUtilsMessageEXT(instance, messageSeverity, messageTypes, pCallbackData);
+}
+
+
+// VK_EXT_direct_mode_display
+inline KODIAK_NODISCARD VkResult vkReleaseDisplayEXT(VkPhysicalDevice physicalDevice, VkDisplayKHR display)
+{
+	VALIDATE_FUNCTION_POINTER(vkReleaseDisplayEXT);
+	return Kodiak::g_dispatcher.vkReleaseDisplayEXT(physicalDevice, display);
+}
+
+
+#ifdef VK_USE_PLATFORM_DIRECTFB_EXT
+// VK_EXT_directfb_surface
+inline KODIAK_NODISCARD VkResult vkCreateDirectFBSurfaceEXT(VkInstance instance, const VkDirectFBSurfaceCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface)
+{
+	VALIDATE_FUNCTION_POINTER(vkCreateDirectFBSurfaceEXT);
+	return Kodiak::g_dispatcher.vkCreateDirectFBSurfaceEXT(instance, pCreateInfo, pAllocator, pSurface);
+}
+inline KODIAK_NODISCARD VkResult vkGetPhysicalDeviceDirectFBPresentationSupportEXT(VkPhysicalDevice physicalDevice, uint32_t queueFamilyIndex, IDirectFB* dfb)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceDirectFBPresentationSupportEXT);
+	return Kodiak::g_dispatcher.vkGetPhysicalDeviceDirectFBPresentationSupportEXT(physicalDevice, queueFamilyIndex, dfb);
+}
+#endif
+
+// VK_EXT_discard_rectangles
+inline void vkCmdSetDiscardRectangleEXT(VkCommandBuffer commandBuffer, uint32_t firstDiscardRectangle, uint32_t discardRectangleCount, const VkRect2D* pDiscardRectangles)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdSetDiscardRectangleEXT);
+	Kodiak::g_dispatcher.vkCmdSetDiscardRectangleEXT(commandBuffer, firstDiscardRectangle, discardRectangleCount, pDiscardRectangles);
+}
+
+
+// VK_EXT_display_control
+inline KODIAK_NODISCARD VkResult vkDisplayPowerControlEXT(VkDevice device, VkDisplayKHR display, const VkDisplayPowerInfoEXT* pDisplayPowerInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkDisplayPowerControlEXT);
+	return Kodiak::g_dispatcher.vkDisplayPowerControlEXT(device, display, pDisplayPowerInfo);
+}
+inline KODIAK_NODISCARD VkResult vkGetSwapchainCounterEXT(VkDevice device, VkSwapchainKHR swapchain, VkSurfaceCounterFlagBitsEXT counter, uint64_t* pCounterValue)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetSwapchainCounterEXT);
+	return Kodiak::g_dispatcher.vkGetSwapchainCounterEXT(device, swapchain, counter, pCounterValue);
+}
+inline KODIAK_NODISCARD VkResult vkRegisterDeviceEventEXT(VkDevice device, const VkDeviceEventInfoEXT* pDeviceEventInfo, const VkAllocationCallbacks* pAllocator, VkFence* pFence)
+{
+	VALIDATE_FUNCTION_POINTER(vkRegisterDeviceEventEXT);
+	return Kodiak::g_dispatcher.vkRegisterDeviceEventEXT(device, pDeviceEventInfo, pAllocator, pFence);
+}
+inline KODIAK_NODISCARD VkResult vkRegisterDisplayEventEXT(VkDevice device, VkDisplayKHR display, const VkDisplayEventInfoEXT* pDisplayEventInfo, const VkAllocationCallbacks* pAllocator, VkFence* pFence)
+{
+	VALIDATE_FUNCTION_POINTER(vkRegisterDisplayEventEXT);
+	return Kodiak::g_dispatcher.vkRegisterDisplayEventEXT(device, display, pDisplayEventInfo, pAllocator, pFence);
+}
+
+
+// VK_EXT_display_surface_counter
+inline KODIAK_NODISCARD VkResult vkGetPhysicalDeviceSurfaceCapabilities2EXT(VkPhysicalDevice physicalDevice, VkSurfaceKHR surface, VkSurfaceCapabilities2EXT* pSurfaceCapabilities)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceSurfaceCapabilities2EXT);
+	return Kodiak::g_dispatcher.vkGetPhysicalDeviceSurfaceCapabilities2EXT(physicalDevice, surface, pSurfaceCapabilities);
+}
+
 #undef VALIDATE_FUNCTION_POINTER

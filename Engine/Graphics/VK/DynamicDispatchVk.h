@@ -1704,4 +1704,98 @@ inline void vkReleaseProfilingLockKHR(VkDevice device)
 }
 
 
+// VK_KHR_pipeline_executable_properties
+inline KODIAK_NODISCARD VkResult vkGetPipelineExecutableInternalRepresentationsKHR(VkDevice device, const VkPipelineExecutableInfoKHR* pExecutableInfo, uint32_t* pInternalRepresentationCount, VkPipelineExecutableInternalRepresentationKHR* pInternalRepresentations)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPipelineExecutableInternalRepresentationsKHR);
+	return Kodiak::g_dispatcher.vkGetPipelineExecutableInternalRepresentationsKHR(device, pExecutableInfo, pInternalRepresentationCount, pInternalRepresentations);
+}
+inline KODIAK_NODISCARD VkResult vkGetPipelineExecutablePropertiesKHR(VkDevice device, const VkPipelineInfoKHR* pPipelineInfo, uint32_t* pExecutableCount, VkPipelineExecutablePropertiesKHR* pProperties)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPipelineExecutablePropertiesKHR);
+	return Kodiak::g_dispatcher.vkGetPipelineExecutablePropertiesKHR(device, pPipelineInfo, pExecutableCount, pProperties);
+}
+inline KODIAK_NODISCARD VkResult vkGetPipelineExecutableStatisticsKHR(VkDevice device, const VkPipelineExecutableInfoKHR* pExecutableInfo, uint32_t* pStatisticCount, VkPipelineExecutableStatisticKHR* pStatistics)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPipelineExecutableStatisticsKHR);
+	return Kodiak::g_dispatcher.vkGetPipelineExecutableStatisticsKHR(device, pExecutableInfo, pStatisticCount, pStatistics);
+}
+
+
+// VK_KHR_push_descriptor
+inline void vkCmdPushDescriptorSetKHR(VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipelineLayout layout, uint32_t set, uint32_t descriptorWriteCount, const VkWriteDescriptorSet* pDescriptorWrites)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdPushDescriptorSetKHR);
+	Kodiak::g_dispatcher.vkCmdPushDescriptorSetKHR(commandBuffer, pipelineBindPoint, layout, set, descriptorWriteCount, pDescriptorWrites);
+}
+inline void vkCmdPushDescriptorSetWithTemplateKHR(VkCommandBuffer commandBuffer, VkDescriptorUpdateTemplate descriptorUpdateTemplate, VkPipelineLayout layout, uint32_t set, const void* pData)
+{
+	VALIDATE_FUNCTION_POINTER(vkCmdPushDescriptorSetWithTemplateKHR);
+	Kodiak::g_dispatcher.vkCmdPushDescriptorSetWithTemplateKHR(commandBuffer, descriptorUpdateTemplate, layout, set, pData);
+}
+
+
+// VK_KHR_shared_presentable_image
+inline KODIAK_NODISCARD VkResult vkGetSwapchainStatusKHR(VkDevice device, VkSwapchainKHR swapchain)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetSwapchainStatusKHR);
+	Kodiak::g_dispatcher.vkGetSwapchainStatusKHR(device, swapchain);
+}
+
+
+// VK_KHR_surface
+inline void vkDestroySurfaceKHR(VkInstance instance, VkSurfaceKHR surface, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroySurfaceKHR);
+	Kodiak::g_dispatcher.vkDestroySurfaceKHR(instance, surface, pAllocator);
+}
+inline KODIAK_NODISCARD VkResult vkGetPhysicalDeviceSurfaceCapabilitiesKHR(VkPhysicalDevice physicalDevice, VkSurfaceKHR surface, VkSurfaceCapabilitiesKHR* pSurfaceCapabilities)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceSurfaceCapabilitiesKHR);
+	return Kodiak::g_dispatcher.vkGetPhysicalDeviceSurfaceCapabilitiesKHR(physicalDevice, surface, pSurfaceCapabilities);
+}
+inline KODIAK_NODISCARD VkResult vkGetPhysicalDeviceSurfaceFormatsKHR(VkPhysicalDevice physicalDevice, VkSurfaceKHR surface, uint32_t* pSurfaceFormatCount, VkSurfaceFormatKHR* pSurfaceFormats)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceSurfaceFormatsKHR);
+	return Kodiak::g_dispatcher.vkGetPhysicalDeviceSurfaceFormatsKHR(physicalDevice, surface, pSurfaceFormatCount, pSurfaceFormats);
+}
+inline KODIAK_NODISCARD VkResult vkGetPhysicalDeviceSurfacePresentModesKHR(VkPhysicalDevice physicalDevice, VkSurfaceKHR surface, uint32_t* pPresentModeCount, VkPresentModeKHR* pPresentModes)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceSurfacePresentModesKHR);
+	return Kodiak::g_dispatcher.vkGetPhysicalDeviceSurfacePresentModesKHR(physicalDevice, surface, pPresentModeCount, pPresentModes);
+}
+inline KODIAK_NODISCARD VkResult vkGetPhysicalDeviceSurfaceSupportKHR(VkPhysicalDevice physicalDevice, uint32_t queueFamilyIndex, VkSurfaceKHR surface, VkBool32* pSupported)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetPhysicalDeviceSurfaceSupportKHR);
+	return Kodiak::g_dispatcher.vkGetPhysicalDeviceSurfaceSupportKHR(physicalDevice, queueFamilyIndex, surface, pSupported);
+}
+
+
+// VK_KHR_swapchain
+inline KODIAK_NODISCARD VkResult vkAcquireNextImageKHR(VkDevice device, VkSwapchainKHR swapchain, uint64_t timeout, VkSemaphore semaphore, VkFence fence, uint32_t* pImageIndex)
+{
+	VALIDATE_FUNCTION_POINTER(vkAcquireNextImageKHR);
+	return Kodiak::g_dispatcher.vkAcquireNextImageKHR(device, swapchain, timeout, semaphore, fence, pImageIndex);
+}
+inline KODIAK_NODISCARD VkResult vkCreateSwapchainKHR(VkDevice device, const VkSwapchainCreateInfoKHR* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSwapchainKHR* pSwapchain)
+{
+	VALIDATE_FUNCTION_POINTER(vkCreateSwapchainKHR);
+	return Kodiak::g_dispatcher.vkCreateSwapchainKHR(device, pCreateInfo, pAllocator, pSwapchain);
+}
+inline void vkDestroySwapchainKHR(VkDevice device, VkSwapchainKHR swapchain, const VkAllocationCallbacks* pAllocator)
+{
+	VALIDATE_FUNCTION_POINTER(vkDestroySwapchainKHR);
+	Kodiak::g_dispatcher.vkDestroySwapchainKHR(device, swapchain, pAllocator);
+}
+inline KODIAK_NODISCARD VkResult vkGetSwapchainImagesKHR(VkDevice device, VkSwapchainKHR swapchain, uint32_t* pSwapchainImageCount, VkImage* pSwapchainImages)
+{
+	VALIDATE_FUNCTION_POINTER(vkGetSwapchainImagesKHR);
+	return Kodiak::g_dispatcher.vkGetSwapchainImagesKHR(device, swapchain, pSwapchainImageCount, pSwapchainImages);
+}
+inline KODIAK_NODISCARD VkResult vkQueuePresentKHR(VkQueue queue, const VkPresentInfoKHR* pPresentInfo)
+{
+	VALIDATE_FUNCTION_POINTER(vkQueuePresentKHR);
+	return Kodiak::g_dispatcher.vkQueuePresentKHR(queue, pPresentInfo);
+}
+
 #undef VALIDATE_FUNCTION_POINTER

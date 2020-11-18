@@ -441,7 +441,9 @@ enum class Extension : uint32_t
 	EXT_FragmentDensityMap,
 	EXT_FragmentDensityMap2,
 	EXT_FragmentShaderInterlock,
+#ifdef VK_USE_PLATFORM_WIN32_KHR
 	EXT_FullScreenExclusive,
+#endif
 	EXT_GlobalPriority,
 	EXT_HdrMetadata,
 	EXT_HeadlessSurface,

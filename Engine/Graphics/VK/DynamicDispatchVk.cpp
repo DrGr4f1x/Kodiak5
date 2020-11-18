@@ -660,11 +660,14 @@ void Dispatcher::LoadExtension(Extension extension)
 		LOAD(vkGetMemoryHostPointerPropertiesEXT);
 		break;
 
+#ifdef VK_USE_PLATFORM_WIN32_KHR
 	case Extension::EXT_FullScreenExclusive:
 		LOAD(vkAcquireFullScreenExclusiveModeEXT);
+		LOAD(vkGetDeviceGroupSurfacePresentModes2EXT);
 		LOAD(vkGetPhysicalDeviceSurfacePresentModes2EXT);
 		LOAD(vkReleaseFullScreenExclusiveModeEXT);
 		break;
+#endif
 
 	case Extension::EXT_HdrMetadata:
 		LOAD(vkSetHdrMetadataEXT);

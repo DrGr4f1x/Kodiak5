@@ -40,5 +40,6 @@ inline void ThrowIfFailed(VkResult res)
 
 // Engine headers
 #include "DynamicDispatchVk.h"
+#include "DynamicDispatchUtilVk.h"
 #include "RefCountingVk.h"
 #include "StructureChainVk.h"

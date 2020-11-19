@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug12|x64">
@@ -244,6 +244,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
+    <ClInclude Include="ArrayProxy.h" />
     <ClInclude Include="BitmaskEnum.h" />
     <ClInclude Include="EnginePch.h" />
     <ClInclude Include="Filesystem.h" />
@@ -265,6 +266,7 @@
     </ClInclude>
     <ClInclude Include="Graphics\GraphicsDevice.h" />
     <ClInclude Include="Graphics\GraphicsEnums.h" />
+    <ClInclude Include="Graphics\VK\DynamicDispatchUtilVk.h" />
     <ClInclude Include="Graphics\VK\DynamicDispatchVk.h" />
     <ClInclude Include="Graphics\VK\GraphicsDeviceVk.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug12|x64'">true</ExcludedFromBuild>

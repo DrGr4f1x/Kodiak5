@@ -81,6 +81,7 @@ inline void ThrowIfFailed(HRESULT hr)
 #include <string>
 
 // Engine headers
+#include "ArrayProxy.h"
 #include "BitmaskEnum.h"
 #include "Log.h"
 #include "NonCopyable.h"

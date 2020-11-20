@@ -150,6 +150,133 @@ inline KODIAK_NODISCARD std::vector<VkSparseImageFormatProperties2> vkGetPhysica
 
 
 // Vulkan 1.0 device functions (extended)
+inline void vkCmdBindDescriptorSets(VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipelineLayout layout, uint32_t firstSet, const Kodiak::ArrayProxy<VkDescriptorSet>& descriptorSets, const Kodiak::ArrayProxy<uint32_t> dynamicOffsets)
+{
+	vkCmdBindDescriptorSets(commandBuffer, pipelineBindPoint, layout, firstSet, descriptorSets.size(), descriptorSets.data(), dynamicOffsets.size(), dynamicOffsets.data());
+}
+
+
+inline void vkCmdBindVertexBuffers(VkCommandBuffer commandBuffer, uint32_t firstBinding, const Kodiak::ArrayProxy<VkBuffer> buffers, const Kodiak::ArrayProxy<VkDeviceSize>& offsets)
+{
+	assert(buffers.size() == offsets.size());
+	vkCmdBindVertexBuffers(commandBuffer, firstBinding, buffers.size(), buffers.data(), offsets.data());
+}
+
+
+inline void vkCmdBlitImage(VkCommandBuffer commandBuffer, VkImage srcImage, VkImageLayout srcImageLayout, VkImage dstImage, VkImageLayout dstImageLayout, const Kodiak::ArrayProxy<VkImageBlit> regions, VkFilter filter)
+{
+	vkCmdBlitImage(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regions.size(), regions.data(), filter);
+}
+
+
+inline void vkCmdClearAttachments(VkCommandBuffer commandBuffer, const Kodiak::ArrayProxy<VkClearAttachment> attachments, const Kodiak::ArrayProxy<VkClearRect> rects)
+{
+	vkCmdClearAttachments(commandBuffer, attachments.size(), attachments.data(), rects.size(), rects.data());
+}
+
+
+inline void vkCmdClearColorImage(VkCommandBuffer commandBuffer, VkImage image, VkImageLayout imageLayout, const VkClearColorValue* pColor, const Kodiak::ArrayProxy<VkImageSubresourceRange> ranges)
+{
+	vkCmdClearColorImage(commandBuffer, image, imageLayout, pColor, ranges.size(), ranges.data());
+}
+
+
+inline void vkCmdClearDepthStencilImage(VkCommandBuffer commandBuffer, VkImage image, VkImageLayout imageLayout, const VkClearDepthStencilValue* pDepthStencil, const Kodiak::ArrayProxy<VkImageSubresourceRange> ranges)
+{
+	vkCmdClearDepthStencilImage(commandBuffer, image, imageLayout, pDepthStencil, ranges.size(), ranges.data());
+}
+
+
+inline void vkCmdCopyBuffer(VkCommandBuffer commandBuffer, VkBuffer srcBuffer, VkBuffer dstBuffer, const Kodiak::ArrayProxy<VkBufferCopy> regions)
+{
+	vkCmdCopyBuffer(commandBuffer, srcBuffer, dstBuffer, regions.size(), regions.data());
+}
+
+
+inline void vkCmdCopyBufferToImage(VkCommandBuffer commandBuffer, VkBuffer srcBuffer, VkImage dstImage, VkImageLayout dstImageLayout, const Kodiak::ArrayProxy<VkBufferImageCopy> &regions)
+{
+	vkCmdCopyBufferToImage(commandBuffer, srcBuffer, dstImage, dstImageLayout, regions.size(), regions.data());
+}
+
+
+inline void vkCmdCopyImage(VkCommandBuffer commandBuffer, VkImage srcImage, VkImageLayout srcImageLayout, VkImage dstImage, VkImageLayout dstImageLayout, const Kodiak::ArrayProxy<VkImageCopy>& regions)
+{
+	vkCmdCopyImage(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regions.size(), regions.data());
+}
+
+
+inline void vkCmdCopyImageToBuffer(VkCommandBuffer commandBuffer, VkImage srcImage, VkImageLayout srcImageLayout, VkBuffer dstBuffer, const Kodiak::ArrayProxy<VkBufferImageCopy>& regions)
+{
+	vkCmdCopyImageToBuffer(commandBuffer, srcImage, srcImageLayout, dstBuffer, regions.size(), regions.data());
+}
+
+
+inline void vkCmdExecuteCommands(VkCommandBuffer commandBuffer, const Kodiak::ArrayProxy<VkCommandBuffer>& commandBuffers)
+{
+	vkCmdExecuteCommands(commandBuffer, commandBuffers.size(), commandBuffers.data());
+}
+
+
+inline void vkCmdPipelineBarrier(VkCommandBuffer commandBuffer, VkPipelineStageFlags srcStageMask, VkPipelineStageFlags dstStageMask, VkDependencyFlags dependencyFlags, const Kodiak::ArrayProxy<VkMemoryBarrier>& memoryBarriers, const Kodiak::ArrayProxy<VkBufferMemoryBarrier>& bufferMemoryBarriers, const Kodiak::ArrayProxy<VkImageMemoryBarrier>& imageMemoryBarriers)
+{
+	vkCmdPipelineBarrier(commandBuffer, srcStageMask, dstStageMask, dependencyFlags, memoryBarriers.size(), memoryBarriers.data(), bufferMemoryBarriers.size(), bufferMemoryBarriers.data(), imageMemoryBarriers.size(), imageMemoryBarriers.data());
+}
+
+
+inline void vkCmdResolveImage(VkCommandBuffer commandBuffer, VkImage srcImage, VkImageLayout srcImageLayout, VkImage dstImage, VkImageLayout dstImageLayout, const Kodiak::ArrayProxy<VkImageResolve>& regions)
+{
+	vkCmdResolveImage(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regions.size(), regions.data());
+}
+
+
+inline void vkCmdSetScissor(VkCommandBuffer commandBuffer, uint32_t firstScissor, const Kodiak::ArrayProxy<VkRect2D>& scissors)
+{
+	vkCmdSetScissor(commandBuffer, firstScissor, scissors.size(), scissors.data());
+}
+
+
+inline void vkCmdSetViewport(VkCommandBuffer commandBuffer, uint32_t firstViewport, const Kodiak::ArrayProxy<VkViewport>& viewports)
+{
+	vkCmdSetViewport(commandBuffer, firstViewport, viewports.size(), viewports.data());
+}
+
+
+inline void vkCmdWaitEvents(VkCommandBuffer commandBuffer, const Kodiak::ArrayProxy<VkEvent>& events, VkPipelineStageFlags srcStageMask, VkPipelineStageFlags dstStageMask, const Kodiak::ArrayProxy<VkMemoryBarrier>& memoryBarriers, const Kodiak::ArrayProxy<VkBufferMemoryBarrier>& bufferMemoryBarriers, const Kodiak::ArrayProxy<VkImageMemoryBarrier>& imageMemoryBarriers)
+{
+	vkCmdWaitEvents(commandBuffer, events.size(), events.data(), srcStageMask, dstStageMask, memoryBarriers.size(), memoryBarriers.data(), bufferMemoryBarriers.size(), bufferMemoryBarriers.data(), imageMemoryBarriers.size(), imageMemoryBarriers.data());
+}
+
+
+inline KODIAK_NODISCARD VkResult vkCreateComputePipelines(VkDevice device, VkPipelineCache pipelineCache, const Kodiak::ArrayProxy<VkComputePipelineCreateInfo>& createInfos, const VkAllocationCallbacks* pAllocator, VkPipeline* pPipelines)
+{
+	vkCreateComputePipelines(device, pipelineCache, createInfos.size(), createInfos.data(), pAllocator, pPipelines);
+}
+
+
+inline KODIAK_NODISCARD VkResult vkCreateGraphicsPipelines(VkDevice device, VkPipelineCache pipelineCache, const Kodiak::ArrayProxy<VkGraphicsPipelineCreateInfo>& createInfos, const VkAllocationCallbacks* pAllocator, VkPipeline* pPipelines)
+{
+	vkCreateGraphicsPipelines(device, pipelineCache, createInfos.size(), createInfos.data(), pAllocator, pPipelines);
+}
+
+
+inline KODIAK_NODISCARD VkResult vkFlushMappedMemoryRanges(VkDevice device, const Kodiak::ArrayProxy<VkMappedMemoryRange>& memoryRanges)
+{
+	vkFlushMappedMemoryRanges(device, memoryRanges.size(), memoryRanges.data());
+}
+
+
+inline void vkFreeCommandBuffers(VkDevice device, VkCommandPool commandPool, const Kodiak::ArrayProxy<VkCommandBuffer>& commandBuffers)
+{
+	vkFreeCommandBuffers(device, commandPool, commandBuffers.size(), commandBuffers.data());
+}
+
+
+inline KODIAK_NODISCARD VkResult vkFreeDescriptorSets(VkDevice device, VkDescriptorPool descriptorPool, const Kodiak::ArrayProxy<VkDescriptorSet>& descriptorSets)
+{
+	vkFreeDescriptorSets(device, descriptorPool, descriptorSets.size(), descriptorSets.data());
+}
+
+
 inline KODIAK_NODISCARD std::vector<VkSparseImageMemoryRequirements> vkGetImageSparseMemoryRequirements(VkDevice device, VkImage image)
 {
 	std::vector<VkSparseImageMemoryRequirements> sparseMemoryRequirements;
@@ -161,7 +288,61 @@ inline KODIAK_NODISCARD std::vector<VkSparseImageMemoryRequirements> vkGetImageS
 }
 
 
+inline KODIAK_NODISCARD VkResult vkInvalidateMappedMemoryRanges(VkDevice device, const Kodiak::ArrayProxy<VkMappedMemoryRange>& memoryRanges)
+{
+	return vkInvalidateMappedMemoryRanges(device, memoryRanges.size(), memoryRanges.data());
+}
+
+
+inline KODIAK_NODISCARD VkResult vkMergePipelineCaches(VkDevice device, VkPipelineCache dstCache, const Kodiak::ArrayProxy<VkPipelineCache>& srcCaches)
+{
+	return vkMergePipelineCaches(device, dstCache, srcCaches.size(), srcCaches.data());
+}
+
+
+inline KODIAK_NODISCARD VkResult vkQueueBindSparse(VkQueue queue, const Kodiak::ArrayProxy<VkBindSparseInfo>& bindInfos, VkFence fence)
+{
+	return vkQueueBindSparse(queue, bindInfos.size(), bindInfos.data(), fence);
+}
+
+
+inline KODIAK_NODISCARD VkResult vkQueueSubmit(VkQueue queue, const Kodiak::ArrayProxy<VkSubmitInfo>& submits, VkFence fence)
+{
+	return vkQueueSubmit(queue, submits.size(), submits.data(), fence);
+}
+
+
+inline KODIAK_NODISCARD VkResult vkResetFences(VkDevice device, const Kodiak::ArrayProxy<VkFence>& fences)
+{
+	return vkResetFences(device, fences.size(), fences.data());
+}
+
+
+inline void vkUpdateDescriptorSets(VkDevice device, const Kodiak::ArrayProxy<VkWriteDescriptorSet>& descriptorWrites, const Kodiak::ArrayProxy<VkCopyDescriptorSet>& descriptorCopies)
+{
+	vkUpdateDescriptorSets(device, descriptorWrites.size(), descriptorWrites.data(), descriptorCopies.size(), descriptorCopies.data());
+}
+
+
+inline KODIAK_NODISCARD VkResult vkWaitForFences(VkDevice device, const Kodiak::ArrayProxy<VkFence>& fences, VkBool32 waitAll, uint64_t timeout)
+{
+	return vkWaitForFences(device, fences.size(), fences.data(), waitAll, timeout);
+}
+
+
 // Vulkan 1.1 device functions (extended)
+inline KODIAK_NODISCARD VkResult vkBindBufferMemory2(VkDevice device, const Kodiak::ArrayProxy<VkBindBufferMemoryInfo>& bindInfos)
+{
+	vkBindBufferMemory2(device, bindInfos.size(), bindInfos.data());
+}
+
+
+inline KODIAK_NODISCARD VkResult vkBindImageMemory2(VkDevice device, const Kodiak::ArrayProxy<VkBindImageMemoryInfo>& bindInfos)
+{
+	vkBindImageMemory2(device, bindInfos.size(), bindInfos.data());
+}
+
+
 inline KODIAK_NODISCARD std::vector<VkSparseImageMemoryRequirements2> vkGetImageSparseMemoryRequirements(VkDevice device, const VkImageSparseMemoryRequirementsInfo2* pInfo)
 {
 	std::vector<VkSparseImageMemoryRequirements2> sparseMemoryRequirements;
@@ -263,6 +444,13 @@ inline KODIAK_NODISCARD std::vector<VkDisplayPropertiesKHR> vkGetPhysicalDeviceD
 		properties.resize(propertyCount);
 	}
 	return properties;
+}
+
+
+// VK_KHR_display_swapchain
+inline KODIAK_NODISCARD VkResult vkCreateSharedSwapchainsKHR(VkDevice device, const Kodiak::ArrayProxy<VkSwapchainCreateInfoKHR>& createInfos, const VkAllocationCallbacks* pAllocator, VkSwapchainKHR* pSwapchains)
+{
+	vkCreateSharedSwapchainsKHR(device, createInfos.size(), createInfos.data(), pAllocator, pSwapchains);
 }
 
 
@@ -383,6 +571,13 @@ inline KODIAK_NODISCARD std::vector<VkPipelineExecutableStatisticKHR> vkGetPipel
 }
 
 
+// VK_KHR_push_descriptor
+inline void vkCmdPushDescriptorSetKHR(VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipelineLayout layout, uint32_t set, const Kodiak::ArrayProxy<VkWriteDescriptorSet>& descriptorWrites)
+{
+	vkCmdPushDescriptorSetKHR(commandBuffer, pipelineBindPoint, layout, set, descriptorWrites.size(), descriptorWrites.data());
+}
+
+
 // VK_KHR_surface
 inline KODIAK_NODISCARD std::vector<VkSurfaceFormatKHR> vkGetPhysicalDeviceSurfaceFormatsKHR(VkPhysicalDevice physicalDevice, VkSurfaceKHR surface)
 {
@@ -455,6 +650,13 @@ inline KODIAK_NODISCARD std::vector<VkImage> vkGetSwapchainImagesKHR(VkDevice de
 
 
 // VK_EXT_calibrated_timestamps
+inline KODIAK_NODISCARD VkResult vkGetCalibratedTimestampsEXT(VkDevice device, const Kodiak::ArrayProxy<VkCalibratedTimestampInfoEXT>& timestampInfos, const Kodiak::ArrayProxy<uint64_t>& timestamps, uint64_t* pMaxDeviation)
+{
+	assert(timestampInfos.size() == timestamps.size());
+	return vkGetCalibratedTimestampsEXT(device, timestampInfos.size(), timestampInfos.data(), timestamps.data(), pMaxDeviation);
+}
+
+
 inline KODIAK_NODISCARD std::vector<VkTimeDomainEXT> vkGetPhysicalDeviceCalibrateableTimeDomainsEXT(VkPhysicalDevice physicalDevice)
 {
 	std::vector<VkTimeDomainEXT> timeDomains;
@@ -475,6 +677,38 @@ inline KODIAK_NODISCARD std::vector<VkTimeDomainEXT> vkGetPhysicalDeviceCalibrat
 		timeDomains.resize(timeDomainCount);
 	}
 	return timeDomains;
+}
+
+
+// VK_EXT_discard_rectangles
+inline void vkCmdSetDiscardRectangleEXT(VkCommandBuffer commandBuffer, uint32_t firstDiscardRectangle, const Kodiak::ArrayProxy<VkRect2D>& discardRectangles)
+{
+	vkCmdSetDiscardRectangleEXT(commandBuffer, firstDiscardRectangle, discardRectangles.size(), discardRectangles.data());
+}
+
+
+// VK_EXT_extended_dynamic_state
+inline void vkCmdBindVertexBuffers2EXT(VkCommandBuffer commandBuffer, uint32_t firstBinding, const Kodiak::ArrayProxy<VkBuffer>& buffers, const Kodiak::ArrayProxy<VkDeviceSize>& offsets, const Kodiak::ArrayProxy<VkDeviceSize>& sizes, const Kodiak::ArrayProxy<VkDeviceSize>& strides)
+{
+	assert(buffers.size() == offsets.size());
+	assert(buffers.size() == sizes.size());
+	assert(buffers.size() == strides.size());
+	assert(offsets.size() == sizes.size());
+	assert(offsets.size() == strides.size());
+	assert(sizes.size() == strides.size());
+	vkCmdBindVertexBuffers2EXT(commandBuffer, firstBinding, buffers.size(), buffers.data(), offsets.data(), sizes.data(), strides.data());
+}
+
+
+inline void vkCmdSetScissorWithCountEXT(VkCommandBuffer commandBuffer, const Kodiak::ArrayProxy<VkRect2D>& scissors)
+{
+	vkCmdSetScissorWithCountEXT(commandBuffer, scissors.size(), scissors.data());
+}
+
+
+inline void vkCmdSetViewportWithCountEXT(VkCommandBuffer commandBuffer, const Kodiak::ArrayProxy<VkViewport>& viewports)
+{
+	vkCmdSetViewportWithCountEXT(commandBuffer, viewports.size(), viewports.data());
 }
 
 
@@ -502,6 +736,13 @@ inline KODIAK_NODISCARD std::vector<VkPresentModeKHR> vkGetPhysicalDeviceSurface
 }
 
 
+// VK_EXT_hdr_metadata
+inline void vkSetHdrMetadataEXT(VkDevice device, const Kodiak::ArrayProxy<VkSwapchainKHR>& swapchains, const Kodiak::ArrayProxy<VkHdrMetadataEXT>& metadata)
+{
+	vkSetHdrMetadataEXT(device, swapchains.size(), swapchains.data(), metadata.data());
+}
+
+
 // VK_EXT_tooling_info
 inline KODIAK_NODISCARD std::vector<VkPhysicalDeviceToolPropertiesEXT> vkGetPhysicalDeviceToolPropertiesEXT(VkPhysicalDevice physicalDevice)
 {
@@ -526,6 +767,37 @@ inline KODIAK_NODISCARD std::vector<VkPhysicalDeviceToolPropertiesEXT> vkGetPhys
 }
 
 
+// VK_EXT_transform_feedback
+inline void vkCmdBeginTransformFeedbackEXT(VkCommandBuffer commandBuffer, uint32_t firstCounterBuffer, const Kodiak::ArrayProxy<VkBuffer>& counterBuffers, const Kodiak::ArrayProxy<VkDeviceSize>& counterBufferOffsets)
+{
+	assert(counterBuffers.size() == counterBufferOffsets.size());
+	vkCmdBeginTransformFeedbackEXT(commandBuffer, firstCounterBuffer, counterBuffers.size(), counterBuffers.data(), counterBufferOffsets.data());
+}
+
+
+inline void vkCmdBindTransformFeedbackBuffersEXT(VkCommandBuffer commandBuffer, uint32_t firstBinding, const Kodiak::ArrayProxy<VkBuffer>& buffers, const Kodiak::ArrayProxy<VkDeviceSize>& offsets, const Kodiak::ArrayProxy<VkDeviceSize>& sizes)
+{
+	assert(buffers.size() == offsets.size());
+	assert(buffers.size() == sizes.size());
+	assert(offsets.size() == sizes.size());
+	vkCmdBindTransformFeedbackBuffersEXT(commandBuffer, firstBinding, buffers.size(), buffers.data(), offsets.data(), sizes.data());
+}
+
+
+inline void vkCmdEndTransformFeedbackEXT(VkCommandBuffer commandBuffer, uint32_t firstCounterBuffer, const Kodiak::ArrayProxy<VkBuffer>& counterBuffers, const Kodiak::ArrayProxy<VkDeviceSize>& counterBufferOffsets)
+{
+	assert(counterBuffers.size() == counterBufferOffsets.size());
+	vkCmdEndTransformFeedbackEXT(commandBuffer, firstCounterBuffer, counterBuffers.size(), counterBuffers.data(), counterBufferOffsets.data());
+}
+
+
+// VK_EXT_validation_cache
+inline KODIAK_NODISCARD VkResult vkMergeValidationCachesEXT(VkDevice device, VkValidationCacheEXT dstCache, const Kodiak::ArrayProxy<VkValidationCacheEXT>& srcCaches)
+{
+	vkMergeValidationCachesEXT(device, dstCache, srcCaches.size(), srcCaches.data());
+}
+
+
 // VK_GOOGLE_display_timing
 inline KODIAK_NODISCARD std::vector<VkPastPresentationTimingGOOGLE> vkGetPastPresentationTimingGOOGLE(VkDevice device, VkSwapchainKHR swapchain)
 {
@@ -547,6 +819,13 @@ inline KODIAK_NODISCARD std::vector<VkPastPresentationTimingGOOGLE> vkGetPastPre
 		presentationTimings.resize(presentationTimingCount);
 	}
 	return presentationTimings;
+}
+
+
+// VK_NV_clip_space_w_scaling
+inline void vkCmdSetViewportWScalingNV(VkCommandBuffer commandBuffer, uint32_t firstViewport, const Kodiak::ArrayProxy<VkViewportWScalingNV>& viewportWScalings)
+{
+	vkCmdSetViewportWScalingNV(commandBuffer, firstViewport, viewportWScalings.size(), viewportWScalings.data());
 }
 
 
@@ -607,4 +886,43 @@ inline KODIAK_NODISCARD std::vector<VkCheckpointDataNV> vkGetQueueCheckpointData
 	checkpointData.resize(checkpointDataCount);
 	vkGetQueueCheckpointDataNV(queue, &checkpointDataCount, checkpointData.data());
 	return checkpointData;
+}
+
+
+// VK_NV_ray_tracing
+inline KODIAK_NODISCARD VkResult vkBindAccelerationStructureMemoryNV(VkDevice device, const Kodiak::ArrayProxy<VkBindAccelerationStructureMemoryInfoKHR>& bindInfos)
+{
+	return vkBindAccelerationStructureMemoryNV(device, bindInfos.size(), bindInfos.data());
+}
+
+
+inline void vkCmdWriteAccelerationStructuresPropertiesNV(VkCommandBuffer commandBuffer, const Kodiak::ArrayProxy<VkAccelerationStructureKHR>& accelerationStructures, VkQueryType queryType, VkQueryPool queryPool, uint32_t firstQuery)
+{
+	vkCmdWriteAccelerationStructuresPropertiesNV(commandBuffer, accelerationStructures.size(), accelerationStructures.data(), queryType, queryPool, firstQuery);
+}
+
+
+inline KODIAK_NODISCARD VkResult vkCreateRayTracingPipelinesNV(VkDevice device, VkPipelineCache pipelineCache, const Kodiak::ArrayProxy<VkRayTracingPipelineCreateInfoNV>& createInfos, const VkAllocationCallbacks* pAllocator, VkPipeline* pPipelines)
+{
+	return vkCreateRayTracingPipelinesNV(device, pipelineCache, createInfos.size(), createInfos.data(), pAllocator, pPipelines);
+}
+
+
+// VK_NV_scissor_exclusive
+inline void vkCmdSetExclusiveScissorNV(VkCommandBuffer commandBuffer, uint32_t firstExclusiveScissor, const Kodiak::ArrayProxy<VkRect2D>& exclusiveScissors)
+{
+	vkCmdSetExclusiveScissorNV(commandBuffer, firstExclusiveScissor, exclusiveScissors.size(), exclusiveScissors.data());
+}
+
+
+// VK_NV_shading_rate_image
+inline void vkCmdSetCoarseSampleOrderNV(VkCommandBuffer commandBuffer, VkCoarseSampleOrderTypeNV sampleOrderType, const Kodiak::ArrayProxy<VkCoarseSampleOrderCustomNV>& customSampleOrders)
+{
+	vkCmdSetCoarseSampleOrderNV(commandBuffer, sampleOrderType, customSampleOrders.size(), customSampleOrders.data());
+}
+
+
+inline void vkCmdSetViewportShadingRatePaletteNV(VkCommandBuffer commandBuffer, uint32_t firstViewport, const Kodiak::ArrayProxy<VkShadingRatePaletteNV>& shadingRatePalettes)
+{
+	vkCmdSetViewportShadingRatePaletteNV(commandBuffer, firstViewport, shadingRatePalettes.size(), shadingRatePalettes.data());
 }
